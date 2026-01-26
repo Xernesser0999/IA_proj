@@ -1,28 +1,33 @@
 #include <SFML/Graphics.hpp>
-
-using namespace sf;
+#include <optional>
 
 int main()
 {
-    RenderWindow window(VideoMode({ 800, 600 }), "SFML 3.0 works!");
-    CircleShape shape(100.f);
-    shape.setFillColor(Color::Green);
+    // Create the main window
+    sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "SFML window");
 
-    Texture texture("pp.png");
-    Sprite sprite(texture);
+    // Load a sprite to display
+    const sf::Texture texture("pp.png");
+    sf::Sprite sprite(texture);
 
+    // Start the game loop
     while (window.isOpen())
     {
+        // Process events
         while (const auto event = window.pollEvent())
         {
-            if (event->is<Event::Closed>())
+            // Close window: exit
+            if (event->is<sf::Event::Closed>())
                 window.close();
         }
 
+        // Clear screen
         window.clear();
-        window.draw(shape);
-        window.draw(sprite); // tu avais oublié de l'afficher
+
+        // Draw the sprite
+        window.draw(sprite);
+
+        // Update the window
         window.display();
     }
-    return 0;
 }
