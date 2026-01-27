@@ -1,18 +1,20 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
 
+#include "Baker.h"
+
 int main()
 {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "SFML window");
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
 
     // Load a sprite to display
-    const sf::Texture texture("pp.png");
-    sf::Sprite sprite(texture);
-
+    Baker test(0, 0, "pp.png");
+    sf::Clock clock;
     // Start the game loop
     while (window.isOpen())
     {
+        float dt = clock.restart().asSeconds();
         // Process events
         while (const auto event = window.pollEvent())
         {
@@ -25,7 +27,8 @@ int main()
         window.clear();
 
         // Draw the sprite
-        window.draw(sprite);
+        test.update(dt);
+        test.render(window);
 
         // Update the window
         window.display();
