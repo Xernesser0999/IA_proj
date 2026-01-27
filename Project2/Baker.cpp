@@ -7,19 +7,18 @@ void Baker::update(float dt) {
 	sprite->setPosition(pos);
 
 
-	if (direction == true) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Right)) {
 		posX += 1;
 		if (posX >= 1920) {
 			direction = false;
 		}
 	}
-	else {
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Left)) {
 		posX -= 1;
 		if (posX <= 0) {
 			direction = true;
 		}
 	}
-
 
 	pos = {posX, posY};
 }
