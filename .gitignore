@@ -30,3 +30,8 @@
 *.app
 
 /.vs
+.log
+.ilk
+.tlog
+.idb
+.pdb
