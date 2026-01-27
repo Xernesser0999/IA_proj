@@ -5,7 +5,7 @@
 class TaskNode : public Node {
 public:
     TaskNode();
-    virtual ~TaskNode();
+    ~TaskNode() override;
     void begin() override;
     void tick(float deltaTime) override;
 public:

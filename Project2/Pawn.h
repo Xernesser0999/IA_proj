@@ -13,7 +13,7 @@ struct pawn {
 	sf::Sprite* sprite;
 
 	pawn(float posX_, float posY_, std::string file);
-	~pawn();
+	virtual ~pawn();
 
 	virtual void update(float dt);
 	void render(sf::RenderWindow& window);

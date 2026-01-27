@@ -1,7 +1,6 @@
 #include "FluxNode.h"
 
-FluxNode::FluxNode(){
-}
+FluxNode::FluxNode() = default;
 
 FluxNode::~FluxNode(){
 }
