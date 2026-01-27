@@ -27,3 +27,11 @@ void pawn::update(float dt) {
 void pawn::render(sf::RenderWindow& window) {
 	window.draw(*sprite);
 }
+
+void pawn::moneyAdd(float change) {
+	money += change;
+}
+
+void pawn::moneySubstract(float change) {
+	money -= change;
+}

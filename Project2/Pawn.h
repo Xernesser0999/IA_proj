@@ -9,6 +9,9 @@ struct pawn {
 	float posY;
 	sf::Vector2f pos;
 
+	float money;
+	float productPrice;
+
 	sf::Texture* TX;
 	sf::Sprite* sprite;
 
@@ -17,5 +20,8 @@ struct pawn {
 
 	virtual void update(float dt);
 	void render(sf::RenderWindow& window);
+
+	void moneyAdd(float change);
+	void moneySubstract(float change);
 };
 

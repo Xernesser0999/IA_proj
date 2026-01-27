@@ -7,6 +7,8 @@ Baker::Baker(float posX_, float posY_, std::string file) : pawn(posX_, posY_, fi
 
 void Baker::update(float dt) {
 	sprite->setPosition(pos);
+
+
 	if (direction == true) {
 		posX += 1;
 		if (posX >= 1920) {
@@ -19,5 +21,7 @@ void Baker::update(float dt) {
 			direction = true;
 		}
 	}
+
+
 	pos = {posX, posY};
 }
