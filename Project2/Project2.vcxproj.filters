@@ -35,6 +35,11 @@
     </ClCompile>
     <ClCompile Include="TaskNode.cpp">
       <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Baker.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +54,11 @@
     </ClInclude>
     <ClInclude Include="TaskNode.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Pawn.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Baker.h">
+      <Filter>Fichiers d%27en-tête\Nodes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
