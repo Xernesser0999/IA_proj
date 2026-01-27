@@ -139,7 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FluxNode.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="RootNode.cpp" />
+    <ClCompile Include="TaskNode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FluxNode.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="RootNode.h" />
+    <ClInclude Include="TaskNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

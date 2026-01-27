@@ -13,10 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Nodes">
+      <UniqueIdentifier>{bfde47af-03e3-45ec-ae26-9d322e15b71f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Nodes">
+      <UniqueIdentifier>{fa120bdb-dad9-44c6-b05d-1d58dc5b1e43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="FluxNode.cpp">
+      <Filter>Fichiers sources\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Fichiers sources\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="RootNode.cpp">
+      <Filter>Fichiers sources\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskNode.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FluxNode.h">
+      <Filter>Fichiers d%27en-tête\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Fichiers d%27en-tête\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="RootNode.h">
+      <Filter>Fichiers d%27en-tête\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskNode.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
