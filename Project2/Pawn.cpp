@@ -21,9 +21,7 @@ pawn::~pawn() {
 }
 
 void pawn::update(float dt) {
-	//sprite->setPosition(pos);
-	//posX += 1;
-	//pos = {posX, posY};
+
 }
 
 void pawn::render(sf::RenderWindow& window) {
