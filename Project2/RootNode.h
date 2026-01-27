@@ -4,7 +4,7 @@
 class RootNode : public Node {
 public:
     RootNode();
-    virtual ~RootNode();
+    ~RootNode() override;
 
     void tick(float DeltaTime) override;
 

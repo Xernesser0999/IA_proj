@@ -1,7 +1,6 @@
 #include "TaskNode.h"
 
-TaskNode::TaskNode(){
-}
+TaskNode::TaskNode() = default;
 
 TaskNode::~TaskNode(){
 }

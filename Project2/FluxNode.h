@@ -4,7 +4,7 @@
 class FluxNode : public Node {
 public:
     FluxNode();
-    virtual ~FluxNode();
+    ~FluxNode() override;
 
     void tick(float DeltaTime) override;
     virtual void onNodeEnd();

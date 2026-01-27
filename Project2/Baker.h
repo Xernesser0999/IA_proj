@@ -2,12 +2,12 @@
 #include "Pawn.h"
 
 class Baker : public pawn{
-	public:
+public:
+	Baker(float posX_, float posY_, std::string file);
+	
+	void update(float dt) override;
 
-
-		bool direction = true;
-
-		Baker(float posX_, float posY_, std::string file);
-		void update(float dt) override;
+public:
+	bool direction = true;
 };
 
