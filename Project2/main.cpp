@@ -8,6 +8,13 @@ int main()
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
 
+    sf::Font font("Pixellettersfull-BnJ5.ttf");
+    sf::Text text(font);
+    text.setString("TEST");
+    text.setCharacterSize(48);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Regular | sf::Text::Underlined);
+
     // Load a sprite to display
     Baker test(0, 0, "pp.png");
     sf::Clock clock;
@@ -29,7 +36,7 @@ int main()
         // Draw the sprite
         test.update(dt);
         test.render(window);
-
+        window.draw(text);
         // Update the window
         window.display();
     }
