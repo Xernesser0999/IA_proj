@@ -1,64 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Nodes">
-      <UniqueIdentifier>{bfde47af-03e3-45ec-ae26-9d322e15b71f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Nodes">
-      <UniqueIdentifier>{fa120bdb-dad9-44c6-b05d-1d58dc5b1e43}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FluxNode.cpp">
-      <Filter>Fichiers sources\Nodes</Filter>
+    <ClCompile Include="Baker.cpp">
+      <Filter>Fichiers sources\Character</Filter>
     </ClCompile>
     <ClCompile Include="Node.cpp">
+      <Filter>Fichiers sources\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>Fichiers sources\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="FluxNode.cpp">
       <Filter>Fichiers sources\Nodes</Filter>
     </ClCompile>
     <ClCompile Include="RootNode.cpp">
       <Filter>Fichiers sources\Nodes</Filter>
     </ClCompile>
     <ClCompile Include="TaskNode.cpp">
-      <Filter>Fichiers sources</Filter>
-    <ClCompile Include="Pawn.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Baker.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Nodes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FluxNode.h">
-      <Filter>Fichiers d%27en-tête\Nodes</Filter>
+    <ClInclude Include="Baker.h">
+      <Filter>Fichiers d%27en-tête\Character</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
+      <Filter>Fichiers d%27en-tête\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Pawn.h">
+      <Filter>Fichiers d%27en-tête\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="FluxNode.h">
       <Filter>Fichiers d%27en-tête\Nodes</Filter>
     </ClInclude>
     <ClInclude Include="RootNode.h">
       <Filter>Fichiers d%27en-tête\Nodes</Filter>
     </ClInclude>
     <ClInclude Include="TaskNode.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    <ClInclude Include="Pawn.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Baker.h">
       <Filter>Fichiers d%27en-tête\Nodes</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{1a54f08c-e746-44ab-823b-1b0da24643c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{182a8f55-9192-4704-9b31-dd9823f88aef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{eeb503ac-a8c5-4c2c-bfa5-97a1cc8719b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Struct">
+      <UniqueIdentifier>{41c60879-4281-4d36-80a3-a1df24e5e82d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Nodes">
+      <UniqueIdentifier>{bfc629a2-ce98-4cdf-bf71-0a4aea433c60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Character">
+      <UniqueIdentifier>{55bc84b1-82b9-47fb-91e6-925381a7873f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Struct">
+      <UniqueIdentifier>{4da4ec4f-4427-4c3b-9053-ba57bed8f9e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Nodes">
+      <UniqueIdentifier>{6747bc17-0280-4a5f-a1f4-e4f7ce672dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Character">
+      <UniqueIdentifier>{aa7eccb2-0ff8-4e5e-b6aa-58a829b168a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
