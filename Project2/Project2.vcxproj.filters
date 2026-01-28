@@ -22,6 +22,13 @@
     <ClCompile Include="TaskNode.cpp">
       <Filter>Fichiers sources\Nodes</Filter>
     </ClCompile>
+    <ClCompile Include="KeyStruct.cpp">
+      <Filter>Fichiers sources\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="GUI_button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -42,6 +49,13 @@
     <ClInclude Include="TaskNode.h">
       <Filter>Fichiers d%27en-tête\Nodes</Filter>
     </ClInclude>
+    <ClInclude Include="KeyStruct.h">
+      <Filter>Fichiers d%27en-tête\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="GUI_button.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">
@@ -70,6 +84,15 @@
     </Filter>
     <Filter Include="Fichiers sources\Character">
       <UniqueIdentifier>{aa7eccb2-0ff8-4e5e-b6aa-58a829b168a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\SceneManager">
+      <UniqueIdentifier>{c3ff0174-865a-415e-8635-911c10765bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\SceneManager">
+      <UniqueIdentifier>{c750f4bc-2b4a-4e79-9340-8b2ffcb84847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Level">
+      <UniqueIdentifier>{45979e41-4501-4519-8e12-5609e6847eec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
