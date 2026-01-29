@@ -1,9 +1,6 @@
 #include "Pawn.h"
 
-#include <SFML/Graphics.hpp>
-#include <optional>
-
-pawn::pawn(float posX_, float posY_, std::string file) {
+Pawn::Pawn(float posX_, float posY_, std::string file) {
 	posX = posX_;
 	posY = posY_;
 	pos = { posX_, posY_ };
@@ -12,26 +9,30 @@ pawn::pawn(float posX_, float posY_, std::string file) {
 	sprite = new sf::Sprite(*TX);
 }
 
-pawn::~pawn() {
-	TX = nullptr;
-	sprite = nullptr;
-
+Pawn::~Pawn() {
 	delete TX;
 	delete sprite;
+
+	TX = nullptr;
+	sprite = nullptr;
 }
 
-void pawn::update(float dt) {
+void Pawn::update(float dt) {
 
 }
 
-void pawn::render(sf::RenderWindow& window) {
+void Pawn::render(sf::RenderWindow& window) {
 	window.draw(*sprite);
 }
 
-void pawn::moneyAdd(float change) {
+Pawn::Pawn()
+{
+}
+
+void Pawn::moneyAdd(float change) {
 	money += change;
 }
 
-void pawn::moneySubstract(float change) {
+void Pawn::moneySubstract(float change) {
 	money -= change;
 }

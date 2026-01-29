@@ -4,7 +4,7 @@
 
 #include <string>
 
-struct pawn {
+struct Pawn {
 	float posX;
 	float posY;
 	sf::Vector2f pos;
@@ -15,8 +15,9 @@ struct pawn {
 	sf::Texture* TX;
 	sf::Sprite* sprite;
 
-	pawn(float posX_, float posY_, std::string file);
-	virtual ~pawn();
+	Pawn();
+	Pawn(float posX_, float posY_, std::string file);
+	virtual ~Pawn();
 
 	virtual void update(float dt);
 	void render(sf::RenderWindow& window);

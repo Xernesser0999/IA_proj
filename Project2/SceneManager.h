@@ -1,5 +1,7 @@
 #pragma once
 #include "Scene.h"
+#include "Menu.h"
+#include "Morning.h"
 
 
 class SceneManager
@@ -7,9 +9,10 @@ class SceneManager
 public:
 
 	SceneState currentState;
+	SceneState previousState;
 
 	Scene* myMenu;
-	Scene* myPlay;
+	Scene* myMorning;
 
 	SceneManager(sf::RenderWindow& window);
 	~SceneManager();

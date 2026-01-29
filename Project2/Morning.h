@@ -1,0 +1,19 @@
+#pragma once
+#include "Scene.h"
+#include "Baker.h"
+
+class Morning : public Scene{
+public:
+
+	Morning(sf::RenderWindow& window);
+	~Morning();
+
+	void createGameObjects() ;
+	void displayScene(sf::RenderWindow& window) override;
+	void update(const bool* keys, float dt);
+	void nextScene(SceneState& currentScene, keys* _myKeys) override;
+
+public:
+	Baker* test;
+};
+

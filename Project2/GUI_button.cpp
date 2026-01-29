@@ -13,11 +13,11 @@ GUI_button::~GUI_button() {
 }
 
 bool GUI_button::hovered() {
-
+	return true;
 }
 
 bool GUI_button::clicked() {
-
+	return true;
 }
 
 void GUI_button::render(sf::RenderWindow& window) {

@@ -2,44 +2,28 @@
 #include <optional>
 #include <string>
 
+#include "Scene.h"
+#include "SceneManager.h"
 #include "Baker.h"
 
-int main()
-{
-    // Create the main window
+int main() {
     sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
+    SceneManager scene(window);
 
-    sf::Font font("Pixellettersfull-BnJ5.ttf");
-    sf::Text text(font);
-    std::to_string(1);
-    text.setString("TEST");
-    text.setCharacterSize(48);
-    text.setFillColor(sf::Color::White);
-    text.setStyle(sf::Text::Regular | sf::Text::Underlined);
-
-    // Load a sprite to display
-    Baker test(0, 0, "pp.png");
     sf::Clock clock;
-    // Start the game loop
     while (window.isOpen())
     {
         float dt = clock.restart().asSeconds();
-        // Process events
         while (const auto event = window.pollEvent())
         {
-            // Close window: exit
+            scene.displayState(window);
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
+        scene.updateState(nullptr, dt);
 
-        // Clear screen
         window.clear();
-
-        // Draw the sprite
-        test.update(dt);
-        test.render(window);
-        window.draw(text);
-        // Update the window
+        scene.displayState(window);
         window.display();
     }
 }

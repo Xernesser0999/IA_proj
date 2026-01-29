@@ -7,11 +7,12 @@ Menu::~Menu() {
 
 }
 
-void Menu::createGameObjects() {
+
+void Menu::createGameObjects() const {
 
 }
 
-void Menu::displayScene(sf::RenderWindow& window) {
+void Menu::displayScene(sf::RenderWindow& window){
 
 }
 
