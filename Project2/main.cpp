@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
+#include <string>
 
 #include "Baker.h"
 
@@ -10,6 +11,7 @@ int main()
 
     sf::Font font("Pixellettersfull-BnJ5.ttf");
     sf::Text text(font);
+    std::to_string(1);
     text.setString("TEST");
     text.setCharacterSize(48);
     text.setFillColor(sf::Color::White);
