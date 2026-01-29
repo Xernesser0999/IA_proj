@@ -8,7 +8,7 @@ Menu::~Menu() {
 }
 
 
-void Menu::createGameObjects() const {
+void Menu::createGameObjects()  {
 
 }
 

@@ -11,7 +11,7 @@ public:
     Menu(sf::RenderWindow& window);
     ~Menu();
 
-    void createGameObjects() const;
+    void createGameObjects() ;
     void displayScene(sf::RenderWindow& window) override;
     void update(const bool* keys, float dt);
     void nextScene(SceneState& currentScene, keys* _myKeys) override;
