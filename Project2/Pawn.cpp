@@ -10,11 +10,10 @@ Pawn::Pawn(float posX_, float posY_, std::string file) {
 }
 
 Pawn::~Pawn() {
-	delete TX;
-	delete sprite;
-
 	TX = nullptr;
 	sprite = nullptr;
+	delete TX;
+	delete sprite;
 }
 
 void Pawn::update(float dt) {

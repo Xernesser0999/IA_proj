@@ -15,4 +15,7 @@ public:
     void displayScene(sf::RenderWindow& window) override;
     void update(const bool* keys, float dt);
     void nextScene(SceneState& currentScene, keys* _myKeys) override;
+
+public:
+    Baker* test1;
 };

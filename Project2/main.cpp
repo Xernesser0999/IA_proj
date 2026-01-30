@@ -21,6 +21,8 @@ int main() {
                 window.close();
         }
         scene.updateState(nullptr, dt);
+        scene.manageState(nullptr);
+
 
         window.clear();
         scene.displayState(window);

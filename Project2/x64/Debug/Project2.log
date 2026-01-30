@@ -1,7 +1,2 @@
 ﻿  Menu.cpp
-  Morning.cpp
-C:\Users\lharispe\Documents\GitHub\IA_proj\Project2\Morning.cpp(15,10): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
-  SceneManager.cpp
-  main.cpp
-  Génération de code en cours...
   Project2.vcxproj -> C:\Users\lharispe\Documents\GitHub\IA_proj\x64\Debug\Project2.exe
