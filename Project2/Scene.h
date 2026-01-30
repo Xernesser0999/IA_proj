@@ -5,9 +5,9 @@
 
 enum SceneState { // enum for state of scene
 	menu,
-	play,
-	quit,
-	win
+	morning,
+	day,
+	night
 };
 
 

@@ -21,6 +21,6 @@ void Menu::update(const bool* keys, float dt, sf::RenderWindow& window) {
 
 void Menu::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (button->clicked(window)) {
-		currentScene = play;
+		currentScene = morning;
 	}
 }
