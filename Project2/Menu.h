@@ -1,20 +1,23 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <optional>
 
 #include <vector>
 #include "Scene.h"
-#include
+#include "GUI_button.h"
 
 class Menu : public Scene
 {
 private:
 
 public:
+    GUI_button* button;
 
     Menu(sf::RenderWindow& window);
     ~Menu();
 
     void createGameObjects();
     void displayScene(sf::RenderWindow& window) override;
-    void update(const bool* keys, float dt);
-    void nextScene(SceneState& currentScene, keys* _myKeys) override;
+    void update(const bool* keys, float dt, sf::RenderWindow& window);
+    void nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) override;
 };

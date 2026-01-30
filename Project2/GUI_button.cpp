@@ -1,25 +1,58 @@
 #include "GUI_button.h"
 
-GUI_button::GUI_button(float posX_, float posY_, std::string file) {
+GUI_button::GUI_button(float posX_, float posY_, float sizeX, float sizeY, std::string file) {
+    pos = { posX_, posY_ };
+    size = { sizeX, sizeY };
 
+    TX = new sf::Texture();
+    TX->loadFromFile(file);
+	TX2 = new sf::Texture();
+	TX2->loadFromFile("pp_hover.png");
+
+    rectangle = new sf::RectangleShape(size);
+    rectangle->setPosition(pos);
+    rectangle->setTexture(TX);
 }
 
-GUI_button::~GUI_button() {
-	TX = nullptr;
-	sprite = nullptr;
+bool GUI_button::hovered(sf::RenderWindow& window) {
+	sf::Vector2i pos2 = sf::Mouse::getPosition(window);
+	int x = pos2.x;
+	int y = pos2.y;
 
-	delete TX;
-	delete sprite;
+	if (x >= pos.x && x < pos.x + size.x && y >= pos.y && y < pos.y + size.y) {
+		rectangle->setTexture(TX2);
+		return true;
+	}
+	else {
+		rectangle->setTexture(TX);
+		return false;
+	}
 }
 
-bool GUI_button::hovered() {
+bool GUI_button::clicked(sf::RenderWindow& window) {
+	sf::Vector2i pos2 = sf::Mouse::getPosition(window);
+	int x = pos2.x;
+	int y = pos2.y;
 
-}
-
-bool GUI_button::clicked() {
-
+	if (x >= pos.x && x < pos.x + size.x && y >= pos.y && y < pos.y + size.y) {
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+			return true;
+		}
+	}
+	else {
+		return false;
+	}
 }
 
 void GUI_button::render(sf::RenderWindow& window) {
-	window.draw(*sprite);
+	window.draw(*rectangle);
+}
+
+GUI_button::~GUI_button() {
+    delete TX;
+	delete TX2;
+    delete rectangle;
+    TX = nullptr;
+	TX2 = nullptr;
+    rectangle = nullptr;
 }

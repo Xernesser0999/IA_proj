@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 
+#include "Menu.h"
 
 class SceneManager
 {
@@ -14,7 +15,7 @@ public:
 	SceneManager(sf::RenderWindow& window);
 	~SceneManager();
 
-	void manageState(keys* _myKeys);
+	void manageState(keys* _myKeys, sf::RenderWindow& window);
 	void displayState(sf::RenderWindow& window);
-	void updateState(const bool* keys, float dt);
+	void updateState(const bool* keys, float dt, sf::RenderWindow& window);
 };

@@ -1,3 +1,2 @@
 ﻿  main.cpp
-C:\Users\Steve\source\repos\IA_proj\Project2\main.cpp(14,10): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
   Project2.vcxproj -> C:\Users\Steve\source\repos\IA_proj\x64\Debug\Project2.exe

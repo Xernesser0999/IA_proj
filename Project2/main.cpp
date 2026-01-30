@@ -3,28 +3,25 @@
 #include <string>
 
 #include "Baker.h"
+#include "SceneManager.h"
+#include "KeyStruct.h"
 
 int main()
 {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
+    SceneManager sM = SceneManager(window);
+    keys myKeys;
 
-    sf::Font font("Pixellettersfull-BnJ5.ttf");
-    sf::Text text(font);
-    std::to_string(1);
-    text.setString("TEST");
-    text.setCharacterSize(48);
-    text.setFillColor(sf::Color::White);
-    text.setStyle(sf::Text::Regular | sf::Text::Underlined);
+
 
     // Load a sprite to display
     Baker test(0, 0, "pp.png");
     sf::Clock clock;
-    // Start the game loop
+    
     while (window.isOpen())
     {
         float dt = clock.restart().asSeconds();
-        // Process events
         while (const auto event = window.pollEvent())
         {
             // Close window: exit
@@ -32,14 +29,14 @@ int main()
                 window.close();
         }
 
-        // Clear screen
+        myKeys.initKeys(myKeys.myKeys);
+        sM.manageState(&myKeys, window);
+        sM.updateState(myKeys.myKeys, dt, window);
+
         window.clear();
 
-        // Draw the sprite
-        test.update(dt);
-        test.render(window);
-        window.draw(text);
-        // Update the window
+        sM.displayState(window);
+
         window.display();
     }
 }
