@@ -6,25 +6,18 @@
 #include "SceneManager.h"
 #include "KeyStruct.h"
 
-int main()
-{
-    // Create the main window
+int main() {
     sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
     SceneManager sM = SceneManager(window);
     keys myKeys;
 
 
-
-    // Load a sprite to display
     Baker test(0, 0, "pp.png");
     sf::Clock clock;
     
-    while (window.isOpen())
-    {
+    while (window.isOpen()){
         float dt = clock.restart().asSeconds();
-        while (const auto event = window.pollEvent())
-        {
-            // Close window: exit
+        while (const auto event = window.pollEvent()){
             if (event->is<sf::Event::Closed>())
                 window.close();
         }

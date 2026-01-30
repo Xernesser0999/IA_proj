@@ -4,6 +4,8 @@ Scene::Scene() {
 
 }
 
-Scene::~Scene() {}
+Scene::~Scene() {
+}
 
-void Scene::displayScene(sf::RenderWindow& window) {}
+void Scene::displayScene(sf::RenderWindow& window) {
+}

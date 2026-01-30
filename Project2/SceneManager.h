@@ -5,8 +5,7 @@
 
 #include "Menu.h"
 
-class SceneManager
-{
+class SceneManager{
 public:
 
 	SceneState currentState;

@@ -49,10 +49,10 @@ void GUI_button::render(sf::RenderWindow& window) {
 }
 
 GUI_button::~GUI_button() {
-    delete TX;
-	delete TX2;
-    delete rectangle;
     TX = nullptr;
 	TX2 = nullptr;
     rectangle = nullptr;
+	delete TX;
+	delete TX2;
+    delete rectangle;
 }

@@ -6,8 +6,7 @@
 #include "Scene.h"
 #include "GUI_button.h"
 
-class Menu : public Scene
-{
+class Menu : public Scene{
 private:
 
 public:
