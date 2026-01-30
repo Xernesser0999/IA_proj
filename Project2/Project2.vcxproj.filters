@@ -40,8 +40,13 @@
     <ClCompile Include="GUI_button.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Bakery.cpp" />
+    <ClCompile Include="Shop.cpp">
+      <Filter>Fichiers sources\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="Npc.cpp">
+      <Filter>Fichiers sources\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -80,8 +85,13 @@
     <ClInclude Include="SceneManager.h">
       <Filter>Fichiers d%27en-tête\SceneManager</Filter>
     </ClInclude>
-    <ClInclude Include="Shop.h" />
     <ClInclude Include="Bakery.h" />
+    <ClInclude Include="Shop.h">
+      <Filter>Fichiers d%27en-tête\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Npc.h">
+      <Filter>Fichiers d%27en-tête\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">

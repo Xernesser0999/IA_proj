@@ -6,7 +6,7 @@ public:
 	Baker();
 	Baker(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::string file);
 	
-	void update(float dt) override;
+	void update(float dt, Bakery* shop) override;
 
 public:
 	bool direction = true;
