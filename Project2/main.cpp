@@ -10,9 +10,6 @@ int main() {
     sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
     SceneManager sM = SceneManager(window);
     keys myKeys;
-
-
-    Baker test(0, 0, "pp.png");
     sf::Clock clock;
     
     while (window.isOpen()){

@@ -9,6 +9,7 @@ struct Pawn {
 	float posY;
 	float sizeX;
 	float sizeY;
+	float speed;
 
 	sf::Vector2f pos;
 	sf::Vector2f size;
@@ -20,7 +21,7 @@ struct Pawn {
 	sf::RectangleShape* rectangle;
 
 	Pawn();
-	Pawn(float posX_, float posY_, float sizeX_, float sizeY_, std::string file);
+	Pawn(float posX_, float posY_, float sizeX_, float sizeY_, float speed_, std::string file);
 	virtual ~Pawn();
 
 	virtual void update(float dt);

@@ -9,18 +9,21 @@ Morning::~Morning() {
 }
 
 void Morning::createGameObjects() {
-    test = new Baker(0, 500, "pp.png");
-    bakery = new Bakery(0, 0, 500, 500, "pp_hover.png");
+    test = new Baker(0, 500, 100, 100, 300.0f, "pp.png");
+    bakery = new Bakery(0, 0, 400, 400, "pp_hover.png");
+    bakery2 = new Bakery(450, 0, 400, 400, "Bakery.png");
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {
     test->render(window);
     bakery->renderShop(window);
+    bakery2->renderShop(window);
 }
 
 void Morning::update(const bool* keys, float dt) {
 	test->update(dt);
     bakery->updateShop(dt);
+    bakery2->updateShop(dt);
 }
 
 void Morning::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

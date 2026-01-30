@@ -15,5 +15,6 @@ public:
 public:
 	Baker* test;
 	Bakery* bakery;
+	Bakery* bakery2;
 };
 

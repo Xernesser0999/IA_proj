@@ -4,7 +4,7 @@
 class Baker : public Pawn {
 public:
 	Baker();
-	Baker(float posX_, float posY_, float sizeX, float siezY, std::string file);
+	Baker(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::string file);
 	
 	void update(float dt) override;
 

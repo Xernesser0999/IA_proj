@@ -3,15 +3,18 @@
 Pawn::Pawn() {
 }
 
-Pawn::Pawn(float posX_, float posY_, float sizeX_, float sizeY_, std::string file) {
+Pawn::Pawn(float posX_, float posY_, float sizeX_, float sizeY_, float speed_, std::string file) {
 	posX = posX_;
 	posY = posY_;
 	sizeX = sizeX_;
 	sizeY = sizeY_;
 	pos = { posX_, posY_ };
-	pos = { sizeX_, sizeY_};
+	size = { sizeX_, sizeY_};
+	speed = speed_;
 
-	TX = new sf::Texture(file.c_str());
+	TX = new sf::Texture();
+	TX->loadFromFile(file);
+
 	rectangle = new sf::RectangleShape(size);
 	rectangle->setPosition(pos);
 	rectangle->setTexture(TX);
