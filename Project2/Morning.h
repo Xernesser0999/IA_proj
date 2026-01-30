@@ -1,6 +1,5 @@
 #pragma once
 #include "Scene.h"
-#include "Baker.h"
 
 class Morning : public Scene{
 public:
@@ -15,5 +14,6 @@ public:
 
 public:
 	Baker* test;
+	Bakery* bakery;
 };
 

@@ -25,10 +25,23 @@
     <ClCompile Include="KeyStruct.cpp">
       <Filter>Fichiers sources\SceneManager</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="GUI_button.cpp" />
+    <ClCompile Include="Morning.cpp">
+      <Filter>Fichiers sources\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Fichiers sources\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Fichiers sources\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Fichiers sources\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI_button.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="Bakery.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -52,10 +65,23 @@
     <ClInclude Include="KeyStruct.h">
       <Filter>Fichiers d%27en-tête\SceneManager</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="Menu.h" />
-    <ClInclude Include="GUI_button.h" />
+    <ClInclude Include="GUI_button.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Fichiers d%27en-tête\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Morning.h">
+      <Filter>Fichiers d%27en-tête\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Fichiers d%27en-tête\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Fichiers d%27en-tête\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="Bakery.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">
@@ -93,6 +119,9 @@
     </Filter>
     <Filter Include="Fichiers sources\Level">
       <UniqueIdentifier>{45979e41-4501-4519-8e12-5609e6847eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Level">
+      <UniqueIdentifier>{2b45693b-7d3e-4c50-831f-5e2365e3f97e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

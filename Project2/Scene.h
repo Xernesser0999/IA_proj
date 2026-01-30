@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
 #include "KeyStruct.h"
+#include "Baker.h"
+#include "Bakery.h"
 
 enum SceneState { 
 	menu,

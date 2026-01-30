@@ -1,5 +1,8 @@
 #include "Pawn.h"
 
+Pawn::Pawn() {
+}
+
 Pawn::Pawn(float posX_, float posY_, std::string file) {
 	posX = posX_;
 	posY = posY_;
@@ -22,10 +25,6 @@ void Pawn::update(float dt) {
 
 void Pawn::render(sf::RenderWindow& window) {
 	window.draw(*sprite);
-}
-
-Pawn::Pawn()
-{
 }
 
 void Pawn::moneyAdd(float change) {
