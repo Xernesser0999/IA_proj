@@ -3,11 +3,11 @@
 Baker::Baker(){
 }
 
-Baker::Baker(float posX_, float posY_, std::string file) : Pawn(posX_, posY_, file) {
+Baker::Baker(float posX_, float posY_, float sizeX, float siezY, std::string file) : Pawn(posX_, posY_, sizeX, sizeY, file) {
 }
 
 void Baker::update(float dt) {
-	sprite->setPosition(pos);
+	rectangle->setPosition(pos);
 
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Right)) {

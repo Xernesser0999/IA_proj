@@ -7,16 +7,20 @@
 struct Pawn {
 	float posX;
 	float posY;
+	float sizeX;
+	float sizeY;
+
 	sf::Vector2f pos;
+	sf::Vector2f size;
 
 	float money;
 	float productPrice;
 
 	sf::Texture* TX;
-	sf::Sprite* sprite;
+	sf::RectangleShape* rectangle;
 
 	Pawn();
-	Pawn(float posX_, float posY_, std::string file);
+	Pawn(float posX_, float posY_, float sizeX_, float sizeY_, std::string file);
 	virtual ~Pawn();
 
 	virtual void update(float dt);
