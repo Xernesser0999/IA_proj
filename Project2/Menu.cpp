@@ -8,19 +8,25 @@ Menu::~Menu() {
 }
 
 void Menu::createGameObjects() {
-	button = new GUI_button(100, 100, 700, 100, "pp.png");
+	button = new GUI_button(1920/2-250, 1080/2-50, 500, 100, "sprite/Play_button.png");
+	Quit_button = new GUI_button(1920 / 2 - 250, 1080 / 2 - 50 + 100, 500, 100, "pp.png");
 }
 
 void Menu::displayScene(sf::RenderWindow& window) {
 	button->render(window);
+	Quit_button->render(window);
 }
 
 void Menu::update(const bool* keys, float dt, sf::RenderWindow& window) {
 	button->hovered(window);
+	Quit_button->hovered(window);
 }
 
 void Menu::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (button->clicked(window)) {
 		currentScene = morning;
+	}
+	if (Quit_button->clicked(window)) {
+		exit(0);
 	}
 }

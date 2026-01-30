@@ -1,19 +1,24 @@
 #include "Pawn.h"
 
-Pawn::Pawn(float posX_, float posY_, std::string file) {
+Pawn::Pawn(float posX_, float posY_, float sizeX_, float sizeY_, std::string file) {
 	posX = posX_;
 	posY = posY_;
+	sizeX = sizeX_;
+	sizeY = sizeY_;
 	pos = { posX_, posY_ };
-	
+	pos = { sizeX_, sizeY_};
+
 	TX = new sf::Texture(file.c_str());
-	sprite = new sf::Sprite(*TX);
+	rectangle = new sf::RectangleShape(size);
+	rectangle->setPosition(pos);
+	rectangle->setTexture(TX);
 }
 
 Pawn::~Pawn() {
 	TX = nullptr;
-	sprite = nullptr;
+	rectangle = nullptr;
 	delete TX;
-	delete sprite;
+	delete rectangle;
 }
 
 void Pawn::update(float dt) {
@@ -21,7 +26,7 @@ void Pawn::update(float dt) {
 }
 
 void Pawn::render(sf::RenderWindow& window) {
-	window.draw(*sprite);
+	window.draw(*rectangle);
 }
 
 Pawn::Pawn()

@@ -9,14 +9,13 @@
 int main()
 {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window", sf::Style::None, sf::State::Fullscreen);
     SceneManager sM = SceneManager(window);
     keys myKeys;
 
 
 
     // Load a sprite to display
-    Baker test(0, 0, "pp.png");
     sf::Clock clock;
     
     while (window.isOpen())

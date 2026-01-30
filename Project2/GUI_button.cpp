@@ -7,7 +7,7 @@ GUI_button::GUI_button(float posX_, float posY_, float sizeX, float sizeY, std::
     TX = new sf::Texture();
     TX->loadFromFile(file);
 	TX2 = new sf::Texture();
-	TX2->loadFromFile("pp_hover.png");
+	TX2->loadFromFile("sprite/Play_button_hover.png");
 
     rectangle = new sf::RectangleShape(size);
     rectangle->setPosition(pos);

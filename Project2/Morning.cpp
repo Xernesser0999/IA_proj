@@ -9,7 +9,7 @@ Morning::~Morning() {
 }
 
 void Morning::createGameObjects() {
-    test = new Baker(0, 0, "pp.png");
+    test = new Baker(0, 0, 100, 100, "pp.png");
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {

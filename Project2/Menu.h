@@ -12,6 +12,9 @@ private:
 
 public:
     GUI_button* button;
+    GUI_button* Quit_button;
+
+public:
 
     Menu(sf::RenderWindow& window);
     ~Menu();
