@@ -11,8 +11,8 @@ Morning::~Morning() {
 void Morning::createGameObjects() {
     test = new Baker(0, 500, 100, 100, 300.0f, "sprite/player.png");
     npc = new Npc(0, 900, 100, 100, 300.0f, "sprite/player.png");
-    bakery = new Bakery(0, 0, 400, 400, "Bakery.png");
-    bakery2 = new Bakery(450, 0, 400, 400, "Bakery.png");
+    bakery = new Bakery(0, 0, 400, 400, "sprite/bakery.png");
+    bakery2 = new Bakery(450, 0, 400, 400, "sprite/store.png");
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {
