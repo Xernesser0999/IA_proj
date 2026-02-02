@@ -3,16 +3,12 @@
 Shop::Shop(){
 }
 
-Shop::Shop(float posX_, float posY_, float sizeX, float sizeY, std::string file){
+Shop::Shop(float posX_, float posY_, float sizeX, float sizeY){
     pos = { posX_, posY_ };
     size = { sizeX, sizeY };
     
-    TX = new sf::Texture();
-    TX->loadFromFile(file);
-
     shop = new sf::RectangleShape(size);
     shop->setPosition(pos);
-    shop->setTexture(TX);
 }
 
 Shop::~Shop(){

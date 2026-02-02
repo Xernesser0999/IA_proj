@@ -14,10 +14,10 @@ struct Shop{
 	sf::RectangleShape* shop;
 
 	Shop();
-	Shop(float posX_, float posY_, float sizeX, float sizeY, std::string file);
+	Shop(float posX_, float posY_, float sizeX, float sizeY);
 	virtual ~Shop();
 
-	void renderShop(sf::RenderWindow& window);
+	virtual void renderShop(sf::RenderWindow& window);
 	virtual void updateShop(float dt);
 
 };

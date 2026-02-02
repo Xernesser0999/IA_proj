@@ -25,7 +25,7 @@ struct Pawn {
 	Pawn(float posX_, float posY_, float sizeX_, float sizeY_, float speed_, std::string file);
 	virtual ~Pawn();
 
-	virtual void update(float dt, Bakery* shop);
+	virtual void update(float dt, Shop* shop);
 	void render(sf::RenderWindow& window);
 
 	void moneyAdd(float change);

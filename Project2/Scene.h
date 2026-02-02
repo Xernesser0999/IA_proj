@@ -4,6 +4,8 @@
 #include "KeyStruct.h"
 #include "Baker.h"
 #include "Bakery.h"
+#include "Store.h"
+#include "CandyShop.h"
 #include "Npc.h"
 
 enum SceneState { 

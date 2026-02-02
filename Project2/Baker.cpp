@@ -6,7 +6,7 @@ Baker::Baker(){
 Baker::Baker(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::string file) : Pawn(posX_, posY_, sizeX, sizeY, speed_, file) {
 }
 
-void Baker::update(float dt, Bakery* shop) {
+void Baker::update(float dt, Shop* shop) {
 	rectangle->setPosition(pos);
 
 

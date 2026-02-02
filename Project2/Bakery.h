@@ -4,9 +4,10 @@
 class Bakery : public Shop{
 public:
 	Bakery();
-	Bakery(float posX_, float posY_, float sizeX, float sizeY, std::string file);
+	Bakery(float posX_, float posY_, float sizeX, float sizeY);
 
 	void updateShop(float dt) override;
+	void renderShop(sf::RenderWindow& window) override;
 
 };
 

@@ -40,12 +40,20 @@
     <ClCompile Include="GUI_button.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Bakery.cpp" />
     <ClCompile Include="Shop.cpp">
       <Filter>Fichiers sources\Struct</Filter>
     </ClCompile>
     <ClCompile Include="Npc.cpp">
       <Filter>Fichiers sources\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Bakery.cpp">
+      <Filter>Fichiers sources\Shops</Filter>
+    </ClCompile>
+    <ClCompile Include="Store.cpp">
+      <Filter>Fichiers sources\Shops</Filter>
+    </ClCompile>
+    <ClCompile Include="CandyShop.cpp">
+      <Filter>Fichiers sources\Shops</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,12 +93,20 @@
     <ClInclude Include="SceneManager.h">
       <Filter>Fichiers d%27en-tête\SceneManager</Filter>
     </ClInclude>
-    <ClInclude Include="Bakery.h" />
     <ClInclude Include="Shop.h">
       <Filter>Fichiers d%27en-tête\Struct</Filter>
     </ClInclude>
     <ClInclude Include="Npc.h">
       <Filter>Fichiers d%27en-tête\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Bakery.h">
+      <Filter>Fichiers d%27en-tête\Shops</Filter>
+    </ClInclude>
+    <ClInclude Include="Store.h">
+      <Filter>Fichiers d%27en-tête\Shops</Filter>
+    </ClInclude>
+    <ClInclude Include="CandyShop.h">
+      <Filter>Fichiers d%27en-tête\Shops</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +148,12 @@
     </Filter>
     <Filter Include="Fichiers d%27en-tête\Level">
       <UniqueIdentifier>{2b45693b-7d3e-4c50-831f-5e2365e3f97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Shops">
+      <UniqueIdentifier>{2cfe0371-e6ca-4383-8f62-e5c99ec281d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Shops">
+      <UniqueIdentifier>{9e7bd3ff-e4cd-4a81-8625-1a2918bf24f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

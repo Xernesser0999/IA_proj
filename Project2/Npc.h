@@ -6,11 +6,11 @@ public:
 	Npc();
 	Npc(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::string file);
 
-	void update(float dt, Bakery* shop) override;
-	void moveTo(float dt, Bakery* shop);
+	void update(float dt, Shop* shop) override;
+	void moveTo(float dt, Shop* shop);
 
 public:
-	Bakery* shop_;
+	Shop* shop_;
 	bool arrived = false;
 };
 

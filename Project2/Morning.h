@@ -15,7 +15,10 @@ public:
 public:
 	Baker* test;
 	Bakery* bakery;
-	Bakery* bakery2;
+	Store* store;
+	CandyShop* candy_shop;
 	Npc* npc;
+	Npc* npc1;
+	Npc* npc2;
 };
 
