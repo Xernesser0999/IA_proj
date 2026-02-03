@@ -5,7 +5,19 @@
 
 #include <string>
 
-struct Pawn {
+class Pawn {
+public:
+	Pawn();
+	Pawn(float posX_, float posY_, float sizeX_, float sizeY_, float speed_, std::string file);
+	virtual ~Pawn();
+
+	virtual void update(float dt, Shop* shop);
+	void render(sf::RenderWindow& window);
+
+	void moneyAdd(float change);
+	void moneySubstract(float change);
+
+public:
 	float posX;
 	float posY;
 	float sizeX;
@@ -20,15 +32,5 @@ struct Pawn {
 
 	sf::Texture* TX;
 	sf::RectangleShape* rectangle;
-
-	Pawn();
-	Pawn(float posX_, float posY_, float sizeX_, float sizeY_, float speed_, std::string file);
-	virtual ~Pawn();
-
-	virtual void update(float dt, Shop* shop);
-	void render(sf::RenderWindow& window);
-
-	void moneyAdd(float change);
-	void moneySubstract(float change);
 };
 

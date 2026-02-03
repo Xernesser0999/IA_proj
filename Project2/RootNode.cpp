@@ -1,13 +1,21 @@
 #include "RootNode.h"
 
-RootNode::RootNode() = default;
+#include "FluxNode.h"
 
-RootNode::~RootNode(){
+RootNode::RootNode(FluxNode* childNode) 
+	: Node(nullptr), child(childNode) {
 }
 
-void RootNode::tick(float DeltaTime){
-    if (childNode != nullptr)
-    {
-        childNode->tick(DeltaTime);
-    }
+void RootNode::beginExecute() {
+	if (child != nullptr) {
+		child->beginExecute();
+	}
+}
+
+void RootNode::tick(float dt) {
+	child->tick(dt);
+}
+
+void RootNode::setChild(FluxNode* rootChild) {
+	child = rootChild;
 }

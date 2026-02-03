@@ -141,7 +141,9 @@
   <ItemGroup>
     <ClCompile Include="Baker.cpp" />
     <ClCompile Include="Bakery.cpp" />
+    <ClCompile Include="BehaviourTree.cpp" />
     <ClCompile Include="CandyShop.cpp" />
+    <ClCompile Include="FallbackFlow.cpp" />
     <ClCompile Include="FluxNode.cpp" />
     <ClCompile Include="GUI_button.cpp" />
     <ClCompile Include="KeyStruct.cpp" />
@@ -154,6 +156,7 @@
     <ClCompile Include="RootNode.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SequenceFlow.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Store.cpp" />
     <ClCompile Include="TaskNode.cpp" />
@@ -161,7 +164,9 @@
   <ItemGroup>
     <ClInclude Include="Baker.h" />
     <ClInclude Include="Bakery.h" />
+    <ClInclude Include="BehaviourTree.h" />
     <ClInclude Include="CandyShop.h" />
+    <ClInclude Include="FallbackFlow.h" />
     <ClInclude Include="FluxNode.h" />
     <ClInclude Include="GUI_button.h" />
     <ClInclude Include="KeyStruct.h" />
@@ -173,6 +178,7 @@
     <ClInclude Include="RootNode.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SequenceFlow.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Store.h" />
     <ClInclude Include="TaskNode.h" />

@@ -3,11 +3,15 @@
 
 class RootNode : public Node {
 public:
-    RootNode();
-    ~RootNode() override;
+    RootNode() = default;
+	RootNode(FluxNode* childNode);
+    virtual ~RootNode() override = default;
 
-    void tick(float DeltaTime) override;
+	virtual void beginExecute() override;
+    void tick(float dt) override;
+
+	void setChild(FluxNode* rootChild);
 
 public:
-    Node* childNode;
+    FluxNode* child;
 };

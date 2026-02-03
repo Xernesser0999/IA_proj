@@ -3,14 +3,20 @@
 
 class FluxNode : public Node {
 public:
-    FluxNode();
-    ~FluxNode() override;
+    FluxNode() = default;
+	FluxNode(FluxNode* parent);
+	FluxNode(FluxNode* parent, const std::vector<Node*>& children); 
+    virtual ~FluxNode() = default;
 
-    void tick(float DeltaTime) override;
-    virtual void onNodeEnd();
+	virtual void addChild(Node* child);
+	virtual void removeChild(Node* child);
+
+	virtual void beginExecute() override;
+	virtual void tick(float dt) override;
+	virtual void onChildWorkEnd(ENodeState childState);
 
 public:
     std::vector<Node*> childNodes;
-    Node* actualNode = nullptr;
+	Node* currentExecuteChild;
 };
 
