@@ -8,7 +8,7 @@ public:
     virtual ~RootNode() override = default;
 
 	virtual void beginExecute() override;
-    void tick(float dt) override;
+    virtual void tick(float dt) override;
 
 	void setChild(FluxNode* rootChild);
 

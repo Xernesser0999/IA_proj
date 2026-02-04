@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "BehaviourTree.h"
 
 class Morning : public Scene{
 public:
@@ -20,5 +21,9 @@ public:
 	Npc* npc;
 	Npc* npc1;
 	Npc* npc2;
+	BehaviourTree* npcBt;
+	Clock btClock;
+
+	const float duration = 20.0f;
 };
 

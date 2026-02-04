@@ -9,7 +9,7 @@ RootNode::RootNode(FluxNode* childNode)
 void RootNode::beginExecute() {
 	if (child != nullptr) {
 		child->beginExecute();
-	}
+	} 
 }
 
 void RootNode::tick(float dt) {

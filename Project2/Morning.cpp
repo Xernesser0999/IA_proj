@@ -16,6 +16,8 @@ void Morning::createGameObjects() {
     bakery = new Bakery(0, 0, 400, 400);
     store = new Store(450, 0, 400, 400);
     candy_shop = new CandyShop(900, 0, 400, 400);
+    npcBt = new NpcBehaviourTree(npc);
+    btClock = Clock(true);
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {
@@ -36,6 +38,19 @@ void Morning::update(const bool* keys, float dt) {
     npc->update(dt, bakery);
     npc1->update(dt, store);
     npc2->update(dt, candy_shop);
+
+    if (BehaviourTree::blackBoard == nullptr) {
+        BehaviourTree::blackBoard = new NpcBlackBoard();
+    }
+    auto blackBoardElt = static_cast<NpcBlackBoard*>(BehaviourTree::blackBoard);
+    blackBoardElt->coorNpcX = static_cast<int>(npc->posX);
+    blackBoardElt->coorNpcY = static_cast<int>(npc->posY);
+    blackBoardElt->shopCoorX = static_cast<int>(bakery->pos.x + bakery->size.x - 300);
+    blackBoardElt->shopCoorY = static_cast<int>(bakery->pos.y + bakery->size.y - 80);
+
+    npcBt->execute();
+    float btdt = btClock.getElapsedTime();
+    npcBt->tick(btdt);
 }
 
 void Morning::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

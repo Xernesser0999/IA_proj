@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <chrono>
 
 
 class Node;
@@ -7,6 +8,21 @@ class RootNode;
 class Npc;
 
 class Blackboard {};
+
+class Clock {
+public: 
+	Clock() = default;
+	Clock(bool startNow);
+
+	void start();
+	float restart();
+	float getElapsedTime();
+	float timeSinceStart();
+
+private:
+	std::chrono::time_point<std::chrono::steady_clock> timeStart;
+	std::chrono::time_point<std::chrono::steady_clock> lastCallElpased;
+};
 
 class BehaviourTree{
 public:
@@ -20,7 +36,7 @@ public:
 	static Blackboard* blackBoard;
 
 protected:
-	void buildTree();
+	virtual void buildTree();
 	virtual void buildSubChilds();
 	void cleanTree();
 
@@ -34,6 +50,9 @@ class NpcBlackBoard : public Blackboard {
 public:
 	int coorNpcX;
 	int coorNpcY;
+
+	int shopCoorX;
+	int shopCoorY;
 };
 
 class NpcBehaviourTree : public BehaviourTree {
@@ -42,5 +61,6 @@ public:
 	NpcBehaviourTree(Npc* npcOwner);
 	virtual ~NpcBehaviourTree() override = default;
 
+	virtual void buildTree() override;
 	virtual void buildSubChilds() override;
 };

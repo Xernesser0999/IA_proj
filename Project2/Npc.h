@@ -1,5 +1,6 @@
 #pragma once
 #include "Pawn.h"
+#include "BehaviourTree.h"
 
 class Npc : public Pawn{
 public:

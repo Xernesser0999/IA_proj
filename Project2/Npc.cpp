@@ -9,8 +9,19 @@ Npc::Npc(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::
 void Npc::update(float dt, Shop* shop) {
 	shop_ = shop;
 
-	if (!arrived) {
-		moveTo(dt, shop_);
+	if (BehaviourTree::blackBoard) {
+		auto blackBoardElt = static_cast<NpcBlackBoard*>(BehaviourTree::blackBoard);
+		posX = static_cast<float>(blackBoardElt->coorNpcX);
+		posY = static_cast<float>(blackBoardElt->coorNpcY);
+
+		if (blackBoardElt->coorNpcX == blackBoardElt->shopCoorX && blackBoardElt->coorNpcY == blackBoardElt->shopCoorY) {
+			arrived = true;
+		}
+	}
+	else {
+		if (!arrived) {
+			moveTo(dt, shop_);
+		}
 	}
 
 	pos = { posX, posY };
@@ -18,7 +29,7 @@ void Npc::update(float dt, Shop* shop) {
 }
 
 void Npc::moveTo(float dt, Shop* shop) {
-	float targetX = shop->pos.x + shop->size.x - 300;
+	/*float targetX = shop->pos.x + shop->size.x - 300;
 	float targetY = shop->pos.y + shop->size.y - 80;
 
 	if (posX == targetX && posY == targetY) {
@@ -49,5 +60,5 @@ void Npc::moveTo(float dt, Shop* shop) {
 		if (posY < targetY) {
 			posY = targetY;
 		}
-	}
+	}*/
 }

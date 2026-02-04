@@ -8,6 +8,9 @@ Node::Node(FluxNode* parent) : parent(parent){
 void Node::beginExecute(){
 }
 
+void Node::tick(float dt){
+}
+
 void Node::endExecute(){
 }
 

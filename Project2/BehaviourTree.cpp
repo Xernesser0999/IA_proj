@@ -3,6 +3,9 @@
 #include "RootNode.h"
 #include "FallbackFlow.h"
 #include "SequenceFlow.h"
+#include "MoveToTask.h"
+
+Blackboard* BehaviourTree::blackBoard = nullptr;
 
 BehaviourTree::BehaviourTree() : BehaviourTree(nullptr){
 }
@@ -51,10 +54,57 @@ NpcBehaviourTree::NpcBehaviourTree() : NpcBehaviourTree(nullptr){
 NpcBehaviourTree::NpcBehaviourTree(Npc* npcOwner) : BehaviourTree(npcOwner) {
 }
 
+void NpcBehaviourTree::buildTree(){
+	baseNode = new RootNode();
+	buildSubChilds();
+}
+
 void NpcBehaviourTree::buildSubChilds(){
 	FallbackFlow* FallBack = new FallbackFlow();
 	baseNode->setChild(FallBack);
 
 	SequenceFlow* Sequence = new SequenceFlow(FallBack);
 	FallBack->addChild(Sequence);
+
+	MoveToTask* moveTo = new MoveToTask(Sequence);
+	Sequence->addChild(moveTo);
+
+	allNodes.push_back(FallBack);
+	allNodes.push_back(Sequence);
+	allNodes.push_back(moveTo);
+
+}
+
+Clock::Clock(bool startNow){
+	if (startNow) {
+		start();
+	}
+}
+
+void Clock::start(){
+	restart();
+}
+
+float Clock::restart(){
+	std::chrono::time_point<std::chrono::steady_clock> actual = std::chrono::steady_clock::now();
+	std::chrono::duration<float> duration = actual - timeStart;
+
+	timeStart = actual;
+	lastCallElpased = actual;
+
+	return duration.count();
+}
+
+float Clock::getElapsedTime(){
+	std::chrono::time_point<std::chrono::steady_clock> actual = std::chrono::steady_clock::now();
+	std::chrono::duration<float> duration = actual - lastCallElpased;
+
+	lastCallElpased = actual;
+	return duration.count();
+}
+
+float Clock::timeSinceStart(){
+	std::chrono::time_point<std::chrono::steady_clock> actual = std::chrono::steady_clock::now();
+	std::chrono::duration<float> duration = actual - timeStart;
+	return duration.count();
 }
