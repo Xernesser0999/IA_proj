@@ -62,6 +62,7 @@
       <Filter>Fichiers sources\Level</Filter>
     </ClCompile>
     <ClCompile Include="FallbackFlow.cpp" />
+    <ClCompile Include="MoveToTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -122,6 +123,7 @@
       <Filter>Fichiers d%27en-tête\Level</Filter>
     </ClInclude>
     <ClInclude Include="FallbackFlow.h" />
+    <ClInclude Include="MoveToTask.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">

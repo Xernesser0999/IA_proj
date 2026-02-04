@@ -29,9 +29,5 @@
 *.out
 *.app
 
-/.vs
-*.log
-*.ilk
-*.tlog
-*.idb
-*.pdb
+.vs/
+x64/

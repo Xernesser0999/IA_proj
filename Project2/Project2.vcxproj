@@ -150,6 +150,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Morning.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MoveToTask.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Pawn.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="KeyStruct.h" />
     <ClInclude Include="Morning.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MoveToTask.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="Pawn.h" />

@@ -39,15 +39,6 @@ void Morning::update(const bool* keys, float dt) {
     npc1->update(dt, store);
     npc2->update(dt, candy_shop);
 
-    if (BehaviourTree::blackBoard == nullptr) {
-        BehaviourTree::blackBoard = new NpcBlackBoard();
-    }
-    auto blackBoardElt = static_cast<NpcBlackBoard*>(BehaviourTree::blackBoard);
-    blackBoardElt->coorNpcX = static_cast<int>(npc->posX);
-    blackBoardElt->coorNpcY = static_cast<int>(npc->posY);
-    blackBoardElt->shopCoorX = static_cast<int>(bakery->pos.x + bakery->size.x - 300);
-    blackBoardElt->shopCoorY = static_cast<int>(bakery->pos.y + bakery->size.y - 80);
-
     npcBt->execute();
     float btdt = btClock.getElapsedTime();
     npcBt->tick(btdt);
