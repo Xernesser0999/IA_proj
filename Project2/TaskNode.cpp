@@ -1,4 +1,4 @@
 #include "TaskNode.h"
 
-TaskNode::TaskNode(FluxNode* parent) : Node(parent) {
+TaskNode::TaskNode(FluxNode* parent, BehaviourTree* bt) : Node(parent, bt) {
 }

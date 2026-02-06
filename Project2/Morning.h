@@ -23,6 +23,7 @@ public:
 	Npc* npc2;
 	BehaviourTree* npcBt;
 	Clock btClock;
+	NpcBlackBoard* npcBlackboard;
 
 	const float duration = 20.0f;
 };

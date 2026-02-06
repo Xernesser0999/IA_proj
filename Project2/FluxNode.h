@@ -4,8 +4,8 @@
 class FluxNode : public Node {
 public:
     FluxNode() = default;
-	FluxNode(FluxNode* parent);
-	FluxNode(FluxNode* parent, const std::vector<Node*>& children); 
+	FluxNode(FluxNode* parent, BehaviourTree* bt);
+	FluxNode(FluxNode* parent, const std::vector<Node*>& children, BehaviourTree* tree);
     virtual ~FluxNode() = default;
 
 	virtual void addChild(Node* child);

@@ -4,8 +4,8 @@
 class FallbackFlow : public FluxNode{
 public:
 	FallbackFlow() = default;
-	FallbackFlow(FluxNode* parent);
-	FallbackFlow(FluxNode* parent, const std::vector<Node*>& children);
+	FallbackFlow(FluxNode* parent, BehaviourTree* bt);
+	FallbackFlow(FluxNode* parent, const std::vector<Node*>& children, BehaviourTree* bt);
 	virtual ~FallbackFlow() override = default;
 
 	virtual void onChildWorkEnd(ENodeState childState) override;

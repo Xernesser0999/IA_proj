@@ -2,8 +2,8 @@
 
 #include "FluxNode.h"
 
-RootNode::RootNode(FluxNode* childNode) 
-	: Node(nullptr), child(childNode) {
+RootNode::RootNode(FluxNode* childNode, BehaviourTree* bt)
+	: Node(nullptr, bt), child(childNode) {
 }
 
 void RootNode::beginExecute() {

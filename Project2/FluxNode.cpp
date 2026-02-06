@@ -1,16 +1,21 @@
 #include "FluxNode.h"
 
-FluxNode::FluxNode(FluxNode* parent) : FluxNode(parent, {}) {
+FluxNode::FluxNode(FluxNode* parent, BehaviourTree* bt) : FluxNode(parent, {}, bt) {
 }
 
-FluxNode::FluxNode(FluxNode* parent, const std::vector<Node*>& children)
-	: Node(parent), childNodes(children), currentExecuteChild(nullptr) {
+FluxNode::FluxNode(FluxNode* parent, const std::vector<Node*>& children, BehaviourTree* bt)
+	: Node(parent, bt), childNodes(children), currentExecuteChild(nullptr) {
 }
 
 void FluxNode::addChild(Node* child){
+	childNodes.push_back(child);
 }
 
 void FluxNode::removeChild(Node* child){
+	auto it = std::find(childNodes.begin(), childNodes.end(), child);
+	if (it != childNodes.end()) {
+		childNodes.erase(it);
+	}
 }
 
 void FluxNode::beginExecute(){

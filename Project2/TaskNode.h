@@ -5,7 +5,7 @@
 class TaskNode : public Node {
 public:
     TaskNode() = default;
-    TaskNode(FluxNode* parent);
+    TaskNode(FluxNode* parent, BehaviourTree* bt);
     virtual ~TaskNode() = default;
 
 };

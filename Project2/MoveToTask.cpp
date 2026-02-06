@@ -1,12 +1,12 @@
 #include "MoveToTask.h"
 
-MoveToTask::MoveToTask(FluxNode* parent) : TaskNode(parent){
+MoveToTask::MoveToTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt){
 }
 
 void MoveToTask::beginExecute() {
 	TaskNode::beginExecute();
 
-	auto blackboard = static_cast<NpcBlackBoard*>(BehaviourTree::blackBoard);
+	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
 	targetX = blackboard->shopCoorX;
 	targetY = blackboard->shopCoorY;
 
@@ -19,35 +19,29 @@ void MoveToTask::beginExecute() {
 void MoveToTask::tick(float dt){
 	TaskNode::tick(dt);
 
-	auto blackboard = static_cast<NpcBlackBoard*>(BehaviourTree::blackBoard);
+	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
 
-	float fx = static_cast<float>(x);
-	float fy = static_cast<float>(y);
-	const float ftargX = static_cast<float>(targetX);
-	const float ftargY = static_cast<float>(targetY);
-
-	if (fx < ftargX) {
-		fx += speed * dt;
-		if (fx > ftargX) fx = ftargX;
+	if (x < targetX) {
+		x += speed * dt;
+		if (x > targetX) x = targetX;
 	}
-	else if (fx > ftargX) {
-		fx -= speed * dt;
-		if (fx < ftargX) fx = ftargX;
+	else if (x > targetX) {
+		x -= speed * dt;
+		if (x < targetX) x = targetX;
 	}
 
-	if (fy < ftargY) {
-		fy += speed * dt;
-		if (fy > ftargY) fy = ftargY;
+	if (y < targetY) {
+		y += speed * dt;
+		if (y > targetY) y = targetY;
 	}
-	else if (fy > ftargY) {
-		fy -= speed * dt;
-		if (fy < ftargY) fy = ftargY;
+	else if (y > targetY) {
+		y -= speed * dt;
+		if (y < targetY) y = targetY;
 	}
 
-	x = static_cast<int>(fx);
-	y = static_cast<int>(fy);
 	blackboard->coorNpcX = x;
 	blackboard->coorNpcY = y;
+
 
 	if (x == targetX && y == targetY) {
 		endExecute();

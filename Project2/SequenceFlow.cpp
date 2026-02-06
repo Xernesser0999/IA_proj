@@ -1,9 +1,9 @@
 #include "SequenceFlow.h"
 
-SequenceFlow::SequenceFlow(FluxNode* parent) : SequenceFlow(parent, {}) {
+SequenceFlow::SequenceFlow(FluxNode* parent, BehaviourTree* bt) : SequenceFlow(parent, {}, bt) {
 }
 
-SequenceFlow::SequenceFlow(FluxNode* parent, const std::vector<Node*>& children) : FluxNode(parent, children) {
+SequenceFlow::SequenceFlow(FluxNode* parent, const std::vector<Node*>& children, BehaviourTree* bt) : FluxNode(parent, children, bt) {
 }
 
 void SequenceFlow::onChildWorkEnd(ENodeState childState) {

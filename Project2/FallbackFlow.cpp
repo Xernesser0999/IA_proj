@@ -1,9 +1,9 @@
 #include "FallbackFlow.h"
 
-FallbackFlow::FallbackFlow(FluxNode* parent) : FallbackFlow(parent, {}) {
+FallbackFlow::FallbackFlow(FluxNode* parent, BehaviourTree* bt) : FallbackFlow(parent, {}, bt) {
 }
 
-FallbackFlow::FallbackFlow(FluxNode* parent, const std::vector<Node*>& children) : FluxNode(parent, children) {
+FallbackFlow::FallbackFlow(FluxNode* parent, const std::vector<Node*>& children, BehaviourTree* bt) : FluxNode(parent, children, bt) {
 }
 
 void FallbackFlow::onChildWorkEnd(ENodeState childState) {

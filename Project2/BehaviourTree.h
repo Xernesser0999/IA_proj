@@ -33,9 +33,10 @@ public:
 	void execute();
 	void tick(float dt);
 	void abort();
-	static Blackboard* blackBoard;
 
-protected:
+	Blackboard* getBlackboard() const;
+	void setBlackboard(Blackboard* bb);
+
 	virtual void buildTree();
 	virtual void buildSubChilds();
 	void cleanTree();
@@ -44,6 +45,7 @@ protected:
 	RootNode* baseNode;
 	Npc* owner;
 	std::vector<Node*> allNodes;
+	Blackboard* blackboard;
 };
 
 class NpcBlackBoard : public Blackboard {
@@ -57,6 +59,7 @@ public:
 
 class NpcBehaviourTree : public BehaviourTree {
 public:
+	Blackboard* bt;
 	NpcBehaviourTree();
 	NpcBehaviourTree(Npc* npcOwner);
 	virtual ~NpcBehaviourTree() override = default;

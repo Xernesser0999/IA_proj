@@ -3,6 +3,7 @@
 #include <iostream>
 
 class FluxNode;
+class BehaviourTree;
 
 enum class ENodeState {
     Unknown = 0,
@@ -14,7 +15,7 @@ enum class ENodeState {
 class Node{
 public:
     Node() = default;
-    Node(FluxNode* parent);
+    Node(FluxNode* parent, BehaviourTree bt);
     virtual ~Node() = default;
 
     virtual void beginExecute();
@@ -23,8 +24,10 @@ public:
 
     virtual void abort();
     FluxNode* getParent() const;
+    BehaviourTree* getBehaviourTree() const;
 
 private:
     FluxNode* parent;
+    BehaviourTree* behaviourTree;
 };
 

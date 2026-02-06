@@ -5,12 +5,10 @@
 #include "SequenceFlow.h"
 #include "MoveToTask.h"
 
-Blackboard* BehaviourTree::blackBoard = nullptr;
-
 BehaviourTree::BehaviourTree() : BehaviourTree(nullptr){
 }
 
-BehaviourTree::BehaviourTree(Npc* ownerNpc) : baseNode(nullptr), owner(ownerNpc), allNodes({}) {
+BehaviourTree::BehaviourTree(Npc* ownerNpc) : baseNode(nullptr), owner(ownerNpc), allNodes({}), blackboard(nullptr) {
 	buildTree();
 }
 
@@ -30,8 +28,16 @@ void BehaviourTree::abort(){
 	baseNode->abort();
 }
 
+Blackboard* BehaviourTree::getBlackboard() const{
+	return blackboard;
+}
+
+void BehaviourTree::setBlackboard(Blackboard* bb){
+	blackboard = bb;
+}
+
 void BehaviourTree::buildTree(){
-	baseNode = new RootNode();
+	baseNode = new RootNode(nullptr, this);
 	buildSubChilds();
 }
 
@@ -60,13 +66,13 @@ void NpcBehaviourTree::buildTree(){
 }
 
 void NpcBehaviourTree::buildSubChilds(){
-	FallbackFlow* FallBack = new FallbackFlow();
+	FallbackFlow* FallBack = new FallbackFlow(nullptr, this);
 	baseNode->setChild(FallBack);
 
-	SequenceFlow* Sequence = new SequenceFlow(FallBack);
+	SequenceFlow* Sequence = new SequenceFlow(FallBack, this);
 	FallBack->addChild(Sequence);
 
-	MoveToTask* moveTo = new MoveToTask(Sequence);
+	MoveToTask* moveTo = new MoveToTask(Sequence, this);
 	Sequence->addChild(moveTo);
 
 	allNodes.push_back(FallBack);
