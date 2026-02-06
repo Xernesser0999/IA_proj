@@ -9,12 +9,11 @@ Npc::Npc(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::
 void Npc::update(float dt, Shop* shop) {
 	shop_ = shop;
 
-	if (BehaviourTree::blackBoard) {
-		auto blackBoardElt = static_cast<NpcBlackBoard*>(BehaviourTree::blackBoard);
-		posX = static_cast<float>(blackBoardElt->coorNpcX);
-		posY = static_cast<float>(blackBoardElt->coorNpcY);
+	if (bt) {
+		posX = static_cast<float>(bt->coorNpcX);
+		posY = static_cast<float>(bt->coorNpcY);
 
-		if (blackBoardElt->coorNpcX == blackBoardElt->shopCoorX && blackBoardElt->coorNpcY == blackBoardElt->shopCoorY) {
+		if (bt->coorNpcX == bt->shopCoorX && bt->coorNpcY == bt->shopCoorY) {
 			arrived = true;
 		}
 	}

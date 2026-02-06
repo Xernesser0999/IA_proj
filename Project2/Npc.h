@@ -13,5 +13,6 @@ public:
 public:
 	Shop* shop_;
 	bool arrived = false;
+	NpcBlackBoard* bt;
 };
 

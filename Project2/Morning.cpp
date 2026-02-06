@@ -27,6 +27,7 @@ void Morning::createGameObjects() {
     npcBt = new NpcBehaviourTree(npc);
     npcBt->buildTree();
     btClock = Clock(true);
+    npcBt->setBlackboard(npcBlackboard);
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {

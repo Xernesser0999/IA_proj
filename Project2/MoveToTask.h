@@ -6,7 +6,7 @@
 class MoveToTask : public TaskNode {
 public:
 	MoveToTask() = default;
-	MoveToTask(FluxNode* parent, BehaviourTree* bt);
+	MoveToTask(FluxNode* parent, BehaviourTree* bt = nullptr);
 	virtual ~MoveToTask() override = default;
 
 	virtual void beginExecute() override;

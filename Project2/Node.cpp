@@ -2,7 +2,7 @@
 
 #include "FluxNode.h"
 
-Node::Node(FluxNode* parent, BehaviourTree* bt) : parent(parent, bt){
+Node::Node(FluxNode* parent, BehaviourTree* bt) : parent(parent), behaviourTree(bt){
 }
 
 void Node::beginExecute(){

@@ -4,7 +4,7 @@
 class RootNode : public Node {
 public:
     RootNode() = default;
-	RootNode(FluxNode* childNode, BehaviourTree* bt);
+	RootNode(FluxNode* childNode, BehaviourTree* bt = nullptr);
     virtual ~RootNode() override = default;
 
 	virtual void beginExecute() override;

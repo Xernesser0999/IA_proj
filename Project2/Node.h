@@ -15,7 +15,7 @@ enum class ENodeState {
 class Node{
 public:
     Node() = default;
-    Node(FluxNode* parent, BehaviourTree bt);
+    Node(FluxNode* parent, BehaviourTree* bt = nullptr);
     virtual ~Node() = default;
 
     virtual void beginExecute();
