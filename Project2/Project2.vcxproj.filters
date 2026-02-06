@@ -7,20 +7,8 @@
     <ClCompile Include="Baker.cpp">
       <Filter>Fichiers sources\Character</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Fichiers sources\Struct</Filter>
-    </ClCompile>
     <ClCompile Include="Pawn.cpp">
       <Filter>Fichiers sources\Struct</Filter>
-    </ClCompile>
-    <ClCompile Include="FluxNode.cpp">
-      <Filter>Fichiers sources\Nodes</Filter>
-    </ClCompile>
-    <ClCompile Include="RootNode.cpp">
-      <Filter>Fichiers sources\Nodes</Filter>
-    </ClCompile>
-    <ClCompile Include="TaskNode.cpp">
-      <Filter>Fichiers sources\Nodes</Filter>
     </ClCompile>
     <ClCompile Include="KeyStruct.cpp">
       <Filter>Fichiers sources\SceneManager</Filter>
@@ -37,9 +25,6 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Fichiers sources\SceneManager</Filter>
     </ClCompile>
-    <ClCompile Include="GUI_button.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Shop.cpp">
       <Filter>Fichiers sources\Struct</Filter>
     </ClCompile>
@@ -55,25 +40,40 @@
     <ClCompile Include="CandyShop.cpp">
       <Filter>Fichiers sources\Shops</Filter>
     </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Fichiers sources\Behavior_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="FluxNode.cpp">
+      <Filter>Fichiers sources\Behavior_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="RootNode.cpp">
+      <Filter>Fichiers sources\Behavior_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskNode.cpp">
+      <Filter>Fichiers sources\Behavior_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI_button.cpp">
+      <Filter>Fichiers sources\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceFlow.cpp">
+      <Filter>Fichiers sources\Behavior_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="FallbackFlow.cpp">
+      <Filter>Fichiers sources\Behavior_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_IsArrived.cpp">
+      <Filter>Fichiers sources\Behavior_tree\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_MoveAI.cpp">
+      <Filter>Fichiers sources\Behavior_tree\Task</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
       <Filter>Fichiers d%27en-tête\Character</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Fichiers d%27en-tête\Struct</Filter>
-    </ClInclude>
     <ClInclude Include="Pawn.h">
       <Filter>Fichiers d%27en-tête\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="FluxNode.h">
-      <Filter>Fichiers d%27en-tête\Nodes</Filter>
-    </ClInclude>
-    <ClInclude Include="RootNode.h">
-      <Filter>Fichiers d%27en-tête\Nodes</Filter>
-    </ClInclude>
-    <ClInclude Include="TaskNode.h">
-      <Filter>Fichiers d%27en-tête\Nodes</Filter>
     </ClInclude>
     <ClInclude Include="KeyStruct.h">
       <Filter>Fichiers d%27en-tête\SceneManager</Filter>
@@ -108,6 +108,30 @@
     <ClInclude Include="CandyShop.h">
       <Filter>Fichiers d%27en-tête\Shops</Filter>
     </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="FluxNode.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="RootNode.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskNode.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceFlow.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="FallbackFlow.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_IsArrived.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_MoveAI.h">
+      <Filter>Fichiers d%27en-tête\Behavior_tree\Task</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">
@@ -122,17 +146,11 @@
     <Filter Include="Fichiers d%27en-tête\Struct">
       <UniqueIdentifier>{41c60879-4281-4d36-80a3-a1df24e5e82d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Nodes">
-      <UniqueIdentifier>{bfc629a2-ce98-4cdf-bf71-0a4aea433c60}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\Character">
       <UniqueIdentifier>{55bc84b1-82b9-47fb-91e6-925381a7873f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\Struct">
       <UniqueIdentifier>{4da4ec4f-4427-4c3b-9053-ba57bed8f9e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Nodes">
-      <UniqueIdentifier>{6747bc17-0280-4a5f-a1f4-e4f7ce672dcc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\Character">
       <UniqueIdentifier>{aa7eccb2-0ff8-4e5e-b6aa-58a829b168a1}</UniqueIdentifier>
@@ -154,6 +172,18 @@
     </Filter>
     <Filter Include="Fichiers d%27en-tête\Shops">
       <UniqueIdentifier>{9e7bd3ff-e4cd-4a81-8625-1a2918bf24f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Behavior_tree">
+      <UniqueIdentifier>{2832786a-b369-46e2-8a2f-6f6fc37bd173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Behavior_tree">
+      <UniqueIdentifier>{255d6270-bde5-4edd-8457-069f490de6c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Behavior_tree\Task">
+      <UniqueIdentifier>{175bc805-109b-4b5b-84cf-72ec821de43a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Behavior_tree\Task">
+      <UniqueIdentifier>{f5140cd5-acab-4c10-b3ba-745f029f4b82}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

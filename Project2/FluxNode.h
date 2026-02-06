@@ -1,16 +1,21 @@
+// ReSharper disable CppFunctionIsNotImplemented
 #pragma once
+#include <vector>
+
 #include "Node.h"
 
-class FluxNode : public Node {
+class FlowNode : public Node {           // Fonctionne un peu comme une struct
 public:
-    FluxNode();
-    ~FluxNode() override;
+    FlowNode() = default;               // Constructeur par defaut
+    FlowNode(FlowNode* ParentNode);     // Constructeur qui a besoin d'un parent (genre rootNode / Fallback)
+    FlowNode(FlowNode* ParentNode, const std::vector<Node*>& Childs);   // Constructeur avec des leafNode
+    virtual ~FlowNode() = default;      // Destructeur virtual
 
-    void tick(float DeltaTime) override;
-    virtual void onNodeEnd();
+    virtual void AddChild(Node* Child);         // Fonction pour ajouter des enfant au flowNode
+    virtual void RemoveChild(Node* Child);      // Fonction pour retirer les enfnat du flownode
 
-public:
-    std::vector<Node*> childNodes;
-    Node* actualNode = nullptr;
+    virtual void OnChildWorkEnd(ENodeState ChildState);     // Quand les enfnat ont fini de travailler (bizarre comme phrase)
+protected:
+    std::vector<Node*> ChildNodes;      // Contien tous les enfant
+    Node* CurrentExecuteChild;          // Contient l'enfant qui est en train d'etre executer en ce moment meme
 };
-

@@ -1,17 +1,12 @@
 #pragma once
 #include "Node.h"
-#include "FluxNode.h"
 
+// Node qui va executer une tache (logique c'est dans le nom)
 class TaskNode : public Node {
 public:
-    TaskNode();
-    ~TaskNode() override;
-    void begin() override;
-    void tick(float deltaTime) override;
-public:
-    FluxNode* parentNode;
-    float actualTime;
-    float time;
+    TaskNode() = default;               // Constructeur par defaut
+    TaskNode(FlowNode* ParentNode);     // C'est un leaf node donc il a besoin d'un parent type FlowNode
+    virtual ~TaskNode() = default;      // Destructeur
 };
 
 

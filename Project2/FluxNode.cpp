@@ -1,29 +1,28 @@
 #include "FluxNode.h"
 
-FluxNode::FluxNode() = default;
 
-FluxNode::~FluxNode(){
+// J'ai rien compris
+FlowNode::FlowNode(FlowNode* ParentNode) : FlowNode(ParentNode, {}) {}
+FlowNode::FlowNode(FlowNode* ParentNode, const std::vector<Node*>& Childs) : Node(ParentNode), ChildNodes(Childs) {
+    CurrentExecuteChild = nullptr;
 }
 
-void FluxNode::tick(float DeltaTime){
-    if (actualNode == nullptr) {
-        actualNode = childNodes.front();
-        actualNode->begin();
-    }
-    actualNode->tick(DeltaTime);
+void FlowNode::AddChild(Node* Child) {
 }
 
-void FluxNode::onNodeEnd(){
-    auto It = std::find(childNodes.begin(), childNodes.end(), actualNode);
-    if (It != childNodes.end()) {
-        int Index = std::distance(childNodes.begin(), It);
-        if (Index < childNodes.size() - 1) {
-            Index++;
+void FlowNode::RemoveChild(Node* Child) {
+}
+
+void FlowNode::OnChildWorkEnd(ENodeState ChildState) {
+    auto It = std::find(ChildNodes.begin(), ChildNodes.end(), CurrentExecuteChild);
+    if (It != ChildNodes.end()) {
+        int Index = std::distance(ChildNodes.begin(), It) + 1;
+        if (Index < ChildNodes.size()) {
+            CurrentExecuteChild = ChildNodes[Index];
+            CurrentExecuteChild->BeginExecute();
         }
         else {
-            Index = 0;
+            CurrentExecuteChild = nullptr;
         }
-        actualNode = childNodes[Index];
-        actualNode->begin();
     }
 }

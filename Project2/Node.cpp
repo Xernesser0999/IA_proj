@@ -1,12 +1,10 @@
 #include "Node.h"
 
-Node::Node() = default;
+#include "FluxNode.h"
 
-Node::~Node(){
+Node::Node(FlowNode* ParentNode) : Parent(ParentNode) {
 }
 
-void Node::tick(float DeltaTime){
-}
-
-void Node::begin(){
+FlowNode* Node::GetParent() const {
+    return Parent;
 }
