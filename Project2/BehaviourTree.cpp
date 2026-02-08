@@ -58,6 +58,7 @@ NpcBehaviourTree::NpcBehaviourTree() : NpcBehaviourTree(nullptr){
 }
 
 NpcBehaviourTree::NpcBehaviourTree(Npc* npcOwner) : BehaviourTree(npcOwner) {
+
 }
 
 void NpcBehaviourTree::buildTree(){

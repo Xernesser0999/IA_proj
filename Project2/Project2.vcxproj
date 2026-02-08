@@ -161,6 +161,7 @@
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Store.cpp" />
     <ClCompile Include="TaskNode.cpp" />
+    <ClCompile Include="WaitTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Store.h" />
     <ClInclude Include="TaskNode.h" />
+    <ClInclude Include="WaitTask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

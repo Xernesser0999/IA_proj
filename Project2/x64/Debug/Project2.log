@@ -1,2 +1,3 @@
-﻿  Baker.cpp
-  Project2.vcxproj -> C:\Users\lharispe\Documents\GitHub\IA_proj\x64\Debug\Project2.exe
+﻿  FluxNode.cpp
+C:\Users\Steve\source\repos\IA_proj\Project2\FluxNode.cpp(37,13): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
+  Project2.vcxproj -> C:\Users\Steve\source\repos\IA_proj\x64\Debug\Project2.exe

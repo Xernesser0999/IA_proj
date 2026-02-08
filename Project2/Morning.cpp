@@ -23,11 +23,12 @@ void Morning::createGameObjects() {
     npcBlackboard->coorNpcY = npc->posY;
     npcBlackboard->shopCoorX = bakery->pos.x + bakery->size.x - 100;
     npcBlackboard->shopCoorY = bakery->pos.y + bakery->size.y - 100;
-
+    npc->bt = npcBlackboard;
     npcBt = new NpcBehaviourTree(npc);
     npcBt->buildTree();
     btClock = Clock(true);
     npcBt->setBlackboard(npcBlackboard);
+    npcBt->execute();
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {
@@ -45,7 +46,6 @@ void Morning::update(const bool* keys, float dt) {
     store->updateShop(dt);
     candy_shop->updateShop(dt);
     test->update(dt, nullptr);
-    npcBt->execute();
     float btdt = btClock.getElapsedTime();
     npcBt->tick(btdt);
     npc->update(dt, bakery);

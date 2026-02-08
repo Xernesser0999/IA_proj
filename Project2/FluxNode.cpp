@@ -24,10 +24,14 @@ void FluxNode::beginExecute(){
 }
 
 void FluxNode::tick(float dt){
-	currentExecuteChild->tick(dt);
+	if (currentExecuteChild != nullptr)
+	{
+		currentExecuteChild->tick(dt);
+	}
+
 }
 
-void FluxNode::onChildWorkEnd(ENodeState childState){
+void FluxNode::onChildWorkEnd(ENodeState childState) {
 	auto it = std::find(childNodes.begin(), childNodes.end(), currentExecuteChild);
 	if (it != childNodes.end()) {
 		int index = std::distance(childNodes.begin(), it) + 1;

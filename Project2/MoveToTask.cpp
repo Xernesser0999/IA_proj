@@ -14,6 +14,7 @@ void MoveToTask::beginExecute() {
 	y = blackboard->coorNpcY;
 
 	speed = 300;
+
 }
 
 void MoveToTask::tick(float dt){

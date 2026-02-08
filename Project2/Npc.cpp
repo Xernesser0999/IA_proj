@@ -1,4 +1,5 @@
 #include "Npc.h"
+#include <iostream>
 
 Npc::Npc() {
 }
@@ -25,6 +26,7 @@ void Npc::update(float dt, Shop* shop) {
 
 	pos = { posX, posY };
 	rectangle->setPosition(pos);
+
 }
 
 void Npc::moveTo(float dt, Shop* shop) {
