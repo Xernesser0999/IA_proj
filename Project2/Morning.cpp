@@ -19,7 +19,6 @@ void Morning::createGameObjects() {
 
     clockSpawn = spawn.restart().asSeconds();
     srand(time(0));
-    int sizeVec = size(shopVec) - 1;
     int Random = rand() % 2;
     npc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
     npcBlackboard = new NpcBlackBoard();
