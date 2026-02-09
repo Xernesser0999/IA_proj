@@ -7,13 +7,13 @@ void AIQuitTask::beginExecute() {
 	TaskNode::beginExecute();
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
-	targetX = -50;
+	targetX = -500;
 	targetY = 1080/2;
 
 	x = blackboard->coorNpcX;
 	y = blackboard->coorNpcY;
 
-	speed = 300;
+	speed = 250;
 
 }
 
@@ -22,15 +22,6 @@ void AIQuitTask::tick(float dt) {
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
 
-	if (x < targetX) {
-		x += speed * dt;
-		if (x > targetX) x = targetX;
-	}
-	else if (x > targetX) {
-		x -= speed * dt;
-		if (x < targetX) x = targetX;
-	}
-
 	if (y < targetY) {
 		y += speed * dt;
 		if (y > targetY) y = targetY;
@@ -38,6 +29,14 @@ void AIQuitTask::tick(float dt) {
 	else if (y > targetY) {
 		y -= speed * dt;
 		if (y < targetY) y = targetY;
+	}
+	else if (x < targetX) {
+		x += speed * dt;
+		if (x > targetX) x = targetX;
+	}
+	else if (x > targetX) {
+		x -= speed * dt;
+		if (x < targetX) x = targetX;
 	}
 
 	blackboard->coorNpcX = x;

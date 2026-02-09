@@ -17,7 +17,7 @@ public:
 	virtual void endExecute() override;
 
 private:
-	float timer = 5;
+	float timer;
 	float actual;
 	float startPoint;
 	

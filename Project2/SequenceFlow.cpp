@@ -12,9 +12,6 @@ void SequenceFlow::onChildWorkEnd(ENodeState childState) {
 		if(currentExecuteChild == nullptr) {
 			getParent()->onChildWorkEnd(ENodeState::Success);
 		}
-		else {
-			getParent()->onChildWorkEnd(ENodeState::Failure);
-		}
 	}
 
 }

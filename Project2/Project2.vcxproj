@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AIQuitTask.cpp" />
     <ClCompile Include="Baker.cpp" />
     <ClCompile Include="Bakery.cpp" />
     <ClCompile Include="BehaviourTree.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="WaitTask.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AIQuitTask.h" />
     <ClInclude Include="Baker.h" />
     <ClInclude Include="Bakery.h" />
     <ClInclude Include="BehaviourTree.h" />

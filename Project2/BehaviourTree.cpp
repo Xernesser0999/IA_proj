@@ -76,18 +76,18 @@ void NpcBehaviourTree::buildSubChilds(){
 	FallBack->addChild(Sequence);
 
 	MoveToTask* moveTo = new MoveToTask(Sequence, this);
-	//WaitTask* wait = new WaitTask(Sequence, this);
-	//AIQuitTask* quit = new AIQuitTask(Sequence, this);
+	WaitTask* wait = new WaitTask(Sequence, this);
+	AIQuitTask* quit = new AIQuitTask(Sequence, this);
 	Sequence->addChild(moveTo);
-	//Sequence->addChild(wait);
-	//Sequence->addChild(quit);
+	Sequence->addChild(wait);
+	Sequence->addChild(quit);
 
 	allNodes.push_back(FallBack);
 	allNodes.push_back(Sequence);
 
 	allNodes.push_back(moveTo);
-	//allNodes.push_back(wait);
-	//allNodes.push_back(quit);
+	allNodes.push_back(wait);
+	allNodes.push_back(quit);
 }
 
 Clock::Clock(bool startNow){

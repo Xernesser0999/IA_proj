@@ -7,7 +7,7 @@ void WaitTask::beginExecute() {
 	TaskNode::beginExecute();
 	dt = clock.restart().asSeconds();
 
-	startPoint = dt;
+	startPoint = 0;
 	timer = 5;
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
@@ -17,16 +17,14 @@ void WaitTask::tick(float dt_) {
 	TaskNode::tick(dt_);
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
 	
-	actual = dt_;
-	endExecute();
+	startPoint += dt_;
+
+	if (startPoint >= timer) {
+		endExecute();
+	}
 }
 
 void WaitTask::endExecute() {
-	if (actual - startPoint >= timer) {
-		getParent()->onChildWorkEnd(ENodeState::Success);
-	}
-	else {
-		getParent()->onChildWorkEnd(ENodeState::Failure);
-	}
+	getParent()->onChildWorkEnd(ENodeState::Success);
 	return TaskNode::endExecute();
 }
