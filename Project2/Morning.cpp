@@ -41,8 +41,6 @@ void Morning::createGameObjects() {
     shops.push_back(candy_shop);
 
     btClock = Clock(true);
-
-    spawnNpc();
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {
