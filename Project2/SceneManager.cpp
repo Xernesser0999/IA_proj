@@ -41,7 +41,7 @@ void SceneManager::displayState(sf::RenderWindow& window) {
 
 void SceneManager::updateState(const bool* keys, float dt, sf::RenderWindow& window) {
 	if (currentState == SceneState::morning) {
-		static_cast<Morning*>(myMorning)->update(keys, dt);
+		static_cast<Morning*>(myMorning)->update(dt);
 	}
 	else if (currentState == SceneState::menu) {
 		static_cast<Menu*>(myMenu)->update(keys, dt, window);

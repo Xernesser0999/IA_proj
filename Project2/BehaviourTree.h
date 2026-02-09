@@ -9,21 +9,6 @@ class Npc;
 
 class Blackboard {};
 
-class Clock {
-public: 
-	Clock() = default;
-	Clock(bool startNow);
-
-	void start();
-	float restart();
-	float getElapsedTime();
-	float timeSinceStart();
-
-private:
-	std::chrono::time_point<std::chrono::steady_clock> timeStart;
-	std::chrono::time_point<std::chrono::steady_clock> lastCallElpased;
-};
-
 class BehaviourTree{
 public:
 	BehaviourTree();
@@ -50,11 +35,11 @@ protected:
 
 class NpcBlackBoard : public Blackboard {
 public:
-	int coorNpcX;
-	int coorNpcY;
+	float coorNpcX;
+	float coorNpcY;
 
-	int shopCoorX;
-	int shopCoorY;
+	float shopCoorX;
+	float shopCoorY;
 };
 
 class NpcBehaviourTree : public BehaviourTree {

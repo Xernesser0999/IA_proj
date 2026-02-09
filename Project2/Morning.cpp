@@ -10,23 +10,26 @@ Morning::~Morning() {
 }
 
 void Morning::createGameObjects() {
-    test = new Baker(0, 500, 100, 100, 300.0f, "sprite/player.png");
-    npc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
-    /*npc1 = new Npc(1000, 900, 200, 200, 300.0f, "sprite/player.png");
-    npc2 = new Npc(1500, 950, 100, 100, 300.0f, "sprite/player.png");*/
     bakery = new Bakery(0, 0, 400, 400);
+    shopVec.push_back(bakery);
     store = new Store(450, 0, 400, 400);
+    shopVec.push_back(store);
     candy_shop = new CandyShop(900, 0, 400, 400);
+    shopVec.push_back(candy_shop);
 
+    clockSpawn = spawn.restart().asSeconds();
+    srand(time(0));
+    int sizeVec = size(shopVec) - 1;
+    int Random = rand() % 2;
+    npc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
     npcBlackboard = new NpcBlackBoard();
     npcBlackboard->coorNpcX = npc->posX;
     npcBlackboard->coorNpcY = npc->posY;
-    npcBlackboard->shopCoorX = bakery->pos.x + bakery->size.x - 100;
-    npcBlackboard->shopCoorY = bakery->pos.y + bakery->size.y - 100;
+    npcBlackboard->shopCoorX = shopVec[Random]->pos.x + shopVec[Random]->size.x - 100;
+    npcBlackboard->shopCoorY = shopVec[Random]->pos.y + shopVec[Random]->size.y - 100;
     npc->bt = npcBlackboard;
     npcBt = new NpcBehaviourTree(npc);
     npcBt->buildTree();
-    btClock = Clock(true);
     npcBt->setBlackboard(npcBlackboard);
     npcBt->execute();
 }
@@ -35,22 +38,15 @@ void Morning::displayScene(sf::RenderWindow& window) {
     store->renderShop(window);
     bakery->renderShop(window);
     candy_shop->renderShop(window);
-    test->render(window);
     npc->render(window);
-    //npc1->render(window);
-    //npc2->render(window);
 }
 
-void Morning::update(const bool* keys, float dt) {
+void Morning::update(float dt) {
     bakery->updateShop(dt);
     store->updateShop(dt);
     candy_shop->updateShop(dt);
-    test->update(dt, nullptr);
-    float btdt = btClock.getElapsedTime();
     npcBt->tick(dt);
     npc->update(dt, bakery);
-    /*npc1->update(dt, store);
-    npc2->update(dt, candy_shop);*/
 
     
 }

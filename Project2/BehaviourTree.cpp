@@ -89,37 +89,3 @@ void NpcBehaviourTree::buildSubChilds(){
 	allNodes.push_back(wait);
 	allNodes.push_back(quit);
 }
-
-Clock::Clock(bool startNow){
-	if (startNow) {
-		start();
-	}
-}
-
-void Clock::start(){
-	restart();
-}
-
-float Clock::restart(){
-	std::chrono::time_point<std::chrono::steady_clock> actual = std::chrono::steady_clock::now();
-	std::chrono::duration<float> duration = actual - timeStart;
-
-	timeStart = actual;
-	lastCallElpased = actual;
-
-	return duration.count();
-}
-
-float Clock::getElapsedTime(){
-	std::chrono::time_point<std::chrono::steady_clock> actual = std::chrono::steady_clock::now();
-	std::chrono::duration<float> duration = actual - lastCallElpased;
-
-	lastCallElpased = actual;
-	return duration.count();
-}
-
-float Clock::timeSinceStart(){
-	std::chrono::time_point<std::chrono::steady_clock> actual = std::chrono::steady_clock::now();
-	std::chrono::duration<float> duration = actual - timeStart;
-	return duration.count();
-}
