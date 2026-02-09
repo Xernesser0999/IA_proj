@@ -1,62 +1,106 @@
 #include "Morning.h"
 
-Morning::Morning(sf::RenderWindow& window) : npcBlackboard(nullptr) {
+Morning::Morning(sf::RenderWindow& window) {
+    bg = new sf::RectangleShape();
     createGameObjects();
+    spawnTimer = 0.0f;
+    spawnClock = Clock(true); 
 }
 
 Morning::~Morning() {
-    delete npcBlackboard;
-    npcBlackboard = nullptr;
+    for (auto* npcBlackboard : npcBlackboards) {
+        delete npcBlackboard;
+    }
+    npcBlackboards.clear();
+    for (auto* npcBt : npcBehaviorTrees) {
+        delete npcBt;
+    }
+    npcBehaviorTrees.clear();
+    for (auto* npc : npcs) {
+        delete npc;
+    }
+    npcs.clear();
+}
+
+void Morning::setImages(sf::RectangleShape* myRect, const char* path, float x, float y, float w, float h) {
+    sf::Texture* tex = new sf::Texture(path);
+    vecTex.push_back(tex);
+    myRect->setPosition({ x,y });
+    myRect->setSize({ w,h });
+    myRect->setTexture(tex);
 }
 
 void Morning::createGameObjects() {
-    test = new Baker(0, 500, 100, 100, 300.0f, "sprite/player.png");
-    npc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
-    /*npc1 = new Npc(1000, 900, 200, 200, 300.0f, "sprite/player.png");
-    npc2 = new Npc(1500, 950, 100, 100, 300.0f, "sprite/player.png");*/
-    bakery = new Bakery(0, 0, 400, 400);
-    store = new Store(450, 0, 400, 400);
-    candy_shop = new CandyShop(900, 0, 400, 400);
+    setImages(bg, "sprite/ground.png", 0, 0, 1920, 1080);
 
-    npcBlackboard = new NpcBlackBoard();
-    npcBlackboard->coorNpcX = npc->posX;
-    npcBlackboard->coorNpcY = npc->posY;
-    npcBlackboard->shopCoorX = bakery->pos.x + bakery->size.x - 100;
-    npcBlackboard->shopCoorY = bakery->pos.y + bakery->size.y - 100;
-    npc->bt = npcBlackboard;
-    npcBt = new NpcBehaviourTree(npc);
-    npcBt->buildTree();
+    bakery = new Bakery(0, 0, 450, 400);
+	shops.push_back(bakery);
+    store = new Store(450, 0, 420, 400);
+    shops.push_back(store);
+    candy_shop = new CandyShop(900, 0, 400, 400);
+    shops.push_back(candy_shop);
+
     btClock = Clock(true);
-    npcBt->setBlackboard(npcBlackboard);
-    npcBt->execute();
+
+    spawnNpc();
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {
+    window.draw(*bg);
     store->renderShop(window);
     bakery->renderShop(window);
     candy_shop->renderShop(window);
-    test->render(window);
-    npc->render(window);
-    //npc1->render(window);
-    //npc2->render(window);
+
+    for (auto* npc : npcs) {
+        npc->render(window);
+    }
 }
+
 
 void Morning::update(const bool* keys, float dt) {
     bakery->updateShop(dt);
     store->updateShop(dt);
     candy_shop->updateShop(dt);
-    test->update(dt, nullptr);
-    float btdt = btClock.getElapsedTime();
-    npcBt->tick(dt);
-    npc->update(dt, bakery);
-    /*npc1->update(dt, store);
-    npc2->update(dt, candy_shop);*/
 
-    
+    float elapsed = spawnClock.getElapsedTime();
+    spawnTimer += elapsed;
+
+    if (spawnTimer >= spawnInterval) {
+        spawnNpc();
+        spawnTimer = 0.0f; 
+    }
+    float btdt = btClock.getElapsedTime();
+    for (size_t i = 0; i < npcs.size(); ++i) {
+        npcBehaviorTrees[i]->tick(dt);
+        npcs[i]->update(dt, bakery);
+    }
 }
 
 void Morning::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Escape)) {
         currentScene = SceneState::menu;
     }
+}
+
+void Morning::spawnNpc() {
+    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
+    NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
+	srand(time(0));
+	int random = rand() % 3;
+	int randomXShop = rand() % 100 + 250;
+    npcBlackboard->coorNpcX = newNpc->posX;
+    npcBlackboard->coorNpcY = newNpc->posY;
+    npcBlackboard->shopCoorX = shops[random]->pos.x + shops[random]->size.x - randomXShop;
+    npcBlackboard->shopCoorY = shops[random]->pos.y + shops[random]->size.y - 100;
+
+    newNpc->bt = npcBlackboard;
+
+    NpcBehaviourTree* npcBt = new NpcBehaviourTree(newNpc);
+    npcBt->buildTree();
+    npcBt->setBlackboard(npcBlackboard);
+    npcBt->execute();
+
+    npcs.push_back(newNpc);
+    npcBlackboards.push_back(npcBlackboard);
+    npcBehaviorTrees.push_back(npcBt);
 }
