@@ -10,6 +10,5 @@ public:
 	virtual ~SequenceFlow() override = default;
 
 	virtual void onChildWorkEnd(ENodeState childState) override;
-
 };
 

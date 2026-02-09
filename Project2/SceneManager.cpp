@@ -19,11 +19,11 @@ SceneManager::~SceneManager() {
 }
 
 void SceneManager::manageState(keys* _myKeys, sf::RenderWindow& window) {
-	if (currentState == SceneState::morning) {
-		myMorning->nextScene(currentState, _myKeys, window);
-	}
-	else if (currentState == SceneState::menu) {
+	if (currentState == SceneState::menu) {
 		myMenu->nextScene(currentState, _myKeys, window);
+	}
+	else if (currentState == SceneState::morning) {
+		myMorning->nextScene(currentState, _myKeys, window);
 	}
 }
 

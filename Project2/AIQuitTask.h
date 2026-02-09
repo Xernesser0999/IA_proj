@@ -3,11 +3,11 @@
 #include "BehaviourTree.h"
 #include "FluxNode.h"
 
-class MoveToTask : public TaskNode {
+class AIQuitTask : public TaskNode {
 public:
-	MoveToTask() = default;
-	MoveToTask(FluxNode* parent, BehaviourTree* bt = nullptr);
-	virtual ~MoveToTask() override = default;
+	AIQuitTask() = default;
+	AIQuitTask(FluxNode* parent, BehaviourTree* bt = nullptr);
+	virtual ~AIQuitTask() override = default;
 
 	virtual void beginExecute() override;
 	virtual void tick(float dt) override;

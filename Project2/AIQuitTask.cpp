@@ -1,23 +1,23 @@
-#include "MoveToTask.h"
+#include "AIQuitTask.h"
 
-MoveToTask::MoveToTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt){
+AIQuitTask::AIQuitTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
 }
 
-void MoveToTask::beginExecute() {
+void AIQuitTask::beginExecute() {
 	TaskNode::beginExecute();
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
-	targetX = blackboard->shopCoorX;
-	targetY = blackboard->shopCoorY;
+	targetX = -50;
+	targetY = 1080/2;
 
 	x = blackboard->coorNpcX;
 	y = blackboard->coorNpcY;
 
-	speed = 250;
+	speed = 300;
 
 }
 
-void MoveToTask::tick(float dt){
+void AIQuitTask::tick(float dt) {
 	TaskNode::tick(dt);
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
@@ -30,8 +30,8 @@ void MoveToTask::tick(float dt){
 		x -= speed * dt;
 		if (x < targetX) x = targetX;
 	}
-	
-	else if (y < targetY) {
+
+	if (y < targetY) {
 		y += speed * dt;
 		if (y > targetY) y = targetY;
 	}
@@ -49,7 +49,7 @@ void MoveToTask::tick(float dt){
 	}
 }
 
-void MoveToTask::endExecute(){
+void AIQuitTask::endExecute() {
 	if (targetX == x && targetY == y) {
 		getParent()->onChildWorkEnd(ENodeState::Success);
 	}

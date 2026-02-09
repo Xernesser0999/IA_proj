@@ -37,8 +37,8 @@ void Morning::displayScene(sf::RenderWindow& window) {
     candy_shop->renderShop(window);
     test->render(window);
     npc->render(window);
-    /*npc1->render(window);
-    npc2->render(window);*/
+    //npc1->render(window);
+    //npc2->render(window);
 }
 
 void Morning::update(const bool* keys, float dt) {
@@ -47,7 +47,7 @@ void Morning::update(const bool* keys, float dt) {
     candy_shop->updateShop(dt);
     test->update(dt, nullptr);
     float btdt = btClock.getElapsedTime();
-    npcBt->tick(btdt);
+    npcBt->tick(dt);
     npc->update(dt, bakery);
     /*npc1->update(dt, store);
     npc2->update(dt, candy_shop);*/

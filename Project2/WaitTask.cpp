@@ -3,34 +3,30 @@
 WaitTask::WaitTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
 }
 
-void WaitTask::beginExecute(float dt) {
+void WaitTask::beginExecute() {
 	TaskNode::beginExecute();
+	dt = clock.restart().asSeconds();
 
 	startPoint = dt;
 	timer = 5;
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
-
-	x = blackboard->coorNpcX;
-	y = blackboard->coorNpcY;
-
-	speed = 300;
-
 }
 
-void WaitTask::tick(float dt) {
-	TaskNode::tick(dt);
+void WaitTask::tick(float dt_) {
+	TaskNode::tick(dt_);
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
 	
-	actual = dt;
-	if (actual - startPoint >= timer) {
-		endExecute();
-	}
+	actual = dt_;
+	endExecute();
 }
 
 void WaitTask::endExecute() {
 	if (actual - startPoint >= timer) {
 		getParent()->onChildWorkEnd(ENodeState::Success);
+	}
+	else {
+		getParent()->onChildWorkEnd(ENodeState::Failure);
 	}
 	return TaskNode::endExecute();
 }

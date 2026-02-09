@@ -10,7 +10,7 @@ void FallbackFlow::onChildWorkEnd(ENodeState childState) {
 	if (childState == ENodeState::Failure) {
 		FluxNode::onChildWorkEnd(childState);
 		if (currentExecuteChild == nullptr) {
-			getParent()->onChildWorkEnd(ENodeState::Success);
+			getParent()->onChildWorkEnd(ENodeState::Success);	//Violation d'accès en lecture de temps en temps ici. Node::Getparent a nullptr
 		}
 	}
 	else {
