@@ -31,12 +31,7 @@
 
 .vs/
 x64/
-exe/
 
-*.tlog
-*.log
-*.idb
-*.pdb
 *.ilk
 *.recipe
 *.tlog
