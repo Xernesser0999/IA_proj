@@ -1,15 +1,13 @@
-#include "Morning.h"
+#include "Day.h"
 
-std::vector<GameObjects*> Morning::StaticDrawble = {};
-
-Morning::Morning(sf::RenderWindow& window) : textclock(fonta) {
+Day::Day(sf::RenderWindow& window) : textclock(fonta) {
     bg = new sf::RectangleShape();
     createGameObjects();
     spawnTimer = 0.0f;
-    spawnClock = Clock(true); 
+    spawnClock = Clock(true);
 }
 
-Morning::~Morning() {
+Day::~Day() {
     for (auto* npcBlackboard : npcBlackboards) {
         delete npcBlackboard;
     }
@@ -29,7 +27,7 @@ Morning::~Morning() {
     rectangle = nullptr;
 }
 
-void Morning::clearlevel() {
+void Day::clearlevel() {
     for (auto* npcBlackboard : npcBlackboards) {
         delete npcBlackboard;
     }
@@ -49,7 +47,7 @@ void Morning::clearlevel() {
     rectangle = nullptr;
 }
 
-void Morning::setImages(sf::RectangleShape* myRect, const char* path, float x, float y, float w, float h) {
+void Day::setImages(sf::RectangleShape* myRect, const char* path, float x, float y, float w, float h) {
     sf::Texture* tex = new sf::Texture(path);
     vecTex.push_back(tex);
     myRect->setPosition({ x,y });
@@ -57,19 +55,20 @@ void Morning::setImages(sf::RectangleShape* myRect, const char* path, float x, f
     myRect->setTexture(tex);
 }
 
-void Morning::createGameObjects() {
+void Day::createGameObjects() {
     setImages(bg, "sprite/ground.png", 0, 0, 1920, 1080);
 
     bakery = new Bakery(0, 0, 450, 400);
-	shops.push_back(bakery);
+    shops.push_back(bakery);
     store = new Store(450, 0, 420, 400);
     shops.push_back(store);
     candy_shop = new CandyShop(900, 0, 400, 400);
     shops.push_back(candy_shop);
 
     btClock = Clock(true);
+
     TX = new sf::Texture();
-    TX->loadFromFile("sprite/Clock_morning.png");
+    TX->loadFromFile("sprite/Clock_day.png");
 
     rectangle = new sf::RectangleShape(size);
     rectangle->setPosition(pos);
@@ -86,24 +85,21 @@ void Morning::createGameObjects() {
     textclock.setPosition({ 1920 - 200, 5 });
 }
 
-void Morning::displayScene(sf::RenderWindow& window) {
+void Day::displayScene(sf::RenderWindow& window) {
     window.draw(*bg);
     store->renderGameObject(window);
     bakery->renderGameObject(window);
     candy_shop->renderGameObject(window);
+
     for (auto* npc : npcs) {
         npc->render(window);
     }
-    for (auto& StaticDraw : StaticDrawble)
-    {
-        StaticDraw->renderGameObject(window);
-    }
+
     window.draw(*rectangle);
     window.draw(textclock);
 }
 
-
-void Morning::update(const bool* keys, float dt) {
+void Day::update(const bool* keys, float dt) {
     bakery->updateGameObject(dt);
     store->updateGameObject(dt);
     candy_shop->updateGameObject(dt);
@@ -113,12 +109,14 @@ void Morning::update(const bool* keys, float dt) {
 
     if (spawnTimer >= spawnInterval) {
         spawnNpc();
-        spawnTimer = 0.0f; 
+        spawnTimer = 0.0f;
     }
+    float btdt = btClock.getElapsedTime();
     for (size_t i = 0; i < npcs.size(); ++i) {
         npcBehaviorTrees[i]->tick(dt);
         npcs[i]->update(dt, bakery);
     }
+
     startPoint += dt;
 
     if (startPoint >= timer) {
@@ -127,27 +125,27 @@ void Morning::update(const bool* keys, float dt) {
     }
 }
 
-void Morning::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
+void Day::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Escape)) {
         currentScene = SceneState::menu;
     }
 
     if (daypass == true) {
+        currentScene = night;
         daypass = false;
         Day_number += 1;
         textclock.setString("Day " + std::to_string(Day_number));
         clearlevel();
         createGameObjects();
-        currentScene = day;
     }
 }
 
-void Morning::spawnNpc() {
+void Day::spawnNpc() {
     Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
     NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
-	srand(time(0));
-	int random = rand() % 3;
-	int randomXShop = rand() % 100 + 250;
+    srand(time(0));
+    int random = rand() % 3;
+    int randomXShop = rand() % 100 + 250;
     npcBlackboard->coorNpcX = newNpc->posX;
     npcBlackboard->coorNpcY = newNpc->posY;
     npcBlackboard->shopCoorX = shops[random]->pos.x + shops[random]->size.x - randomXShop;

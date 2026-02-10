@@ -144,6 +144,7 @@
     <ClCompile Include="Bakery.cpp" />
     <ClCompile Include="BehaviourTree.cpp" />
     <ClCompile Include="CandyShop.cpp" />
+    <ClCompile Include="Day.cpp" />
     <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="FallbackFlow.cpp" />
     <ClCompile Include="FluxNode.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="Morning.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MoveToTask.cpp" />
+    <ClCompile Include="Night.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Pawn.cpp" />
@@ -171,6 +173,7 @@
     <ClInclude Include="Bakery.h" />
     <ClInclude Include="BehaviourTree.h" />
     <ClInclude Include="CandyShop.h" />
+    <ClInclude Include="Day.h" />
     <ClInclude Include="DialogBox.h" />
     <ClInclude Include="FallbackFlow.h" />
     <ClInclude Include="FluxNode.h" />
@@ -179,6 +182,7 @@
     <ClInclude Include="Morning.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MoveToTask.h" />
+    <ClInclude Include="Night.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="Pawn.h" />

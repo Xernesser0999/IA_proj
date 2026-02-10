@@ -1,4 +1,50 @@
-﻿  WaitTask.cpp
-C:\Users\lharispe\Documents\GitHub\IA_proj\Project2\WaitTask.cpp(11,16): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-C:\Users\lharispe\Documents\GitHub\IA_proj\Project2\WaitTask.cpp(12,16): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-  Project2.vcxproj -> C:\Users\lharispe\Documents\GitHub\IA_proj\x64\Debug\Project2.exe
+﻿  Day.cpp
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(71,21): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(80,23): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(146,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(149,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(150,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(151,77): warning C4244: '=' : conversion de 'T' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(151,77): warning C4244:         with
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(151,77): warning C4244:         [
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(151,77): warning C4244:             T=float
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(151,77): warning C4244:         ]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(152,77): warning C4244: '=' : conversion de 'T' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(152,77): warning C4244:         with
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(152,77): warning C4244:         [
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(152,77): warning C4244:             T=float
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Day.cpp(152,77): warning C4244:         ]
+  Morning.cpp
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(72,21): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(81,23): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(148,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(151,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(152,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(153,77): warning C4244: '=' : conversion de 'T' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(153,77): warning C4244:         with
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(153,77): warning C4244:         [
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(153,77): warning C4244:             T=float
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(153,77): warning C4244:         ]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(154,77): warning C4244: '=' : conversion de 'T' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(154,77): warning C4244:         with
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(154,77): warning C4244:         [
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(154,77): warning C4244:             T=float
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Morning.cpp(154,77): warning C4244:         ]
+  Night.cpp
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(71,21): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(80,23): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(146,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(149,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(150,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(151,77): warning C4244: '=' : conversion de 'T' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(151,77): warning C4244:         with
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(151,77): warning C4244:         [
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(151,77): warning C4244:             T=float
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(151,77): warning C4244:         ]
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(152,77): warning C4244: '=' : conversion de 'T' en 'int', perte possible de données
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(152,77): warning C4244:         with
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(152,77): warning C4244:         [
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(152,77): warning C4244:             T=float
+C:\Users\linou\Documents\GitHub\IA_proj\Project2\Night.cpp(152,77): warning C4244:         ]
+  Génération de code en cours...
+  Project2.vcxproj -> C:\Users\linou\Documents\GitHub\IA_proj\x64\Debug\Project2.exe
