@@ -158,6 +158,7 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="RequestTask.cpp" />
     <ClCompile Include="RootNode.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="Pawn.h" />
+    <ClInclude Include="RequestTask.h" />
     <ClInclude Include="RootNode.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />

@@ -7,11 +7,11 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
 
-class WaitTask : public TaskNode {
+class RequestTask : public TaskNode {
 public:
-	WaitTask() = default;
-	WaitTask(FluxNode* parent, BehaviourTree* bt = nullptr);
-	virtual ~WaitTask() override = default;
+	RequestTask() = default;
+	RequestTask(FluxNode* parent, BehaviourTree* bt = nullptr);
+	virtual ~RequestTask() override = default;
 
 	virtual void beginExecute() override;
 	virtual void tick(float dt) override;
@@ -21,10 +21,12 @@ private:
 	float timer;
 	float actual;
 	float startPoint;
-	
+	sf::RectangleShape* dialog;
+	DialogBox* dial_;
+
 	sf::Clock clock;
 	float dt;
+	float x;
+	float y;
 	bool isActive = false;
 };
-
-

@@ -6,6 +6,7 @@
 #include "MoveToTask.h"
 #include "WaitTask.h"
 #include "AIQuitTask.h"
+#include "RequestTask.h"
 
 BehaviourTree::BehaviourTree() : BehaviourTree(nullptr){
 }
@@ -76,21 +77,23 @@ void NpcBehaviourTree::buildSubChilds(){
 	FallBack->addChild(Sequence);
 
 	MoveToTask* moveTo = new MoveToTask(Sequence, this);
+	RequestTask* request = new RequestTask(Sequence, this);
 	WaitTask* wait = new WaitTask(Sequence, this);
 	AIQuitTask* quit = new AIQuitTask(Sequence, this);
 	Sequence->addChild(moveTo);
+	Sequence->addChild(request);
 	Sequence->addChild(wait);
 	Sequence->addChild(quit);
 
 	allNodes.push_back(FallBack);
 	allNodes.push_back(Sequence);
-
 	allNodes.push_back(moveTo);
+	allNodes.push_back(request);
 	allNodes.push_back(wait);
 	allNodes.push_back(quit);
 }
 
-Clock::Clock(bool startNow){
+Clock::Clock(bool startNow) {
 	if (startNow) {
 		start();
 	}

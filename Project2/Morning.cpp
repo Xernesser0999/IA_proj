@@ -75,7 +75,7 @@ void Morning::createGameObjects() {
     rectangle->setPosition(pos);
     rectangle->setTexture(TX);
 
-    timer = 10;
+    timer = 20;
     startPoint = 0;
 
     fonta.openFromFile("Pixellettersfull-BnJ5.ttf");
@@ -152,7 +152,6 @@ void Morning::spawnNpc() {
     npcBlackboard->coorNpcY = newNpc->posY;
     npcBlackboard->shopCoorX = shops[random]->pos.x + shops[random]->size.x - randomXShop;
     npcBlackboard->shopCoorY = shops[random]->pos.y + shops[random]->size.y - 100;
-
     newNpc->bt = npcBlackboard;
 
     NpcBehaviourTree* npcBt = new NpcBehaviourTree(newNpc);
