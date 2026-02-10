@@ -20,7 +20,7 @@ public:
 	Bakery* bakery;
 	Store* store;
 	CandyShop* candy_shop;
-	std::vector<Shop*> shops;
+	std::vector<GameObjects*> shops;
 	std::vector<Npc*> npcs;
 	std::vector<NpcBehaviourTree*> npcBehaviorTrees;
 	std::vector<NpcBlackBoard*> npcBlackboards;

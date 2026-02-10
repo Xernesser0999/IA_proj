@@ -45,9 +45,9 @@ void Morning::createGameObjects() {
 
 void Morning::displayScene(sf::RenderWindow& window) {
     window.draw(*bg);
-    store->renderShop(window);
-    bakery->renderShop(window);
-    candy_shop->renderShop(window);
+    store->renderGameObject(window);
+    bakery->renderGameObject(window);
+    candy_shop->renderGameObject(window);
 
     for (auto* npc : npcs) {
         npc->render(window);
@@ -56,9 +56,9 @@ void Morning::displayScene(sf::RenderWindow& window) {
 
 
 void Morning::update(const bool* keys, float dt) {
-    bakery->updateShop(dt);
-    store->updateShop(dt);
-    candy_shop->updateShop(dt);
+    bakery->updateGameObject(dt);
+    store->updateGameObject(dt);
+    candy_shop->updateGameObject(dt);
 
     float elapsed = spawnClock.getElapsedTime();
     spawnTimer += elapsed;
@@ -67,7 +67,6 @@ void Morning::update(const bool* keys, float dt) {
         spawnNpc();
         spawnTimer = 0.0f; 
     }
-    float btdt = btClock.getElapsedTime();
     for (size_t i = 0; i < npcs.size(); ++i) {
         npcBehaviorTrees[i]->tick(dt);
         npcs[i]->update(dt, bakery);

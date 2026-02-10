@@ -7,7 +7,7 @@ void AIQuitTask::beginExecute() {
 	TaskNode::beginExecute();
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
-	targetX = -500;
+	targetX = 1960;
 	targetY = 1080/2;
 
 	x = blackboard->coorNpcX;

@@ -4,7 +4,6 @@ MoveToTask::MoveToTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, b
 }
 
 void MoveToTask::beginExecute() {
-	TaskNode::beginExecute();
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
 	targetX = blackboard->shopCoorX;
@@ -18,7 +17,6 @@ void MoveToTask::beginExecute() {
 }
 
 void MoveToTask::tick(float dt){
-	TaskNode::tick(dt);
 
 	auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
 

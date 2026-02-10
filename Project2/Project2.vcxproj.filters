@@ -49,7 +49,7 @@
     <ClCompile Include="Pawn.cpp">
       <Filter>Fichiers sources\Character</Filter>
     </ClCompile>
-    <ClCompile Include="Shop.cpp">
+    <ClCompile Include="GameObjects.cpp">
       <Filter>Fichiers sources\Shops</Filter>
     </ClCompile>
     <ClCompile Include="BehaviourTree.cpp">
@@ -61,8 +61,19 @@
     <ClCompile Include="GUI_button.cpp">
       <Filter>Fichiers sources\Level</Filter>
     </ClCompile>
-    <ClCompile Include="FallbackFlow.cpp" />
-    <ClCompile Include="MoveToTask.cpp" />
+    <ClCompile Include="AIQuitTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="FallbackFlow.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveToTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -110,7 +121,7 @@
     <ClInclude Include="Pawn.h">
       <Filter>Fichiers d%27en-tête\Character</Filter>
     </ClInclude>
-    <ClInclude Include="Shop.h">
+    <ClInclude Include="GameObjects.h">
       <Filter>Fichiers d%27en-tête\Shops</Filter>
     </ClInclude>
     <ClInclude Include="BehaviourTree.h">
@@ -122,8 +133,19 @@
     <ClInclude Include="GUI_button.h">
       <Filter>Fichiers d%27en-tête\Level</Filter>
     </ClInclude>
-    <ClInclude Include="FallbackFlow.h" />
-    <ClInclude Include="MoveToTask.h" />
+    <ClInclude Include="AIQuitTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="FallbackFlow.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveToTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogBox.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">

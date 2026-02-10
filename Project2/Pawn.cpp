@@ -27,7 +27,7 @@ Pawn::~Pawn() {
 	delete rectangle;
 }
 
-void Pawn::update(float dt, Shop* shop) {
+void Pawn::update(float dt, GameObjects* shop) {
 
 }
 

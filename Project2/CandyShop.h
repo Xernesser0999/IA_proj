@@ -1,12 +1,12 @@
 #pragma once
-#include "Shop.h"
+#include "GameObjects.h"
 
-class CandyShop : public Shop {
+class CandyShop : public GameObjects {
 public:
 	CandyShop();
 	CandyShop(float posX_, float posY_, float sizeX, float sizeY);
 
-	void updateShop(float dt) override;
-	void renderShop(sf::RenderWindow& window) override;
+	void updateGameObject(float dt) override;
+	void renderGameObject(sf::RenderWindow& window) override;
 
 };

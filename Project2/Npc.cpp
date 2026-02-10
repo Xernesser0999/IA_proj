@@ -7,7 +7,7 @@ Npc::Npc() {
 Npc::Npc(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::string file) : Pawn(posX_, posY_, sizeX, sizeY, speed_, file) {
 }
 
-void Npc::update(float dt, Shop* shop) {
+void Npc::update(float dt, GameObjects* shop) {
 	shop_ = shop;
 
 	if (bt) {
@@ -29,7 +29,7 @@ void Npc::update(float dt, Shop* shop) {
 
 }
 
-void Npc::moveTo(float dt, Shop* shop) {
+void Npc::moveTo(float dt, GameObjects* shop) {
 	/*float targetX = shop->pos.x + shop->size.x - 300;
 	float targetY = shop->pos.y + shop->size.y - 80;
 
