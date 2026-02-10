@@ -2,6 +2,8 @@
 #include "Scene.h"
 #include "Menu.h"
 #include "Morning.h"
+#include "Day.h"
+#include "Night.h"
 
 #include "Menu.h"
 
@@ -13,6 +15,8 @@ public:
 
 	Scene* myMenu;
 	Scene* myMorning;
+	Scene* myDay;
+	Scene* myNight;
 
 	SceneManager(sf::RenderWindow& window);
 	~SceneManager();

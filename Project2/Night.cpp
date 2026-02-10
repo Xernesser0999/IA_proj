@@ -1,0 +1,165 @@
+#include "Night.h"
+
+Night::Night(sf::RenderWindow& window) : textclock(fonta) {
+    bg = new sf::RectangleShape();
+    createGameObjects();
+    spawnTimer = 0.0f;
+    spawnClock = Clock(true);
+}
+
+Night::~Night() {
+    for (auto* npcBlackboard : npcBlackboards) {
+        delete npcBlackboard;
+    }
+    npcBlackboards.clear();
+    for (auto* npcBt : npcBehaviorTrees) {
+        delete npcBt;
+    }
+    npcBehaviorTrees.clear();
+    for (auto* npc : npcs) {
+        delete npc;
+    }
+    npcs.clear();
+
+    delete TX;
+    delete rectangle;
+    TX = nullptr;
+    rectangle = nullptr;
+}
+
+void Night::clearlevel() {
+    for (auto* npcBlackboard : npcBlackboards) {
+        delete npcBlackboard;
+    }
+    npcBlackboards.clear();
+    for (auto* npcBt : npcBehaviorTrees) {
+        delete npcBt;
+    }
+    npcBehaviorTrees.clear();
+    for (auto* npc : npcs) {
+        delete npc;
+    }
+    npcs.clear();
+
+    delete TX;
+    delete rectangle;
+    TX = nullptr;
+    rectangle = nullptr;
+}
+
+void Night::setImages(sf::RectangleShape* myRect, const char* path, float x, float y, float w, float h) {
+    sf::Texture* tex = new sf::Texture(path);
+    vecTex.push_back(tex);
+    myRect->setPosition({ x,y });
+    myRect->setSize({ w,h });
+    myRect->setTexture(tex);
+}
+
+void Night::createGameObjects() {
+    setImages(bg, "sprite/ground.png", 0, 0, 1920, 1080);
+
+    bakery = new Bakery(0, 0, 450, 400);
+    shops.push_back(bakery);
+    store = new Store(450, 0, 420, 400);
+    shops.push_back(store);
+    candy_shop = new CandyShop(900, 0, 400, 400);
+    shops.push_back(candy_shop);
+
+    btClock = Clock(true);
+
+    //Clock_render
+    TX = new sf::Texture();
+    TX->loadFromFile("Clock_night.png");
+
+    rectangle = new sf::RectangleShape(size);
+    rectangle->setPosition(pos);
+    rectangle->setTexture(TX);
+
+    timer = 10;
+    startPoint = 0;
+
+    fonta.openFromFile("Pixellettersfull-BnJ5.ttf");
+    textclock.setFont(fonta);
+    textclock.setString("Day " + std::to_string(Day_number));
+    textclock.setCharacterSize(48);
+    textclock.setFillColor(sf::Color::White);
+    textclock.setPosition({ 1920 - 200, 5 });
+}
+
+void Night::displayScene(sf::RenderWindow& window) {
+    window.draw(*bg);
+    store->renderShop(window);
+    bakery->renderShop(window);
+    candy_shop->renderShop(window);
+
+    for (auto* npc : npcs) {
+        npc->render(window);
+    }
+
+    window.draw(*rectangle);
+    window.draw(textclock);
+}
+
+void Night::update(const bool* keys, float dt) {
+    bakery->updateShop(dt);
+    store->updateShop(dt);
+    candy_shop->updateShop(dt);
+
+    float elapsed = spawnClock.getElapsedTime();
+    spawnTimer += elapsed;
+
+    if (spawnTimer >= spawnInterval) {
+        spawnNpc();
+        spawnTimer = 0.0f;
+    }
+    float btdt = btClock.getElapsedTime();
+    for (size_t i = 0; i < npcs.size(); ++i) {
+        npcBehaviorTrees[i]->tick(dt);
+        npcs[i]->update(dt, bakery);
+    }
+
+    startPoint += dt;
+
+    if (startPoint >= timer) {
+        daypass = true;
+        startPoint = 0;
+    }
+}
+
+void Night::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Escape)) {
+        currentScene = SceneState::menu;
+    }
+
+    if (daypass == true) {
+        currentScene = morning;
+        daypass = false;
+        Day_number += 1;
+        textclock.setString("Day " + std::to_string(Day_number));
+        clearlevel();
+        createGameObjects();
+    }
+}
+
+void Night::spawnNpc() {
+    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
+    NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
+    srand(time(0));
+    int random = rand() % 3;
+    int randomXShop = rand() % 100 + 250;
+    npcBlackboard->coorNpcX = newNpc->posX;
+    npcBlackboard->coorNpcY = newNpc->posY;
+    npcBlackboard->shopCoorX = shops[random]->pos.x + shops[random]->size.x - randomXShop;
+    npcBlackboard->shopCoorY = shops[random]->pos.y + shops[random]->size.y - 100;
+
+    newNpc->bt = npcBlackboard;
+
+    NpcBehaviourTree* npcBt = new NpcBehaviourTree(newNpc);
+    npcBt->buildTree();
+    npcBt->setBlackboard(npcBlackboard);
+    npcBt->execute();
+
+    npcs.push_back(newNpc);
+    npcBlackboards.push_back(npcBlackboard);
+    npcBehaviorTrees.push_back(npcBt);
+}

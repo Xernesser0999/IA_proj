@@ -1,6 +1,6 @@
 #include "Morning.h"
 
-Morning::Morning(sf::RenderWindow& window) {
+Morning::Morning(sf::RenderWindow& window) : textclock(fonta) {
     bg = new sf::RectangleShape();
     createGameObjects();
     spawnTimer = 0.0f;
@@ -20,6 +20,31 @@ Morning::~Morning() {
         delete npc;
     }
     npcs.clear();
+
+    delete TX;
+    delete rectangle;
+    TX = nullptr;
+    rectangle = nullptr;
+}
+
+void Morning::clearlevel() {
+    for (auto* npcBlackboard : npcBlackboards) {
+        delete npcBlackboard;
+    }
+    npcBlackboards.clear();
+    for (auto* npcBt : npcBehaviorTrees) {
+        delete npcBt;
+    }
+    npcBehaviorTrees.clear();
+    for (auto* npc : npcs) {
+        delete npc;
+    }
+    npcs.clear();
+
+    delete TX;
+    delete rectangle;
+    TX = nullptr;
+    rectangle = nullptr;
 }
 
 void Morning::setImages(sf::RectangleShape* myRect, const char* path, float x, float y, float w, float h) {
@@ -41,6 +66,25 @@ void Morning::createGameObjects() {
     shops.push_back(candy_shop);
 
     btClock = Clock(true);
+
+    //Clock_render
+    TX = new sf::Texture();
+    TX->loadFromFile("Clock_morning.png");
+
+    rectangle = new sf::RectangleShape(size);
+    rectangle->setPosition(pos);
+    rectangle->setTexture(TX);
+
+    timer = 10;
+    startPoint = 0;
+
+    fonta.openFromFile("Pixellettersfull-BnJ5.ttf");
+    textclock.setFont(fonta);
+    textclock.setString("Day " + std::to_string(Day_number));
+    textclock.setCharacterSize(48);
+    textclock.setFillColor(sf::Color::White);
+    textclock.setPosition({ 1920-200, 5 });
+
 }
 
 void Morning::displayScene(sf::RenderWindow& window) {
@@ -52,8 +96,10 @@ void Morning::displayScene(sf::RenderWindow& window) {
     for (auto* npc : npcs) {
         npc->render(window);
     }
-}
 
+    window.draw(*rectangle);
+    window.draw(textclock);
+}
 
 void Morning::update(const bool* keys, float dt) {
     bakery->updateShop(dt);
@@ -72,11 +118,27 @@ void Morning::update(const bool* keys, float dt) {
         npcBehaviorTrees[i]->tick(dt);
         npcs[i]->update(dt, bakery);
     }
+
+    startPoint += dt;
+
+    if (startPoint >= timer) {
+        daypass = true;
+        startPoint = 0;
+    }
 }
 
 void Morning::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Escape)) {
         currentScene = SceneState::menu;
+    }
+
+    if (daypass == true) {
+        daypass = false;
+        Day_number += 1;
+        textclock.setString("Day " + std::to_string(Day_number));
+        clearlevel();
+        createGameObjects();
+        currentScene = day;
     }
 }
 
