@@ -16,7 +16,6 @@ public:
 	virtual void beginExecute() override;
 	virtual void tick(float dt) override;
 	virtual void endExecute() override;
-	void render(sf::RenderWindow& window);
 
 private:
 	float timer;

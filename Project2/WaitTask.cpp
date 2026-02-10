@@ -1,4 +1,5 @@
 #include "WaitTask.h"
+#include "Morning.h"
 
 
 WaitTask::WaitTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
@@ -10,6 +11,7 @@ void WaitTask::beginExecute() {
 	x = blackboard->coorNpcX;
 	y = blackboard->coorNpcY;
 	dial_ = new DialogBox(x+50, y+100, 30, 10);
+	Morning::StaticDrawble.push_back(dial_);
 	startPoint = 0;
 	timer = 5;
 	isActive = true;
@@ -24,6 +26,7 @@ void WaitTask::tick(float dt_) {
 }
 
 void WaitTask::endExecute() {
+	Morning::StaticDrawble.erase(std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_));
 	isActive = false;
 	if (dial_) {
 		delete dial_;
@@ -33,8 +36,3 @@ void WaitTask::endExecute() {
 	return TaskNode::endExecute();
 }
 
-void WaitTask::render(sf::RenderWindow& window) {
-	if (isActive && dial_) {
-		dial_->renderGameObject(window); 
-	}
-}

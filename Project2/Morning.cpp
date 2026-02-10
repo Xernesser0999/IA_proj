@@ -1,5 +1,7 @@
 #include "Morning.h"
 
+std::vector<GameObjects*> Morning::StaticDrawble = {};
+
 Morning::Morning(sf::RenderWindow& window) {
     bg = new sf::RectangleShape();
     createGameObjects();
@@ -48,10 +50,14 @@ void Morning::displayScene(sf::RenderWindow& window) {
     store->renderGameObject(window);
     bakery->renderGameObject(window);
     candy_shop->renderGameObject(window);
-
     for (auto* npc : npcs) {
         npc->render(window);
     }
+    for (auto& StaticDraw : StaticDrawble)
+    {
+        StaticDraw->renderGameObject(window);
+    }
+    
 }
 
 

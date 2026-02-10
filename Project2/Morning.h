@@ -31,5 +31,7 @@ public:
 	std::vector<sf::Texture*> vecTex;
 	sf::RectangleShape* bg;
 	const float duration = 20.0f;
+
+	static std::vector<GameObjects*> StaticDrawble;
 };
 
