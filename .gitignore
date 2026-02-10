@@ -38,3 +38,8 @@ exe/
 *.idb
 *.pdb
 *.ilk
+*.recipe
+*.tlog
+*.lastbuildstate
+*.idb
+*.pdb
