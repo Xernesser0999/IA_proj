@@ -6,6 +6,22 @@
 RequestTask::RequestTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
 }
 
+RequestTask::~RequestTask(){
+    if (dial_ != nullptr) {
+        auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
+        if (it != Morning::StaticDrawble.end()) {
+            *it = nullptr;  
+        }
+        delete dial_;
+        dial_ = nullptr;
+    }
+
+    if (dialog != nullptr) {
+        delete dialog;
+        dialog = nullptr;
+    }
+}
+
 void RequestTask::beginExecute() {
     auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
     x = blackboard->coorNpcX;
@@ -36,8 +52,11 @@ void RequestTask::tick(float dt_) {
 }
 
 void RequestTask::endExecute() {
-    Morning::StaticDrawble.erase(std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_));
     isActive = false;
+    auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
+    if (it != Morning::StaticDrawble.end()) {
+        *it = nullptr; 
+    }
     if (dial_) {
         delete dial_;
         dial_ = nullptr;
