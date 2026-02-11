@@ -28,7 +28,7 @@ public:
 	Clock btClock;
 	Clock spawnClock;
 	float spawnTimer;
-	const float spawnInterval = 2.0f; 
+	const float spawnInterval = 1.0f; 
 
 	std::vector<sf::Texture*> vecTex;
 	sf::RectangleShape* bg;
@@ -43,6 +43,8 @@ public:
 	int Day_number = 1;
 	sf::Font fonta;
 	sf::Text textclock;
+
+	int random;
 
 	static std::vector<GameObjects*> StaticDrawble;
 };

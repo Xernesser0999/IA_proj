@@ -44,4 +44,6 @@ public:
 	int Day_number = 1;
 	sf::Font fonta;
 	sf::Text textclock;
+
+	static std::vector<GameObjects*> StaticDrawble;
 };

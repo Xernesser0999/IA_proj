@@ -10,6 +10,8 @@ public:
 	void renderGameObject(sf::RenderWindow& window) override;
 
 public:
+	sf::Font font;
+	sf::Text text;
 
 	sf::RectangleShape* dialog;
 };

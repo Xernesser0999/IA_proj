@@ -143,9 +143,8 @@ void Morning::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindo
 }
 
 void Morning::spawnNpc() {
-    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
+    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");   // 800 max  300 min
     NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
-	srand(time(0));
 	int random = rand() % 3;
 	int randomXShop = rand() % 100 + 250;
     npcBlackboard->coorNpcX = newNpc->posX;

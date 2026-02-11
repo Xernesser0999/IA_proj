@@ -47,4 +47,6 @@ public:
 
 	sf::Font fonta;
 	sf::Text textclock;
+
+	static std::vector<GameObjects*> StaticDrawble;
 };

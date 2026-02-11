@@ -1,5 +1,7 @@
 #include "Night.h"
 
+std::vector<GameObjects*> Night::StaticDrawble = {};
+
 Night::Night(sf::RenderWindow& window) : textclock(fonta) {
     bg = new sf::RectangleShape();
     createGameObjects();
@@ -93,6 +95,10 @@ void Night::displayScene(sf::RenderWindow& window) {
 
     for (auto* npc : npcs) {
         npc->render(window);
+    }
+    for (auto& StaticDraw : StaticDrawble)
+    {
+        StaticDraw->renderGameObject(window);
     }
 
     window.draw(*rectangle);

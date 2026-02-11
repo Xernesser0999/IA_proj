@@ -1,5 +1,7 @@
 #include "Day.h"
 
+std::vector<GameObjects*> Day::StaticDrawble = {};
+
 Day::Day(sf::RenderWindow& window) : textclock(fonta) {
     bg = new sf::RectangleShape();
     createGameObjects();
@@ -93,6 +95,10 @@ void Day::displayScene(sf::RenderWindow& window) {
 
     for (auto* npc : npcs) {
         npc->render(window);
+    }
+    for (auto& StaticDraw : StaticDrawble)
+    {
+        StaticDraw->renderGameObject(window);
     }
 
     window.draw(*rectangle);
