@@ -13,5 +13,7 @@ void SequenceFlow::onChildWorkEnd(ENodeState childState) {
 			getParent()->onChildWorkEnd(ENodeState::Success);
 		}
 	}
-
+	else {
+		FluxNode::onChildWorkEnd(ENodeState::Failure);
+	}
 }

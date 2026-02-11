@@ -10,10 +10,10 @@ void FallbackFlow::onChildWorkEnd(ENodeState childState) {
 	if (childState == ENodeState::Failure) {
 		FluxNode::onChildWorkEnd(childState);
 		if (currentExecuteChild == nullptr) {
-			getParent()->onChildWorkEnd(ENodeState::Success);	
+			getParent()->onChildWorkEnd(ENodeState::Failure);	
 		}
 	}
 	else {
-		FluxNode::onChildWorkEnd(ENodeState::Failure);
+		FluxNode::onChildWorkEnd(ENodeState::Success);
 	}
 }
