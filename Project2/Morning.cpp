@@ -42,7 +42,7 @@ void Morning::clearlevel() {
         delete npc;
     }
     npcs.clear();
-
+    StaticDrawble.clear();
     delete TX;
     delete rectangle;
     TX = nullptr;
@@ -75,7 +75,7 @@ void Morning::createGameObjects() {
     rectangle->setPosition(pos);
     rectangle->setTexture(TX);
 
-    timer = 20;
+    timer = 10;
     startPoint = 0;
 
     fonta.openFromFile("Pixellettersfull-BnJ5.ttf");
@@ -94,9 +94,10 @@ void Morning::displayScene(sf::RenderWindow& window) {
     for (auto* npc : npcs) {
         npc->render(window);
     }
-    for (auto& StaticDraw : StaticDrawble)
-    {
-        StaticDraw->renderGameObject(window);
+    for (auto& StaticDraw : StaticDrawble) {
+        if (StaticDraw != nullptr) {
+            StaticDraw->renderGameObject(window);
+        }
     }
     window.draw(*rectangle);
     window.draw(textclock);
@@ -115,6 +116,9 @@ void Morning::update(const bool* keys, float dt) {
         spawnNpc();
         spawnTimer = 0.0f; 
     }
+
+    StaticDrawble.erase( std::remove(StaticDrawble.begin(), StaticDrawble.end(), nullptr), StaticDrawble.end());
+
     for (size_t i = 0; i < npcs.size(); ++i) {
         npcBehaviorTrees[i]->tick(dt);
         npcs[i]->update(dt, bakery);

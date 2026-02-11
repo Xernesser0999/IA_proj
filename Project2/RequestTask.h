@@ -11,7 +11,7 @@ class RequestTask : public TaskNode {
 public:
 	RequestTask() = default;
 	RequestTask(FluxNode* parent, BehaviourTree* bt = nullptr);
-	virtual ~RequestTask() override = default;
+	virtual ~RequestTask() override;
 
 	virtual void beginExecute() override;
 	virtual void tick(float dt) override;
