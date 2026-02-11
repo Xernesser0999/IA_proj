@@ -7,7 +7,7 @@
 #include "KeyStruct.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "AI marchand", sf::Style::None, sf::State::Fullscreen);
     SceneManager sM = SceneManager(window);
     keys myKeys;
     sf::Clock clock;

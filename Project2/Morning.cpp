@@ -60,6 +60,7 @@ void Morning::setImages(sf::RectangleShape* myRect, const char* path, float x, f
 void Morning::createGameObjects() {
     setImages(bg, "sprite/ground.png", 0, 0, 1920, 1080);
 
+
     bakery = new Bakery(0, 0, 450, 400);
 	shops.push_back(bakery);
     store = new Store(450, 0, 420, 400);
@@ -147,7 +148,7 @@ void Morning::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindo
 }
 
 void Morning::spawnNpc() {
-    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");   // 800 max  300 min
+    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
     NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
 	int random = rand() % 3;
 	int randomXShop = rand() % 100 + 250;

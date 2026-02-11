@@ -42,7 +42,7 @@ void Day::clearlevel() {
         delete npc;
     }
     npcs.clear();
-
+    StaticDrawble.clear();
     delete TX;
     delete rectangle;
     TX = nullptr;
@@ -68,7 +68,6 @@ void Day::createGameObjects() {
     shops.push_back(candy_shop);
 
     btClock = Clock(true);
-
     TX = new sf::Texture();
     TX->loadFromFile("sprite/Clock_day.png");
 
@@ -76,7 +75,7 @@ void Day::createGameObjects() {
     rectangle->setPosition(pos);
     rectangle->setTexture(TX);
 
-    timer = 5;
+    timer = 10;
     startPoint = 0;
 
     fonta.openFromFile("Pixellettersfull-BnJ5.ttf");
@@ -92,18 +91,18 @@ void Day::displayScene(sf::RenderWindow& window) {
     store->renderGameObject(window);
     bakery->renderGameObject(window);
     candy_shop->renderGameObject(window);
-
     for (auto* npc : npcs) {
         npc->render(window);
     }
-    for (auto& StaticDraw : StaticDrawble)
-    {
-        StaticDraw->renderGameObject(window);
+    for (auto& StaticDraw : StaticDrawble) {
+        if (StaticDraw != nullptr) {
+            StaticDraw->renderGameObject(window);
+        }
     }
-
     window.draw(*rectangle);
     window.draw(textclock);
 }
+
 
 void Day::update(const bool* keys, float dt) {
     bakery->updateGameObject(dt);
@@ -117,12 +116,13 @@ void Day::update(const bool* keys, float dt) {
         spawnNpc();
         spawnTimer = 0.0f;
     }
-    float btdt = btClock.getElapsedTime();
+
+    StaticDrawble.erase(std::remove(StaticDrawble.begin(), StaticDrawble.end(), nullptr), StaticDrawble.end());
+
     for (size_t i = 0; i < npcs.size(); ++i) {
         npcBehaviorTrees[i]->tick(dt);
         npcs[i]->update(dt, bakery);
     }
-
     startPoint += dt;
 
     if (startPoint >= timer) {
@@ -137,26 +137,24 @@ void Day::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& w
     }
 
     if (daypass == true) {
-        currentScene = night;
         daypass = false;
         Day_number += 1;
         textclock.setString("Day " + std::to_string(Day_number));
         clearlevel();
         createGameObjects();
+        currentScene = night;
     }
 }
 
 void Day::spawnNpc() {
-    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
+    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");   // 800 max  300 min
     NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
-    srand(time(0));
     int random = rand() % 3;
     int randomXShop = rand() % 100 + 250;
     npcBlackboard->coorNpcX = newNpc->posX;
     npcBlackboard->coorNpcY = newNpc->posY;
     npcBlackboard->shopCoorX = shops[random]->pos.x + shops[random]->size.x - randomXShop;
     npcBlackboard->shopCoorY = shops[random]->pos.y + shops[random]->size.y - 100;
-
     newNpc->bt = npcBlackboard;
 
     NpcBehaviourTree* npcBt = new NpcBehaviourTree(newNpc);

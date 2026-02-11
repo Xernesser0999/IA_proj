@@ -32,6 +32,10 @@ public:
 
 	std::vector<sf::Texture*> vecTex;
 	sf::RectangleShape* bg;
+
+	sf::RectangleShape* filter;
+	sf::Texture* TXfilter;
+
 	const float duration = 20.0f;
 	sf::Vector2f pos = { 1920 - 320, 0 };
 	sf::Vector2f size = { 320, 320 };
