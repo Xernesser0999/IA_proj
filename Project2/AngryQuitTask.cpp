@@ -1,16 +1,16 @@
-#include "RequestTask.h"
+#include "AngryQuitTask.h"
 
 #include "Morning.h"
 
 
-RequestTask::RequestTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
+AngryQuit::AngryQuit(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
 }
 
-RequestTask::~RequestTask(){
+AngryQuit::~AngryQuit() {
     if (dial_ != nullptr) {
         auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
         if (it != Morning::StaticDrawble.end()) {
-            *it = nullptr;  
+            *it = nullptr;
         }
         delete dial_;
         dial_ = nullptr;
@@ -22,7 +22,7 @@ RequestTask::~RequestTask(){
     }
 }
 
-void RequestTask::beginExecute() {
+void AngryQuit::beginExecute() {
     auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
     x = blackboard->coorNpcX;
     y = blackboard->coorNpcY;
@@ -34,7 +34,7 @@ void RequestTask::beginExecute() {
     isActive = true;
 }
 
-void RequestTask::tick(float dt_) {
+void AngryQuit::tick(float dt_) {
     if (!isActive)
         return;
 
@@ -42,6 +42,7 @@ void RequestTask::tick(float dt_) {
     if (dial_ && dial_->dialog) {
         x = blackboard->coorNpcX - 25;
         y = blackboard->coorNpcY - 50;
+        dial_->text("Bouffe tes mort");
         dial_->dialog->setPosition(sf::Vector2f(x, y));
     }
     startPoint += dt_;
@@ -51,17 +52,17 @@ void RequestTask::tick(float dt_) {
     }
 }
 
-void RequestTask::endExecute() {
+void AngryQuit::endExecute() {
     isActive = false;
     auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
     if (it != Morning::StaticDrawble.end()) {
-        *it = nullptr; 
+        *it = nullptr;
     }
     if (dial_) {
         delete dial_;
         dial_ = nullptr;
     }
-    getParent()->onChildWorkEnd(ENodeState::Failure);
+    getParent()->onChildWorkEnd(ENodeState::Success);
     return TaskNode::endExecute();
 }
 

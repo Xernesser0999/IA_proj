@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AIQuitTask.cpp" />
+    <ClCompile Include="AngryQuitTask.cpp" />
     <ClCompile Include="Baker.cpp" />
     <ClCompile Include="Bakery.cpp" />
     <ClCompile Include="BehaviourTree.cpp" />
@@ -170,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIQuitTask.h" />
+    <ClInclude Include="AngryQuitTask.h" />
     <ClInclude Include="Baker.h" />
     <ClInclude Include="Bakery.h" />
     <ClInclude Include="BehaviourTree.h" />

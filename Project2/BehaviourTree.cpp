@@ -7,6 +7,7 @@
 #include "WaitTask.h"
 #include "AIQuitTask.h"
 #include "RequestTask.h"
+#include "AngryQuitTask.h"
 
 BehaviourTree::BehaviourTree() : BehaviourTree(nullptr){
 }
@@ -76,6 +77,9 @@ void NpcBehaviourTree::buildSubChilds(){
 	SequenceFlow* Sequence = new SequenceFlow(FallBack, this);
 	FallBack->addChild(Sequence);
 
+	AngryQuit* angry = new AngryQuit(FallBack, this);
+	FallBack->addChild(angry);
+
 	MoveToTask* moveTo = new MoveToTask(Sequence, this);
 	RequestTask* request = new RequestTask(Sequence, this);
 	WaitTask* wait = new WaitTask(Sequence, this);
@@ -86,6 +90,7 @@ void NpcBehaviourTree::buildSubChilds(){
 	Sequence->addChild(quit);
 
 	allNodes.push_back(FallBack);
+	allNodes.push_back(angry);
 	allNodes.push_back(Sequence);
 	allNodes.push_back(moveTo);
 	allNodes.push_back(request);

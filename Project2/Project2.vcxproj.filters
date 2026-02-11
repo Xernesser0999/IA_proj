@@ -76,6 +76,8 @@
     <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="Day.cpp" />
     <ClCompile Include="Night.cpp" />
+    <ClCompile Include="RequestTask.cpp" />
+    <ClCompile Include="AngryQuitTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -150,6 +152,8 @@
     <ClInclude Include="DialogBox.h" />
     <ClInclude Include="Day.h" />
     <ClInclude Include="Night.h" />
+    <ClInclude Include="RequestTask.h" />
+    <ClInclude Include="AngryQuitTask.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">

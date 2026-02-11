@@ -8,10 +8,11 @@ public:
 
 	void updateGameObject(float dt) override;
 	void renderGameObject(sf::RenderWindow& window) override;
+	void text(std::string text_);
 
 public:
 	sf::Font font;
-	sf::Text text;
+	sf::Text textdial;
 
 	sf::RectangleShape* dialog;
 };

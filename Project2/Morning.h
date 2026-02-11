@@ -28,7 +28,7 @@ public:
 	Clock btClock;
 	Clock spawnClock;
 	float spawnTimer;
-	const float spawnInterval = 1.0f; 
+	const float spawnInterval = 2.0f; 
 
 	std::vector<sf::Texture*> vecTex;
 	sf::RectangleShape* bg;
@@ -36,7 +36,7 @@ public:
 	sf::RectangleShape* filter;
 	sf::Texture* TXfilter;
 
-	const float duration = 20.0f;
+	const float duration = 50.0f;
 	sf::Vector2f pos = { 1920 - 320, 0 };
 	sf::Vector2f size = { 320, 320 };
 	sf::Texture* TX;
