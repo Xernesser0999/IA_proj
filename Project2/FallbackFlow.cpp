@@ -7,13 +7,28 @@ FallbackFlow::FallbackFlow(FluxNode* parent, const std::vector<Node*>& children,
 }
 
 void FallbackFlow::onChildWorkEnd(ENodeState childState) {
-	if (childState == ENodeState::Failure) {
-		FluxNode::onChildWorkEnd(childState);
-		if (currentExecuteChild == nullptr) {
-			getParent()->onChildWorkEnd(ENodeState::Success);
-		}
-	}
-	else {
-		getParent()->onChildWorkEnd(ENodeState::Failure);
-	}
+    if (childState == ENodeState::Failure) {
+        FluxNode::onChildWorkEnd(childState);
+        if (currentExecuteChild != nullptr) {
+            currentExecuteChild->beginExecute();
+        }
+        else {
+            if (getParent() != nullptr) {
+                getParent() ->onChildWorkEnd(ENodeState::Success);
+            }
+            else {
+                currentExecuteChild = *childNodes.begin();
+                currentExecuteChild->beginExecute();
+            }
+        }
+    }
+    else {
+        if (getParent() != nullptr) {
+            getParent()->onChildWorkEnd(ENodeState::Failure);
+        }
+        else {
+            currentExecuteChild = *childNodes.begin();
+            currentExecuteChild->beginExecute();
+        }
+    }
 }

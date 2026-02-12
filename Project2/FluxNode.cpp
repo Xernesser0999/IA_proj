@@ -36,9 +36,7 @@ void FluxNode::onChildWorkEnd(ENodeState childState) {
 	if (it != childNodes.end()) {
 		int index = std::distance(childNodes.begin(), it) + 1;
 		if (index < childNodes.size()) {
-			currentExecuteChild = childNodes[index];
-			currentExecuteChild->beginExecute();	
-		}
+			currentExecuteChild = childNodes[index];		}
 		else {
 			currentExecuteChild = nullptr;
 		}

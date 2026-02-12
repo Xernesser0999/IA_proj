@@ -77,14 +77,6 @@ void NpcBehaviourTree::buildSubChilds(){
 	SequenceFlow* Sequence = new SequenceFlow(FallBack, this);
 	FallBack->addChild(Sequence);
 
-<<<<<<< Updated upstream
-=======
-	AngryQuit* angry = new AngryQuit(FallBack, this);
-	FallBack->addChild(angry);
-	AIQuitTask* quitAngry = new AIQuitTask(FallBack, this);
-	FallBack->addChild(quitAngry);
-
->>>>>>> Stashed changes
 	MoveToTask* moveTo = new MoveToTask(Sequence, this);
 	RequestTask* request = new RequestTask(Sequence, this);
 	WaitTask* wait = new WaitTask(Sequence, this);
@@ -98,24 +90,20 @@ void NpcBehaviourTree::buildSubChilds(){
 	FallBack->addChild(SequenceQuit);
 
 	AngryQuit* angry = new AngryQuit(SequenceQuit, this);
-	AIQuitTask* ragequit = new AIQuitTask(SequenceQuit, this);
 	SequenceQuit->addChild(angry);
-	SequenceQuit->addChild(ragequit);
+	AIQuitTask* quitAngry = new AIQuitTask(SequenceQuit, this);
+	SequenceQuit->addChild(quitAngry);
+
 
 	allNodes.push_back(FallBack);
-<<<<<<< Updated upstream
-=======
 	allNodes.push_back(angry);
 	allNodes.push_back(quitAngry);
->>>>>>> Stashed changes
 	allNodes.push_back(Sequence);
 	allNodes.push_back(moveTo);
 	allNodes.push_back(request);
 	allNodes.push_back(wait);
 	allNodes.push_back(quit);
 	allNodes.push_back(SequenceQuit);
-	allNodes.push_back(angry);
-	allNodes.push_back(ragequit);
 }
 
 Clock::Clock(bool startNow) {
