@@ -1,10 +1,14 @@
 #pragma once
 #include "Pawn.h"
 
-class Baker : public pawn{
-	public:
-	Baker(float posX_, float posY_, std::string file);
+class Baker : public Pawn {
+public:
+	Baker();
+	Baker(float posX_, float posY_, float sizeX, float sizeY, float speed_, std::string file);
+	
+	void update(float dt, GameObjects* shop) override;
 
-	void update(float dt) override;
+public:
+	bool direction = true;
 };
 

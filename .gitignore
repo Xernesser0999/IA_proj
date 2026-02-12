@@ -29,4 +29,12 @@
 *.out
 *.app
 
-/.vs
+.vs/
+x64/
+exe/
+
+*.tlog
+*.log
+*.idb
+*.pdb
+*.ilk

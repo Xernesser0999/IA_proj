@@ -1,36 +1,207 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Pawn.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Baker.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Character</Filter>
     </ClCompile>
+    <ClCompile Include="FluxNode.cpp">
+      <Filter>Fichiers sources\BehaviourTree\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="RootNode.cpp">
+      <Filter>Fichiers sources\BehaviourTree\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskNode.cpp">
+      <Filter>Fichiers sources\BehaviourTree\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyStruct.cpp">
+      <Filter>Fichiers sources\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Morning.cpp">
+      <Filter>Fichiers sources\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Fichiers sources\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Fichiers sources\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Fichiers sources\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Npc.cpp">
+      <Filter>Fichiers sources\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Bakery.cpp">
+      <Filter>Fichiers sources\Shops</Filter>
+    </ClCompile>
+    <ClCompile Include="Store.cpp">
+      <Filter>Fichiers sources\Shops</Filter>
+    </ClCompile>
+    <ClCompile Include="CandyShop.cpp">
+      <Filter>Fichiers sources\Shops</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Fichiers sources\BehaviourTree\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>Fichiers sources\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects.cpp">
+      <Filter>Fichiers sources\Shops</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviourTree.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceFlow.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI_button.cpp">
+      <Filter>Fichiers sources\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="AIQuitTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="FallbackFlow.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveToTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogBox.cpp" />
+    <ClCompile Include="Day.cpp" />
+    <ClCompile Include="Night.cpp" />
+    <ClCompile Include="RequestTask.cpp" />
+    <ClCompile Include="AngryQuitTask.cpp" />
+    <ClCompile Include="AiStop.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Pawn.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Baker.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Character</Filter>
     </ClInclude>
+    <ClInclude Include="FluxNode.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="RootNode.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskNode.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyStruct.h">
+      <Filter>Fichiers d%27en-tête\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Fichiers d%27en-tête\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Morning.h">
+      <Filter>Fichiers d%27en-tête\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Fichiers d%27en-tête\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Fichiers d%27en-tête\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Npc.h">
+      <Filter>Fichiers d%27en-tête\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Bakery.h">
+      <Filter>Fichiers d%27en-tête\Shops</Filter>
+    </ClInclude>
+    <ClInclude Include="Store.h">
+      <Filter>Fichiers d%27en-tête\Shops</Filter>
+    </ClInclude>
+    <ClInclude Include="CandyShop.h">
+      <Filter>Fichiers d%27en-tête\Shops</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Pawn.h">
+      <Filter>Fichiers d%27en-tête\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects.h">
+      <Filter>Fichiers d%27en-tête\Shops</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviourTree.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceFlow.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI_button.h">
+      <Filter>Fichiers d%27en-tête\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="AIQuitTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="FallbackFlow.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveToTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogBox.h" />
+    <ClInclude Include="Day.h" />
+    <ClInclude Include="Night.h" />
+    <ClInclude Include="RequestTask.h" />
+    <ClInclude Include="AngryQuitTask.h" />
+    <ClInclude Include="AiStop.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{1a54f08c-e746-44ab-823b-1b0da24643c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{182a8f55-9192-4704-9b31-dd9823f88aef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{eeb503ac-a8c5-4c2c-bfa5-97a1cc8719b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Character">
+      <UniqueIdentifier>{55bc84b1-82b9-47fb-91e6-925381a7873f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Character">
+      <UniqueIdentifier>{aa7eccb2-0ff8-4e5e-b6aa-58a829b168a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\SceneManager">
+      <UniqueIdentifier>{c3ff0174-865a-415e-8635-911c10765bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\SceneManager">
+      <UniqueIdentifier>{c750f4bc-2b4a-4e79-9340-8b2ffcb84847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Level">
+      <UniqueIdentifier>{45979e41-4501-4519-8e12-5609e6847eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Level">
+      <UniqueIdentifier>{2b45693b-7d3e-4c50-831f-5e2365e3f97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Shops">
+      <UniqueIdentifier>{2cfe0371-e6ca-4383-8f62-e5c99ec281d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Shops">
+      <UniqueIdentifier>{9e7bd3ff-e4cd-4a81-8625-1a2918bf24f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\BehaviourTree">
+      <UniqueIdentifier>{61339b24-42ea-4af6-91bb-a7f1a6de1140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\BehaviourTree\Nodes">
+      <UniqueIdentifier>{bfc629a2-ce98-4cdf-bf71-0a4aea433c60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\BehaviourTree">
+      <UniqueIdentifier>{7abf6fba-b929-4d42-b506-f91a575dc419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\BehaviourTree\Nodes">
+      <UniqueIdentifier>{6747bc17-0280-4a5f-a1f4-e4f7ce672dcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -139,13 +139,67 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AIQuitTask.cpp" />
+    <ClCompile Include="AiStop.cpp" />
+    <ClCompile Include="AngryQuitTask.cpp" />
     <ClCompile Include="Baker.cpp" />
+    <ClCompile Include="Bakery.cpp" />
+    <ClCompile Include="BehaviourTree.cpp" />
+    <ClCompile Include="CandyShop.cpp" />
+    <ClCompile Include="Day.cpp" />
+    <ClCompile Include="DialogBox.cpp" />
+    <ClCompile Include="FallbackFlow.cpp" />
+    <ClCompile Include="FluxNode.cpp" />
+    <ClCompile Include="GUI_button.cpp" />
+    <ClCompile Include="KeyStruct.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Morning.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MoveToTask.cpp" />
+    <ClCompile Include="Night.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="RequestTask.cpp" />
+    <ClCompile Include="RootNode.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SequenceFlow.cpp" />
+    <ClCompile Include="GameObjects.cpp" />
+    <ClCompile Include="Store.cpp" />
+    <ClCompile Include="TaskNode.cpp" />
+    <ClCompile Include="WaitTask.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AIQuitTask.h" />
+    <ClInclude Include="AiStop.h" />
+    <ClInclude Include="AngryQuitTask.h" />
     <ClInclude Include="Baker.h" />
+    <ClInclude Include="Bakery.h" />
+    <ClInclude Include="BehaviourTree.h" />
+    <ClInclude Include="CandyShop.h" />
+    <ClInclude Include="Day.h" />
+    <ClInclude Include="DialogBox.h" />
+    <ClInclude Include="FallbackFlow.h" />
+    <ClInclude Include="FluxNode.h" />
+    <ClInclude Include="GUI_button.h" />
+    <ClInclude Include="KeyStruct.h" />
+    <ClInclude Include="Morning.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MoveToTask.h" />
+    <ClInclude Include="Night.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Npc.h" />
     <ClInclude Include="Pawn.h" />
+    <ClInclude Include="RequestTask.h" />
+    <ClInclude Include="RootNode.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SequenceFlow.h" />
+    <ClInclude Include="GameObjects.h" />
+    <ClInclude Include="Store.h" />
+    <ClInclude Include="TaskNode.h" />
+    <ClInclude Include="WaitTask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

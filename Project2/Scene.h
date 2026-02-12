@@ -1,0 +1,26 @@
+#pragma once
+#include <SFML/Graphics.hpp>
+#include <optional>
+#include "KeyStruct.h"
+#include "Baker.h"
+#include "Bakery.h"
+#include "Store.h"
+#include "CandyShop.h"
+#include "Npc.h"
+
+enum SceneState { 
+	menu,
+	morning,
+	day,
+	night
+};
+
+
+class Scene {
+public:
+
+	Scene();
+	virtual ~Scene();
+	virtual void displayScene(sf::RenderWindow& window);
+	virtual void nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) = 0; 
+};

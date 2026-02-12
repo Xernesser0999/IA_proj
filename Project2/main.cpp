@@ -1,36 +1,33 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
+#include <string>
 
 #include "Baker.h"
+#include "SceneManager.h"
+#include "KeyStruct.h"
 
-int main()
-{
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
-
-    // Load a sprite to display
-    Baker test(0, 0, "pp.png");
+int main() {
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "AI marchand");
+    SceneManager sM = SceneManager(window);
+    SceneManager::Instance = &sM;//Ne pas supprimer, mis par Benoit
+    keys myKeys;
     sf::Clock clock;
-    // Start the game loop
-    while (window.isOpen())
-    {
+    
+    while (window.isOpen()){
         float dt = clock.restart().asSeconds();
-        // Process events
-        while (const auto event = window.pollEvent())
-        {
-            // Close window: exit
+        while (const auto event = window.pollEvent()){
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
 
-        // Clear screen
+        myKeys.initKeys(myKeys.myKeys);
+        sM.manageState(&myKeys, window);
+        sM.updateState(myKeys.myKeys, dt, window);
+
         window.clear();
 
-        // Draw the sprite
-        test.update(dt);
-        test.render(window);
+        sM.displayState(window);
 
-        // Update the window
         window.display();
     }
 }

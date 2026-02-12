@@ -1,29 +1,44 @@
 #include "Pawn.h"
 
-#include <SFML/Graphics.hpp>
-#include <optional>
+Pawn::Pawn() {
+}
 
-pawn::pawn(float posX_, float posY_, std::string file) {
+Pawn::Pawn(float posX_, float posY_, float sizeX_, float sizeY_, float speed_, std::string file) {
 	posX = posX_;
 	posY = posY_;
+	sizeX = sizeX_;
+	sizeY = sizeY_;
 	pos = { posX_, posY_ };
-	
-	TX = new sf::Texture(file.c_str());
-	sprite = new sf::Sprite(*TX);
+	size = { sizeX_, sizeY_};
+	speed = speed_;
+
+	TX = new sf::Texture();
+	TX->loadFromFile(file);
+
+	rectangle = new sf::RectangleShape(size);
+	rectangle->setPosition(pos);
+	rectangle->setTexture(TX);
 }
 
-pawn::~pawn() {
+Pawn::~Pawn() {
 	TX = nullptr;
-	sprite = nullptr;
-
+	rectangle = nullptr;
 	delete TX;
-	delete sprite;
+	delete rectangle;
 }
 
-void pawn::update(float dt) {
+void Pawn::update(float dt, GameObjects* shop) {
 
 }
 
-void pawn::render(sf::RenderWindow& window) {
-	window.draw(*sprite);
+void Pawn::render(sf::RenderWindow& window) {
+	window.draw(*rectangle);
+}
+
+void Pawn::moneyAdd(float change) {
+	money += change;
+}
+
+void Pawn::moneySubstract(float change) {
+	money -= change;
 }
