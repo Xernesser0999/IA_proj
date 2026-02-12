@@ -1,13 +1,13 @@
 #include "GUI_button.h"
 
-GUI_button::GUI_button(float posX_, float posY_, float sizeX, float sizeY, std::string file) {
+GUI_button::GUI_button(float posX_, float posY_, float sizeX, float sizeY, std::string file, std::string hover) {
     pos = { posX_, posY_ };
     size = { sizeX, sizeY };
 
     TX = new sf::Texture();
     TX->loadFromFile(file);
 	TX2 = new sf::Texture();
-	TX2->loadFromFile("sprite/Play_button_hover.png");
+	TX2->loadFromFile(hover);
 
     rectangle = new sf::RectangleShape(size);
     rectangle->setPosition(pos);

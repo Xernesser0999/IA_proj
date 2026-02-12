@@ -76,7 +76,7 @@ void Morning::createGameObjects() {
     rectangle->setPosition(pos);
     rectangle->setTexture(TX);
 
-    timer = 50;
+    timer = 15;
     startPoint = 0;
 
     fonta.openFromFile("Pixellettersfull-BnJ5.ttf");

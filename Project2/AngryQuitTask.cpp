@@ -26,7 +26,7 @@ void AngryQuit::beginExecute() {
     auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
     x = blackboard->coorNpcX;
     y = blackboard->coorNpcY;
-    dial_ = new DialogBox(x - 90, y - 80, 150, 45);
+    dial_ = new DialogBox(x - 110, y - 80, 200, 45);
     Morning::StaticDrawble.push_back(dial_);
 
     startPoint = 0.0f;
@@ -42,7 +42,7 @@ void AngryQuit::tick(float dt_) {
     if (dial_ && dial_->dialog) {
         x = blackboard->coorNpcX - 25;
         y = blackboard->coorNpcY - 50;
-        dial_->text("Bouffe tes mort");
+        dial_->text("Style, plus de pain..");
         dial_->dialog->setPosition(sf::Vector2f(x, y));
     }
     startPoint += dt_;

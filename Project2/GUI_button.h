@@ -17,7 +17,7 @@ public:
 
 public:
 
-	GUI_button(float posX_, float posY_, float sizeX, float sizeY, std::string file);
+	GUI_button(float posX_, float posY_, float sizeX, float sizeY, std::string file, std::string hover);
 	~GUI_button();
 
 	void render(sf::RenderWindow& window);

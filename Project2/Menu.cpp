@@ -8,8 +8,8 @@ Menu::~Menu() {
 }
 
 void Menu::createGameObjects() {
-	button = new GUI_button(1920/2-250, 1080/2-50, 500, 100, "sprite/Play_button.png");
-	Quit_button = new GUI_button(1920 / 2 - 250, 1080 / 2 - 50 + 100, 500, 100, "pp.png");
+	button = new GUI_button(1920/2-250, 1080/2-50, 500, 100, "sprite/Play_button.png", "sprite/Play_button_hover.png");
+	Quit_button = new GUI_button(1920 / 2 - 250, 1080 / 2 - 50 + 100, 500, 100, "sprite/quit.png", "sprite/quit_hover.png");
 }
 
 void Menu::displayScene(sf::RenderWindow& window) {
