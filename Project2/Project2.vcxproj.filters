@@ -78,6 +78,7 @@
     <ClCompile Include="Night.cpp" />
     <ClCompile Include="RequestTask.cpp" />
     <ClCompile Include="AngryQuitTask.cpp" />
+    <ClCompile Include="AiStop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -154,6 +155,7 @@
     <ClInclude Include="Night.h" />
     <ClInclude Include="RequestTask.h" />
     <ClInclude Include="AngryQuitTask.h" />
+    <ClInclude Include="AiStop.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">
