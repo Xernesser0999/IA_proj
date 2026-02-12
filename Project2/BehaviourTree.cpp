@@ -77,6 +77,14 @@ void NpcBehaviourTree::buildSubChilds(){
 	SequenceFlow* Sequence = new SequenceFlow(FallBack, this);
 	FallBack->addChild(Sequence);
 
+<<<<<<< Updated upstream
+=======
+	AngryQuit* angry = new AngryQuit(FallBack, this);
+	FallBack->addChild(angry);
+	AIQuitTask* quitAngry = new AIQuitTask(FallBack, this);
+	FallBack->addChild(quitAngry);
+
+>>>>>>> Stashed changes
 	MoveToTask* moveTo = new MoveToTask(Sequence, this);
 	RequestTask* request = new RequestTask(Sequence, this);
 	WaitTask* wait = new WaitTask(Sequence, this);
@@ -95,6 +103,11 @@ void NpcBehaviourTree::buildSubChilds(){
 	SequenceQuit->addChild(ragequit);
 
 	allNodes.push_back(FallBack);
+<<<<<<< Updated upstream
+=======
+	allNodes.push_back(angry);
+	allNodes.push_back(quitAngry);
+>>>>>>> Stashed changes
 	allNodes.push_back(Sequence);
 	allNodes.push_back(moveTo);
 	allNodes.push_back(request);

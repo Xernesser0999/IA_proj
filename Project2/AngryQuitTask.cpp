@@ -26,7 +26,7 @@ void AngryQuit::beginExecute() {
     auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
     x = blackboard->coorNpcX;
     y = blackboard->coorNpcY;
-    dial_ = new DialogBox(x - 50, y - 80, 150, 45);
+    dial_ = new DialogBox(x - 90, y - 80, 150, 45);
     Morning::StaticDrawble.push_back(dial_);
 
     startPoint = 0.0f;

@@ -13,7 +13,13 @@ void SequenceFlow::onChildWorkEnd(ENodeState childState) {
 			getParent()->onChildWorkEnd(ENodeState::Success);
 		}
 	}
+<<<<<<< Updated upstream
 	else {
+=======
+	else if (childState == ENodeState::Failure) {
+		// La séquence échoue immédiatement
+		currentExecuteChild = nullptr;
+>>>>>>> Stashed changes
 		getParent()->onChildWorkEnd(ENodeState::Failure);
 	}
 }
