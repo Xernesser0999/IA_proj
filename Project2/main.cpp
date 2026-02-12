@@ -10,6 +10,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "AI marchand");
     //sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "AI marchand", sf::Style::None, sf::State::Fullscreen);
     SceneManager sM = SceneManager(window);
+    SceneManager::Instance = &sM;//Ne pas supprimer, mis par Benoit
     keys myKeys;
     sf::Clock clock;
     

@@ -1,5 +1,7 @@
 #include "SceneManager.h"
 
+SceneManager* SceneManager::Instance = nullptr;
+
 SceneManager::SceneManager(sf::RenderWindow& window) {
 	
 	currentState = SceneState::menu;
@@ -72,7 +74,11 @@ void SceneManager::updateState(const bool* keys, float dt, sf::RenderWindow& win
 	}
 }
 
-SceneState SceneManager::getState()
+SceneState SceneManager::getState() const {
+	return currentState;
+}
+
+SceneManager* SceneManager::GetSceneManager()
 {
-	return SceneState();
+	return Instance;
 }

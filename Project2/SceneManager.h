@@ -22,5 +22,8 @@ public:
 	void manageState(keys* _myKeys, sf::RenderWindow& window);
 	void displayState(sf::RenderWindow& window);
 	void updateState(const bool* keys, float dt, sf::RenderWindow& window);
-	SceneState getState();
+	SceneState getState() const;
+
+	static SceneManager* GetSceneManager();
+	static SceneManager* Instance;
 };

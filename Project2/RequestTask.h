@@ -11,7 +11,7 @@
 class RequestTask : public TaskNode {
 public:
 	RequestTask() = default;
-	RequestTask(FluxNode* parent, BehaviourTree* bt = nullptr);
+	RequestTask(FluxNode* parent, BehaviourTree* bt);
 	virtual ~RequestTask() override;
 
 	virtual void beginExecute() override;
@@ -30,5 +30,5 @@ private:
 	float x;
 	float y;
 	bool isActive = false;
-	SceneState* scene
+	SceneManager* sceneManager = nullptr;
 };

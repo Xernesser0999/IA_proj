@@ -55,6 +55,7 @@ public:
 
 	int shopCoorX;
 	int shopCoorY;
+
 };
 
 class NpcBehaviourTree : public BehaviourTree {
