@@ -30,5 +30,4 @@ private:
 	float x;
 	float y;
 	bool isActive = false;
-	SceneState* scene
 };

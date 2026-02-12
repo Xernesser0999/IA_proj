@@ -14,7 +14,6 @@ void AIQuitTask::beginExecute() {
 	y = blackboard->coorNpcY;
 
 	speed = 250;
-
 }
 
 void AIQuitTask::tick(float dt) {
@@ -41,7 +40,6 @@ void AIQuitTask::tick(float dt) {
 
 	blackboard->coorNpcX = x;
 	blackboard->coorNpcY = y;
-
 
 	if (x == targetX && y == targetY) {
 		endExecute();

@@ -8,6 +8,7 @@
 #include "AIQuitTask.h"
 #include "RequestTask.h"
 #include "AngryQuitTask.h"
+#include "AiStop.h"
 
 BehaviourTree::BehaviourTree() : BehaviourTree(nullptr){
 }
@@ -58,6 +59,56 @@ void BehaviourTree::cleanTree() {
 void BehaviourTree::buildSubChilds(){
 }
 
+StoreTree::StoreTree() {
+}
+
+StoreTree::StoreTree(GameObjects* owner) : baseNode(nullptr), owner(owner), allNodes({}), blackboard(nullptr) {
+	buildTree();
+}
+
+StoreTree::~StoreTree() {
+	cleanTree();
+}
+
+void StoreTree::execute() {
+	baseNode->beginExecute();
+}
+
+void StoreTree::tick(float dt) {
+	baseNode->tick(dt);
+}
+
+void StoreTree::abort() {
+	baseNode->abort();
+}
+
+Blackboard* StoreTree::getBlackboard() const {
+	return blackboard;
+}
+
+void StoreTree::setBlackboard(Blackboard* bb) {
+	blackboard = bb;
+}
+
+void StoreTree::buildTree() {
+	baseNode = new RootNode;
+	buildSubChilds();
+}
+
+void StoreTree::cleanTree() {
+	delete baseNode;
+	baseNode = nullptr;
+	for (auto* node : allNodes) {
+		delete node;
+		node = nullptr;
+	}
+	allNodes.clear();
+}
+
+void StoreTree::buildSubChilds() {
+}
+
+// NPC behavior tree
 NpcBehaviourTree::NpcBehaviourTree() : NpcBehaviourTree(nullptr){
 }
 
@@ -81,6 +132,7 @@ void NpcBehaviourTree::buildSubChilds(){
 	RequestTask* request = new RequestTask(Sequence, this);
 	WaitTask* wait = new WaitTask(Sequence, this);
 	AIQuitTask* quit = new AIQuitTask(Sequence, this);
+	AiStop* stop = new AiStop(Sequence, this);
 	Sequence->addChild(moveTo);
 	Sequence->addChild(request);
 	Sequence->addChild(wait);
@@ -93,7 +145,7 @@ void NpcBehaviourTree::buildSubChilds(){
 	SequenceQuit->addChild(angry);
 	AIQuitTask* quitAngry = new AIQuitTask(SequenceQuit, this);
 	SequenceQuit->addChild(quitAngry);
-
+	SequenceQuit->addChild(stop);
 
 	allNodes.push_back(FallBack);
 	allNodes.push_back(angry);
@@ -103,9 +155,14 @@ void NpcBehaviourTree::buildSubChilds(){
 	allNodes.push_back(request);
 	allNodes.push_back(wait);
 	allNodes.push_back(quit);
+	allNodes.push_back(stop);
 	allNodes.push_back(SequenceQuit);
 }
 
+// Store Behavior tree
+
+
+// Clock
 Clock::Clock(bool startNow) {
 	if (startNow) {
 		start();
