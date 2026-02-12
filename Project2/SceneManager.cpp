@@ -71,3 +71,8 @@ void SceneManager::updateState(const bool* keys, float dt, sf::RenderWindow& win
 		static_cast<Menu*>(myMenu)->update(keys, dt, window);
 	}
 }
+
+SceneState SceneManager::getState()
+{
+	return SceneState();
+}

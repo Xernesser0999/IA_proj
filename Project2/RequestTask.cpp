@@ -1,8 +1,5 @@
 #include "RequestTask.h"
 
-#include "Morning.h"
-
-
 RequestTask::RequestTask(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
 }
 
@@ -27,7 +24,7 @@ void RequestTask::beginExecute() {
     x = blackboard->coorNpcX;
     y = blackboard->coorNpcY;
     dial_ = new DialogBox(x - 50, y - 80, 150, 45);
-    Morning::StaticDrawble.push_back(dial_);
+    Night::StaticDrawble.push_back(dial_);
 
     startPoint = 0.0f;
     timer = 2.0f;

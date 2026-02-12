@@ -3,6 +3,7 @@
 #include "BehaviourTree.h"
 #include "FluxNode.h"
 #include "DialogBox.h"
+#include "SceneManager.h"
 
 #include <SFML/Graphics.hpp>
 #include <optional>
@@ -29,4 +30,5 @@ private:
 	float x;
 	float y;
 	bool isActive = false;
+	SceneState* scene
 };
