@@ -30,19 +30,7 @@ Morning::~Morning() {
 }
 
 void Morning::clearlevel() {
-    for (auto* npcBlackboard : npcBlackboards) {
-        delete npcBlackboard;
-    }
-    npcBlackboards.clear();
-    for (auto* npcBt : npcBehaviorTrees) {
-        delete npcBt;
-    }
-    npcBehaviorTrees.clear();
-    for (auto* npc : npcs) {
-        delete npc;
-    }
-    npcs.clear();
-    StaticDrawble.clear();
+
     delete TX;
     delete rectangle;
     TX = nullptr;
@@ -76,7 +64,7 @@ void Morning::createGameObjects() {
     rectangle->setPosition(pos);
     rectangle->setTexture(TX);
 
-    timer = 15;
+    timer = 5;
     startPoint = 0;
 
     fonta.openFromFile("Pixellettersfull-BnJ5.ttf");
@@ -92,9 +80,9 @@ void Morning::displayScene(sf::RenderWindow& window) {
     store->renderGameObject(window);
     bakery->renderGameObject(window);
     candy_shop->renderGameObject(window);
-    for (auto* npc : npcs) {
-        npc->render(window);
-    }
+    //for (auto* npc : npcs) {
+    //    npc->render(window);
+    //}
     for (auto& StaticDraw : StaticDrawble) {
         if (StaticDraw != nullptr) {
             StaticDraw->renderGameObject(window);
@@ -113,17 +101,17 @@ void Morning::update(const bool* keys, float dt) {
     float elapsed = spawnClock.getElapsedTime();
     spawnTimer += elapsed;
 
-    if (spawnTimer >= spawnInterval) {
-        spawnNpc();
-        spawnTimer = 0.0f; 
-    }
+    //if (spawnTimer >= spawnInterval) {
+    //    spawnNpc();
+    //    spawnTimer = 0.0f; 
+    //}
 
-    StaticDrawble.erase( std::remove(StaticDrawble.begin(), StaticDrawble.end(), nullptr), StaticDrawble.end());
+    //StaticDrawble.erase( std::remove(StaticDrawble.begin(), StaticDrawble.end(), nullptr), StaticDrawble.end());
 
-    for (size_t i = 0; i < npcs.size(); ++i) {
-        npcBehaviorTrees[i]->tick(dt);
-        npcs[i]->update(dt, bakery);
-    }
+    //for (size_t i = 0; i < npcs.size(); ++i) {
+    //    npcBehaviorTrees[i]->tick(dt);
+    //    npcs[i]->update(dt, bakery);
+    //}
     startPoint += dt;
 
     if (startPoint >= timer) {

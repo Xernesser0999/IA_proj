@@ -112,10 +112,10 @@ void Night::update(const bool* keys, float dt) {
     float elapsed = spawnClock.getElapsedTime();
     spawnTimer += elapsed;
 
-    if (spawnTimer >= spawnInterval) {
-        spawnNpc();
-        spawnTimer = 0.0f;
-    }
+    //if (spawnTimer >= spawnInterval) {
+    //    spawnNpc();
+    //    spawnTimer = 0.0f;
+    //}
 
     StaticDrawble.erase(std::remove(StaticDrawble.begin(), StaticDrawble.end(), nullptr), StaticDrawble.end());
 
@@ -147,7 +147,7 @@ void Night::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow&
 }
 
 void Night::spawnNpc() {
-    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");   // 800 max  300 min
+    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
     NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
     int random = rand() % 3;
     int randomXShop = rand() % 100 + 250;

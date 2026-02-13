@@ -29,6 +29,7 @@ public:
 	Clock btClock;
 	Clock spawnClock;
 	float spawnTimer;
+	float Stopspawntimer;
 	const float spawnInterval = 2.0f;
 	std::vector<sf::Texture*> vecTex;
 	sf::RectangleShape* bg;

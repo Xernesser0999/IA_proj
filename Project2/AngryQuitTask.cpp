@@ -63,6 +63,6 @@ void AngryQuit::endExecute() {
         dial_ = nullptr;
     }
     getParent()->onChildWorkEnd(ENodeState::Success);
-    return TaskNode::endExecute();
+    //return TaskNode::endExecute();
 }
 

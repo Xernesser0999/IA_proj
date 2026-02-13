@@ -6,6 +6,7 @@ Day::Day(sf::RenderWindow& window) : textclock(fonta) {
     bg = new sf::RectangleShape();
     createGameObjects();
     spawnTimer = 0.0f;
+    Stopspawntimer = 0;
     spawnClock = Clock(true);
 }
 
@@ -75,7 +76,7 @@ void Day::createGameObjects() {
     rectangle->setPosition(pos);
     rectangle->setTexture(TX);
 
-    timer = 10;
+    timer = 20;
     startPoint = 0;
 
     fonta.openFromFile("Pixellettersfull-BnJ5.ttf");
@@ -110,13 +111,15 @@ void Day::update(const bool* keys, float dt) {
     candy_shop->updateGameObject(dt);
 
     float elapsed = spawnClock.getElapsedTime();
+
     spawnTimer += elapsed;
 
-    if (spawnTimer >= spawnInterval) {
-        spawnNpc();
-        spawnTimer = 0.0f;
+    if (startPoint < 10) {
+        if (spawnTimer >= spawnInterval) {
+            spawnNpc();
+            spawnTimer = 0.0f;
+        }
     }
-
     StaticDrawble.erase(std::remove(StaticDrawble.begin(), StaticDrawble.end(), nullptr), StaticDrawble.end());
 
     for (size_t i = 0; i < npcs.size(); ++i) {
@@ -132,6 +135,7 @@ void Day::update(const bool* keys, float dt) {
 }
 
 void Day::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
+    Stopspawntimer = 0;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Escape)) {
         currentScene = SceneState::menu;
     }
@@ -147,7 +151,7 @@ void Day::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& w
 }
 
 void Day::spawnNpc() {
-    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");   // 800 max  300 min
+    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
     NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
     int random = rand() % 3;
     int randomXShop = rand() % 100 + 250;
