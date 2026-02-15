@@ -22,13 +22,15 @@ private:
 	float timer;
 	float actual;
 	float startPoint;
-	sf::RectangleShape* dialog;
-	DialogBox* dial_;
+	sf::RectangleShape* dialog = nullptr;
+	DialogBox* dial_ = nullptr;
 
-	sf::Clock clock;
 	float dt;
-	float x;
-	float y;
+	float x = 0.f;
+	float y = 0.f;
+	GameObjects* targetShop = nullptr;
+	ShopBlackBoard* shopBb = nullptr;
 	bool isActive = false;
+	bool shopDone = false;
 	SceneManager* sceneManager = nullptr;
 };

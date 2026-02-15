@@ -146,6 +146,7 @@
     <ClCompile Include="Bakery.cpp" />
     <ClCompile Include="BehaviourTree.cpp" />
     <ClCompile Include="CandyShop.cpp" />
+    <ClCompile Include="CheckStockTask.cpp" />
     <ClCompile Include="Day.cpp" />
     <ClCompile Include="DialogBox.cpp" />
     <ClCompile Include="FallbackFlow.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="GameObjects.cpp" />
     <ClCompile Include="Store.cpp" />
     <ClCompile Include="TaskNode.cpp" />
+    <ClCompile Include="WaitForNpcTask.cpp" />
     <ClCompile Include="WaitTask.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +180,7 @@
     <ClInclude Include="Bakery.h" />
     <ClInclude Include="BehaviourTree.h" />
     <ClInclude Include="CandyShop.h" />
+    <ClInclude Include="CheckStockTask.h" />
     <ClInclude Include="Day.h" />
     <ClInclude Include="DialogBox.h" />
     <ClInclude Include="FallbackFlow.h" />
@@ -199,6 +202,7 @@
     <ClInclude Include="GameObjects.h" />
     <ClInclude Include="Store.h" />
     <ClInclude Include="TaskNode.h" />
+    <ClInclude Include="WaitForNpcTask.h" />
     <ClInclude Include="WaitTask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

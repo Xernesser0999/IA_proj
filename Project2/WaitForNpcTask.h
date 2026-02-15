@@ -2,17 +2,12 @@
 #include "TaskNode.h"
 #include "BehaviourTree.h"
 #include "FluxNode.h"
-#include "DialogBox.h"
 
-#include <SFML/Graphics.hpp>
-#include <optional>
-
-class AiStop : public TaskNode {
-public:
-	AiStop() = default;
-	AiStop(FluxNode* parent, BehaviourTree* bt = nullptr);
-	virtual ~AiStop() override;
-
+class WaitForNpcTask : public TaskNode{
+	public:
+	WaitForNpcTask() = default;
+	WaitForNpcTask(FluxNode* parent, BehaviourTree* bt = nullptr);
+	virtual ~WaitForNpcTask() override = default;
 	virtual void beginExecute() override;
 	virtual void tick(float dt) override;
 	virtual void endExecute() override;
@@ -20,3 +15,4 @@ public:
 private:
 	bool isActive = false;
 };
+

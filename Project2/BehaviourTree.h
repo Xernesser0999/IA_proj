@@ -41,6 +41,7 @@ public:
 	virtual void buildTree();
 	virtual void buildSubChilds();
 	void cleanTree();
+	BehaviourTree(bool); //pas trouvé de solutions, aide ia
 
 protected:
 	RootNode* baseNode;
@@ -56,57 +57,48 @@ public:
 
 	int shopCoorX;
 	int shopCoorY;
+	GameObjects* targetShop = nullptr;
 
 };
 
-class StoreBlackBoard : public Blackboard {
+class ShopBlackBoard : public Blackboard {
 public:
-	float money;
-	int stock;
+	int  stock = 10;   
+	bool npcRequest = false; 
+	bool sale = false; 
+	bool result = false;
 };
 
 class NpcBehaviourTree : public BehaviourTree {
 public:
-	Blackboard* bt;
 	NpcBehaviourTree();
 	NpcBehaviourTree(Npc* npcOwner);
 	virtual ~NpcBehaviourTree() override = default;
 
 	virtual void buildTree() override;
 	virtual void buildSubChilds() override;
-};
-
-class StoreTree {
-public:
-	StoreTree();
-	StoreTree(GameObjects* owner);
-	virtual ~StoreTree();
-
-	void execute();
-	void tick(float dt);
-	void abort();
-
-	Blackboard* getBlackboard() const;
-	void setBlackboard(Blackboard* bb);
-
-	virtual void buildTree();
-	virtual void buildSubChilds();
-	void cleanTree();
-
-protected:
-	RootNode* baseNode;
-	GameObjects* owner;
-	std::vector<Node*> allNodes;
-	Blackboard* blackboard;
-};
-
-class MerchantTree : public StoreTree {
 public:
 	Blackboard* bt;
-	MerchantTree();
-	MerchantTree(GameObjects owner);
-	virtual ~MerchantTree() override = default;
+};
+
+class StoreTree : public BehaviourTree {
+public:
+	StoreTree();
+	StoreTree(GameObjects* storeOwner);
+	virtual ~StoreTree() override = default;
+
+protected:
+	GameObjects* storeOwner;  
+};
+
+class ShopTree : public StoreTree {
+public:
+	ShopTree() = default;
+	ShopTree(GameObjects* owner);
+	virtual ~ShopTree() override = default;
 
 	virtual void buildTree() override;
 	virtual void buildSubChilds() override;
+public:
+	Blackboard* bt;
 };

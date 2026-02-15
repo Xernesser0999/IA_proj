@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
 
+#include "BehaviourTree.h"
+
 #include <string>
 class GameObjects{
 public:
@@ -10,7 +12,10 @@ public:
 	virtual ~GameObjects();
 
 	virtual void renderGameObject(sf::RenderWindow& window);
-	virtual void updateGameObject(float dt);
+	virtual void updateGameObject(float dt); 
+	void requestItem();
+	ShopBlackBoard* getShopBlackboard() const { return shopBb; }
+	void initShopTree(int startingStock);
 
 public:
 	bool hover;
@@ -21,5 +26,7 @@ public:
 	sf::Texture* TX2;
 
 	sf::RectangleShape* shop;
+	ShopTree* shopTree = nullptr;
+	ShopBlackBoard* shopBb = nullptr;
 };
 

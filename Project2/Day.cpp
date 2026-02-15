@@ -159,6 +159,7 @@ void Day::spawnNpc() {
     npcBlackboard->coorNpcY = newNpc->posY;
     npcBlackboard->shopCoorX = shops[random]->pos.x + shops[random]->size.x - randomXShop;
     npcBlackboard->shopCoorY = shops[random]->pos.y + shops[random]->size.y - 100;
+    npcBlackboard->targetShop = shops[random];
     newNpc->bt = npcBlackboard;
 
     NpcBehaviourTree* npcBt = new NpcBehaviourTree(newNpc);

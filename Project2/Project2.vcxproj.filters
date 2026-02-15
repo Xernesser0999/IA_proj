@@ -91,6 +91,12 @@
     <ClCompile Include="DialogBox.cpp">
       <Filter>Fichiers sources\BehaviourTree</Filter>
     </ClCompile>
+    <ClCompile Include="WaitForNpcTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckStockTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -179,6 +185,12 @@
     </ClInclude>
     <ClInclude Include="DialogBox.h">
       <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckStockTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitForNpcTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

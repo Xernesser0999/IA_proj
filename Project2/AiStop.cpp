@@ -8,11 +8,10 @@ AiStop::~AiStop() {
 }
 
 void AiStop::beginExecute() {
-    auto blackboard = static_cast<NpcBlackBoard*>(getBehaviourTree()->getBlackboard());
+    isActive = true;
 }
 
 void AiStop::tick(float dt_) {
-    endExecute();
 }
 
 void AiStop::endExecute() {

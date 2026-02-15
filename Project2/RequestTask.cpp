@@ -34,9 +34,14 @@ void RequestTask::beginExecute() {
     if (sceneManager->getState() == day) {
         Day::StaticDrawble.push_back(dial_);
     }
-
+    targetShop = blackboard->targetShop;
+    if (targetShop) {
+        shopBb = targetShop->getShopBlackboard();
+        targetShop->requestItem(); 
+    }
     startPoint = 0.0f;
     timer = 2.0f;
+    shopDone = false;
     isActive = true;
 }
 
@@ -50,9 +55,14 @@ void RequestTask::tick(float dt_) {
         y = blackboard->coorNpcY - 50;
         dial_->dialog->setPosition(sf::Vector2f(x, y));
     }
+    if (!shopDone) {
+        if (shopBb == nullptr || shopBb->result) {
+            shopDone = true;
+        }
+    }
     startPoint += dt_;
 
-    if (startPoint >= timer) {
+    if (startPoint >= timer && shopDone) {
         endExecute();
     }
 }
@@ -69,7 +79,16 @@ void RequestTask::endExecute() {
         delete dial_;
         dial_ = nullptr;
     }
-    getParent()->onChildWorkEnd(ENodeState::Failure);
+    bool success = shopBb && shopBb->sale;
+    shopBb = nullptr;  
+    targetShop = nullptr;
+
+    if (success) {
+        getParent()->onChildWorkEnd(ENodeState::Success);
+    }
+    else {
+        getParent()->onChildWorkEnd(ENodeState::Failure);
+    }
 }
 
 
