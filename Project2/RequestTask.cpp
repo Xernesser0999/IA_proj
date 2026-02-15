@@ -8,21 +8,9 @@ RequestTask::RequestTask(FluxNode* parent, BehaviourTree* bt)
 
 RequestTask::~RequestTask(){
     if (dial_ != nullptr) {
-        if (sceneManager->getState() == morning) {
-            auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
-            if (it != Morning::StaticDrawble.end()) {
-                *it = nullptr;
-            }
-        }
         if (sceneManager->getState() == day) {
             auto it = std::find(Day::StaticDrawble.begin(), Day::StaticDrawble.end(), dial_);
             if (it != Day::StaticDrawble.end()) {
-                *it = nullptr;
-            }
-        }
-        if (sceneManager->getState() == night) {
-            auto it = std::find(Night::StaticDrawble.begin(), Night::StaticDrawble.end(), dial_);
-            if (it != Night::StaticDrawble.end()) {
                 *it = nullptr;
             }
         }
@@ -43,14 +31,8 @@ void RequestTask::beginExecute() {
     x = blackboard->coorNpcX;
     y = blackboard->coorNpcY;
     dial_ = new DialogBox(x - 50, y - 80, 150, 45);
-    if (sceneManager->getState() == morning) {
-        Morning::StaticDrawble.push_back(dial_);
-    }
     if (sceneManager->getState() == day) {
         Day::StaticDrawble.push_back(dial_);
-    }
-    if (sceneManager->getState() == night) {
-        Night::StaticDrawble.push_back(dial_);
     }
 
     startPoint = 0.0f;
@@ -77,21 +59,9 @@ void RequestTask::tick(float dt_) {
 
 void RequestTask::endExecute() {
     isActive = false;
-    if (sceneManager->getState() == morning) {
-        auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
-        if (it != Morning::StaticDrawble.end()) {
-            *it = nullptr;
-        }
-    }
     if (sceneManager->getState() == day) {
         auto it = std::find(Day::StaticDrawble.begin(), Day::StaticDrawble.end(), dial_);
         if (it != Day::StaticDrawble.end()) {
-            *it = nullptr;
-        }
-    }
-    if (sceneManager->getState() == night) {
-        auto it = std::find(Night::StaticDrawble.begin(), Night::StaticDrawble.end(), dial_);
-        if (it != Night::StaticDrawble.end()) {
             *it = nullptr;
         }
     }
@@ -100,7 +70,6 @@ void RequestTask::endExecute() {
         dial_ = nullptr;
     }
     getParent()->onChildWorkEnd(ENodeState::Failure);
-    return TaskNode::endExecute();
 }
 
 

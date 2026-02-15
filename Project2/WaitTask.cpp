@@ -24,6 +24,5 @@ void WaitTask::tick(float dt_) {
 void WaitTask::endExecute() {
 	isActive = false;
 	getParent()->onChildWorkEnd(ENodeState::Success);
-	return TaskNode::endExecute();
 }
 

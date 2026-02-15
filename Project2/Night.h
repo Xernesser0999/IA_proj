@@ -13,7 +13,6 @@ public:
 	void setImages(sf::RectangleShape* myRect, const char* path, float x, float y, float w, float h);
 	void update(const bool* keys, float dt);
 	void nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) override;
-	void spawnNpc();
 
 	void clearlevel();
 
@@ -23,9 +22,6 @@ public:
 	Store* store;
 	CandyShop* candy_shop;
 	std::vector<GameObjects*> shops;
-	std::vector<Npc*> npcs;
-	std::vector<NpcBehaviourTree*> npcBehaviorTrees;
-	std::vector<NpcBlackBoard*> npcBlackboards;
 	Clock btClock;
 	Clock spawnClock;
 	float spawnTimer;
@@ -45,5 +41,4 @@ public:
 	sf::Font fonta;
 	sf::Text textclock;
 
-	static std::vector<GameObjects*> StaticDrawble;
 };

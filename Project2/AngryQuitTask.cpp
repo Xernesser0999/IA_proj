@@ -1,6 +1,6 @@
 #include "AngryQuitTask.h"
 
-#include "Morning.h"
+#include "Day.h"
 
 
 AngryQuit::AngryQuit(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt) {
@@ -8,8 +8,8 @@ AngryQuit::AngryQuit(FluxNode* parent, BehaviourTree* bt) : TaskNode(parent, bt)
 
 AngryQuit::~AngryQuit() {
     if (dial_ != nullptr) {
-        auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
-        if (it != Morning::StaticDrawble.end()) {
+        auto it = std::find(Day::StaticDrawble.begin(), Day::StaticDrawble.end(), dial_);
+        if (it != Day::StaticDrawble.end()) {
             *it = nullptr;
         }
         delete dial_;
@@ -27,7 +27,7 @@ void AngryQuit::beginExecute() {
     x = blackboard->coorNpcX;
     y = blackboard->coorNpcY;
     dial_ = new DialogBox(x - 110, y - 80, 200, 45);
-    Morning::StaticDrawble.push_back(dial_);
+    Day::StaticDrawble.push_back(dial_);
 
     startPoint = 0.0f;
     timer = 2.0f;
@@ -54,8 +54,8 @@ void AngryQuit::tick(float dt_) {
 
 void AngryQuit::endExecute() {
     isActive = false;
-    auto it = std::find(Morning::StaticDrawble.begin(), Morning::StaticDrawble.end(), dial_);
-    if (it != Morning::StaticDrawble.end()) {
+    auto it = std::find(Day::StaticDrawble.begin(), Day::StaticDrawble.end(), dial_);
+    if (it != Day::StaticDrawble.end()) {
         *it = nullptr;
     }
     if (dial_) {
@@ -63,6 +63,5 @@ void AngryQuit::endExecute() {
         dial_ = nullptr;
     }
     getParent()->onChildWorkEnd(ENodeState::Success);
-    //return TaskNode::endExecute();
 }
 

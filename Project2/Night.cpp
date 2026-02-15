@@ -1,7 +1,5 @@
 #include "Night.h"
 
-std::vector<GameObjects*> Night::StaticDrawble = {};
-
 Night::Night(sf::RenderWindow& window) : textclock(fonta) {
     bg = new sf::RectangleShape();
     createGameObjects();
@@ -10,18 +8,6 @@ Night::Night(sf::RenderWindow& window) : textclock(fonta) {
 }
 
 Night::~Night() {
-    for (auto* npcBlackboard : npcBlackboards) {
-        delete npcBlackboard;
-    }
-    npcBlackboards.clear();
-    for (auto* npcBt : npcBehaviorTrees) {
-        delete npcBt;
-    }
-    npcBehaviorTrees.clear();
-    for (auto* npc : npcs) {
-        delete npc;
-    }
-    npcs.clear();
 
     delete TX;
     delete rectangle;
@@ -30,19 +16,6 @@ Night::~Night() {
 }
 
 void Night::clearlevel() {
-    for (auto* npcBlackboard : npcBlackboards) {
-        delete npcBlackboard;
-    }
-    npcBlackboards.clear();
-    for (auto* npcBt : npcBehaviorTrees) {
-        delete npcBt;
-    }
-    npcBehaviorTrees.clear();
-    for (auto* npc : npcs) {
-        delete npc;
-    }
-    npcs.clear();
-    StaticDrawble.clear();
     delete TX;
     delete rectangle;
     TX = nullptr;
@@ -91,14 +64,6 @@ void Night::displayScene(sf::RenderWindow& window) {
     store->renderGameObject(window);
     bakery->renderGameObject(window);
     candy_shop->renderGameObject(window);
-    for (auto* npc : npcs) {
-        npc->render(window);
-    }
-    for (auto& StaticDraw : StaticDrawble) {
-        if (StaticDraw != nullptr) {
-            StaticDraw->renderGameObject(window);
-        }
-    }
     window.draw(*rectangle);
     window.draw(textclock);
 }
@@ -112,17 +77,6 @@ void Night::update(const bool* keys, float dt) {
     float elapsed = spawnClock.getElapsedTime();
     spawnTimer += elapsed;
 
-    //if (spawnTimer >= spawnInterval) {
-    //    spawnNpc();
-    //    spawnTimer = 0.0f;
-    //}
-
-    StaticDrawble.erase(std::remove(StaticDrawble.begin(), StaticDrawble.end(), nullptr), StaticDrawble.end());
-
-    for (size_t i = 0; i < npcs.size(); ++i) {
-        npcBehaviorTrees[i]->tick(dt);
-        npcs[i]->update(dt, bakery);
-    }
     startPoint += dt;
 
     if (startPoint >= timer) {
@@ -146,23 +100,3 @@ void Night::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow&
     }
 }
 
-void Night::spawnNpc() {
-    Npc* newNpc = new Npc(0, 800, 100, 100, 300.0f, "sprite/player.png");
-    NpcBlackBoard* npcBlackboard = new NpcBlackBoard();
-    int random = rand() % 3;
-    int randomXShop = rand() % 100 + 250;
-    npcBlackboard->coorNpcX = newNpc->posX;
-    npcBlackboard->coorNpcY = newNpc->posY;
-    npcBlackboard->shopCoorX = shops[random]->pos.x + shops[random]->size.x - randomXShop;
-    npcBlackboard->shopCoorY = shops[random]->pos.y + shops[random]->size.y - 100;
-    newNpc->bt = npcBlackboard;
-
-    NpcBehaviourTree* npcBt = new NpcBehaviourTree(newNpc);
-    npcBt->buildTree();
-    npcBt->setBlackboard(npcBlackboard);
-    npcBt->execute();
-
-    npcs.push_back(newNpc);
-    npcBlackboards.push_back(npcBlackboard);
-    npcBehaviorTrees.push_back(npcBt);
-}

@@ -16,6 +16,5 @@ void AiStop::tick(float dt_) {
 }
 
 void AiStop::endExecute() {
-    return TaskNode::endExecute();
 }
 

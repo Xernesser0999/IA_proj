@@ -50,5 +50,4 @@ void AIQuitTask::endExecute() {
 	if (targetX == x && targetY == y) {
 		getParent()->onChildWorkEnd(ENodeState::Success);
 	}
-	return TaskNode::endExecute();
 }
