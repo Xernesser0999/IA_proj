@@ -28,5 +28,7 @@ public:
 	sf::RectangleShape* shop;
 	ShopTree* shopTree = nullptr;
 	ShopBlackBoard* shopBb = nullptr;
+
+	int startingStock;
 };
 

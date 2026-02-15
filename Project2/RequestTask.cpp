@@ -80,6 +80,15 @@ void RequestTask::endExecute() {
         dial_ = nullptr;
     }
     bool success = shopBb && shopBb->sale;
+
+    if (shopBb->stock > 0) {
+        shopBb->stock -= 1;
+        success = true;
+    }
+    else {
+        success = false;
+    }
+
     shopBb = nullptr;  
     targetShop = nullptr;
 

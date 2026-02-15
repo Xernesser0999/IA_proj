@@ -37,8 +37,8 @@ void GameObjects::requestItem(){
 	}
 }
 
-void GameObjects::initShopTree(int startingStock){
-    startingStock = 10;
+void GameObjects::initShopTree(int startingStock_){
+    startingStock = startingStock_;
 	shopBb = new ShopBlackBoard();
 	shopBb->stock = startingStock;
 	shopTree = new ShopTree(this);
