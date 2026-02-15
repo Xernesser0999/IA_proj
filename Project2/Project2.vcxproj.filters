@@ -62,23 +62,35 @@
       <Filter>Fichiers sources\Level</Filter>
     </ClCompile>
     <ClCompile Include="AIQuitTask.cpp">
-      <Filter>Fichiers sources\BehaviourTree</Filter>
-    </ClCompile>
-    <ClCompile Include="FallbackFlow.cpp">
-      <Filter>Fichiers sources\BehaviourTree</Filter>
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
     </ClCompile>
     <ClCompile Include="MoveToTask.cpp">
-      <Filter>Fichiers sources\BehaviourTree</Filter>
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="AiStop.cpp">
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="AngryQuitTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
     </ClCompile>
     <ClCompile Include="WaitTask.cpp">
+      <Filter>Fichiers sources\BehaviourTree\TaskNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="FallbackFlow.cpp">
+      <Filter>Fichiers sources\BehaviourTree\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Day.cpp">
+      <Filter>Fichiers sources\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Night.cpp">
+      <Filter>Fichiers sources\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogBox.cpp">
       <Filter>Fichiers sources\BehaviourTree</Filter>
     </ClCompile>
-    <ClCompile Include="DialogBox.cpp" />
-    <ClCompile Include="Day.cpp" />
-    <ClCompile Include="Night.cpp" />
-    <ClCompile Include="RequestTask.cpp" />
-    <ClCompile Include="AngryQuitTask.cpp" />
-    <ClCompile Include="AiStop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baker.h">
@@ -132,30 +144,42 @@
     <ClInclude Include="BehaviourTree.h">
       <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
     </ClInclude>
-    <ClInclude Include="SequenceFlow.h">
-      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
-    </ClInclude>
     <ClInclude Include="GUI_button.h">
       <Filter>Fichiers d%27en-tête\Level</Filter>
     </ClInclude>
     <ClInclude Include="AIQuitTask.h">
-      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
-    </ClInclude>
-    <ClInclude Include="FallbackFlow.h">
-      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
     </ClInclude>
     <ClInclude Include="MoveToTask.h">
-      <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
     </ClInclude>
     <ClInclude Include="WaitTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="AngryQuitTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="AiStop.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestTask.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\TaskNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="FallbackFlow.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceFlow.h">
+      <Filter>Fichiers d%27en-tête\BehaviourTree\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Day.h">
+      <Filter>Fichiers d%27en-tête\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Night.h">
+      <Filter>Fichiers d%27en-tête\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogBox.h">
       <Filter>Fichiers d%27en-tête\BehaviourTree</Filter>
     </ClInclude>
-    <ClInclude Include="DialogBox.h" />
-    <ClInclude Include="Day.h" />
-    <ClInclude Include="Night.h" />
-    <ClInclude Include="RequestTask.h" />
-    <ClInclude Include="AngryQuitTask.h" />
-    <ClInclude Include="AiStop.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Fichiers d%27en-tête">
@@ -202,6 +226,12 @@
     </Filter>
     <Filter Include="Fichiers sources\BehaviourTree\Nodes">
       <UniqueIdentifier>{6747bc17-0280-4a5f-a1f4-e4f7ce672dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\BehaviourTree\TaskNodes">
+      <UniqueIdentifier>{e124a30d-00c6-4e40-b79c-fe26561c264f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\BehaviourTree\TaskNodes">
+      <UniqueIdentifier>{8c0faa6c-b806-4220-ac22-e2ab7c205f55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
